@@ -1,0 +1,15 @@
+{
+  "collectionName": "components_pre_footer_pre_footers",
+  "info": {
+    "displayName": "Pre Footer"
+  },
+  "options": {},
+  "attributes": {
+    "preFooter": {
+      "type": "component",
+      "component": "basic.title-with-image",
+      "repeatable": false
+    }
+  },
+  "config": {}
+}

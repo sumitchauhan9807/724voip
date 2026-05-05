@@ -20,7 +20,8 @@
         "filters.filter-1",
         "relational.logo-grid",
         "relational.certifications",
-        "relational.testimonials"
+        "relational.testimonials",
+        "pre-footer.pre-footer"
       ]
     }
   }

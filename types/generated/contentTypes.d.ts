@@ -479,6 +479,7 @@ export interface ApiHomeHome extends Struct.SingleTypeSchema {
         'relational.logo-grid',
         'relational.certifications',
         'relational.testimonials',
+        'pre-footer.pre-footer',
       ]
     >;
     createdAt: Schema.Attribute.DateTime;

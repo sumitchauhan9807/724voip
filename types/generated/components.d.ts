@@ -130,6 +130,16 @@ export interface HeroHero2 extends Struct.ComponentSchema {
   };
 }
 
+export interface PreFooterPreFooter extends Struct.ComponentSchema {
+  collectionName: 'components_pre_footer_pre_footers';
+  info: {
+    displayName: 'Pre Footer';
+  };
+  attributes: {
+    preFooter: Schema.Attribute.Component<'basic.title-with-image', false>;
+  };
+}
+
 export interface RelationalCertifications extends Struct.ComponentSchema {
   collectionName: 'components_relational_certifications';
   info: {
@@ -184,6 +194,7 @@ declare module '@strapi/strapi' {
       'grids.grid-1': GridsGrid1;
       'hero.hero-1': HeroHero1;
       'hero.hero-2': HeroHero2;
+      'pre-footer.pre-footer': PreFooterPreFooter;
       'relational.certifications': RelationalCertifications;
       'relational.logo-grid': RelationalLogoGrid;
       'relational.testimonials': RelationalTestimonials;
