@@ -1,0 +1,17 @@
+{
+  "collectionName": "components_basic_titles",
+  "info": {
+    "displayName": "Title",
+    "icon": "apps"
+  },
+  "options": {},
+  "attributes": {
+    "heading": {
+      "type": "string"
+    },
+    "subHeading": {
+      "type": "string"
+    }
+  },
+  "config": {}
+}

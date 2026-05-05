@@ -1,0 +1,24 @@
+{
+  "collectionName": "components_basic_heading_with_images",
+  "info": {
+    "displayName": "Heading With Image",
+    "icon": "command"
+  },
+  "options": {},
+  "attributes": {
+    "heading": {
+      "type": "string"
+    },
+    "image": {
+      "type": "media",
+      "multiple": false,
+      "allowedTypes": [
+        "images",
+        "files",
+        "videos",
+        "audios"
+      ]
+    }
+  },
+  "config": {}
+}

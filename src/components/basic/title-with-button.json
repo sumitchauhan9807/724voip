@@ -1,0 +1,26 @@
+{
+  "collectionName": "components_basic_title_with_buttons",
+  "info": {
+    "displayName": "Title With Button",
+    "icon": "connector"
+  },
+  "options": {},
+  "attributes": {
+    "title": {
+      "type": "component",
+      "component": "basic.title",
+      "repeatable": false
+    },
+    "button": {
+      "type": "component",
+      "component": "basic.button",
+      "repeatable": false
+    },
+    "testimonials": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::testinonial.testinonial"
+    }
+  },
+  "config": {}
+}

@@ -1,0 +1,32 @@
+{
+  "collectionName": "components_relational_logo_grids",
+  "info": {
+    "displayName": "Logo Grid"
+  },
+  "options": {},
+  "attributes": {
+    "title": {
+      "type": "component",
+      "component": "basic.title",
+      "repeatable": false
+    },
+    "type": {
+      "type": "enumeration",
+      "enum": [
+        "two_way",
+        "one_way"
+      ]
+    },
+    "logo_grid_1": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::logo.logo"
+    },
+    "logo_grid_2": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::logo.logo"
+    }
+  },
+  "config": {}
+}

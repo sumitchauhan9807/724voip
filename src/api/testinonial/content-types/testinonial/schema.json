@@ -1,0 +1,25 @@
+{
+  "kind": "collectionType",
+  "collectionName": "testinonials",
+  "info": {
+    "singularName": "testinonial",
+    "pluralName": "testinonials",
+    "displayName": "Testimonials"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "title": {
+      "type": "component",
+      "component": "basic.title",
+      "repeatable": false
+    },
+    "points": {
+      "type": "component",
+      "component": "basic.title-with-image",
+      "repeatable": true
+    }
+  }
+}

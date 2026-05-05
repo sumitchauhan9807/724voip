@@ -1,0 +1,21 @@
+{
+  "collectionName": "components_filters_filter_1s",
+  "info": {
+    "displayName": "Filter 1",
+    "icon": "chartCircle"
+  },
+  "options": {},
+  "attributes": {
+    "title": {
+      "type": "component",
+      "component": "basic.title",
+      "repeatable": false
+    },
+    "items": {
+      "type": "component",
+      "component": "filters.componenets",
+      "repeatable": true
+    }
+  },
+  "config": {}
+}

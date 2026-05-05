@@ -1,0 +1,28 @@
+{
+  "collectionName": "components_filters_componenets",
+  "info": {
+    "displayName": "Componenets"
+  },
+  "options": {},
+  "attributes": {
+    "name": {
+      "type": "string"
+    },
+    "image": {
+      "type": "media",
+      "multiple": false,
+      "allowedTypes": [
+        "images",
+        "files",
+        "videos",
+        "audios"
+      ]
+    },
+    "contents": {
+      "type": "component",
+      "component": "basic.title-with-button",
+      "repeatable": false
+    }
+  },
+  "config": {}
+}

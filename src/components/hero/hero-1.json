@@ -1,0 +1,20 @@
+{
+  "collectionName": "components_hero_hero_1s",
+  "info": {
+    "displayName": "Hero 1"
+  },
+  "options": {},
+  "attributes": {
+    "title": {
+      "type": "component",
+      "component": "basic.title",
+      "repeatable": false
+    },
+    "certifications": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::certification.certification"
+    }
+  },
+  "config": {}
+}

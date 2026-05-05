@@ -1,0 +1,16 @@
+{
+  "collectionName": "components_relational_testimonials",
+  "info": {
+    "displayName": "Testimonials",
+    "icon": "cloud"
+  },
+  "options": {},
+  "attributes": {
+    "testimonials": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::testinonial.testinonial"
+    }
+  },
+  "config": {}
+}

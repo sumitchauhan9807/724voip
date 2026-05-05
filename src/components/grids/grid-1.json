@@ -1,0 +1,21 @@
+{
+  "collectionName": "components_grids_grid_1s",
+  "info": {
+    "displayName": "Grid 1",
+    "icon": "apps"
+  },
+  "options": {},
+  "attributes": {
+    "title": {
+      "type": "component",
+      "component": "basic.title",
+      "repeatable": false
+    },
+    "lists": {
+      "type": "component",
+      "component": "basic.heading-with-image",
+      "repeatable": true
+    }
+  },
+  "config": {}
+}
