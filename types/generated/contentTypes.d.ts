@@ -459,6 +459,49 @@ export interface ApiCertificationCertification
   };
 }
 
+export interface ApiFooterFooter extends Struct.SingleTypeSchema {
+  collectionName: 'footers';
+  info: {
+    displayName: 'Footer';
+    pluralName: 'footers';
+    singularName: 'footer';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    address: Schema.Attribute.Text;
+    aiSummaryHeading: Schema.Attribute.String &
+      Schema.Attribute.DefaultTo<'Explore AI Summary'>;
+    aiTools: Schema.Attribute.Component<'footer.image-link', true>;
+    appLinks: Schema.Attribute.Component<'footer.image-link', true>;
+    bottomMaskImageUrl: Schema.Attribute.String;
+    copyrightText: Schema.Attribute.String;
+    createdAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    legalLinks: Schema.Attribute.Component<'footer.link', true>;
+    locale: Schema.Attribute.String & Schema.Attribute.Private;
+    localizations: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::footer.footer'
+    > &
+      Schema.Attribute.Private;
+    logoLink: Schema.Attribute.String & Schema.Attribute.DefaultTo<'/'>;
+    logoUrl: Schema.Attribute.String;
+    menuGroups: Schema.Attribute.Component<'footer.link-group', true>;
+    publishedAt: Schema.Attribute.DateTime;
+    reviewLinks: Schema.Attribute.Component<'footer.image-link', true>;
+    reviewsHeading: Schema.Attribute.String &
+      Schema.Attribute.DefaultTo<'Reviews'>;
+    reviewsStarsImageUrl: Schema.Attribute.String;
+    socialLinks: Schema.Attribute.Component<'footer.image-link', true>;
+    updatedAt: Schema.Attribute.DateTime;
+    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+  };
+}
+
 export interface ApiHomeHome extends Struct.SingleTypeSchema {
   collectionName: 'homes';
   info: {
@@ -1061,6 +1104,7 @@ declare module '@strapi/strapi' {
       'admin::transfer-token-permission': AdminTransferTokenPermission;
       'admin::user': AdminUser;
       'api::certification.certification': ApiCertificationCertification;
+      'api::footer.footer': ApiFooterFooter;
       'api::home.home': ApiHomeHome;
       'api::logo.logo': ApiLogoLogo;
       'api::testinonial.testinonial': ApiTestinonialTestinonial;

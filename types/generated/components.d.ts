@@ -88,6 +88,45 @@ export interface FiltersFilter1 extends Struct.ComponentSchema {
   };
 }
 
+export interface FooterImageLink extends Struct.ComponentSchema {
+  collectionName: 'components_footer_image_links';
+  info: {
+    displayName: 'Footer Image Link';
+  };
+  attributes: {
+    className: Schema.Attribute.String;
+    height: Schema.Attribute.Integer;
+    imageUrl: Schema.Attribute.String & Schema.Attribute.Required;
+    label: Schema.Attribute.String & Schema.Attribute.Required;
+    openInNewTab: Schema.Attribute.Boolean & Schema.Attribute.DefaultTo<true>;
+    url: Schema.Attribute.String & Schema.Attribute.Required;
+    width: Schema.Attribute.Integer;
+  };
+}
+
+export interface FooterLink extends Struct.ComponentSchema {
+  collectionName: 'components_footer_links';
+  info: {
+    displayName: 'Footer Link';
+  };
+  attributes: {
+    openInNewTab: Schema.Attribute.Boolean & Schema.Attribute.DefaultTo<false>;
+    text: Schema.Attribute.String & Schema.Attribute.Required;
+    url: Schema.Attribute.String & Schema.Attribute.Required;
+  };
+}
+
+export interface FooterLinkGroup extends Struct.ComponentSchema {
+  collectionName: 'components_footer_link_groups';
+  info: {
+    displayName: 'Footer Link Group';
+  };
+  attributes: {
+    heading: Schema.Attribute.String & Schema.Attribute.Required;
+    links: Schema.Attribute.Component<'footer.link', true>;
+  };
+}
+
 export interface GridsGrid1 extends Struct.ComponentSchema {
   collectionName: 'components_grids_grid_1s';
   info: {
@@ -191,6 +230,9 @@ declare module '@strapi/strapi' {
       'basic.title-with-image': BasicTitleWithImage;
       'filters.componenets': FiltersComponenets;
       'filters.filter-1': FiltersFilter1;
+      'footer.image-link': FooterImageLink;
+      'footer.link': FooterLink;
+      'footer.link-group': FooterLinkGroup;
       'grids.grid-1': GridsGrid1;
       'hero.hero-1': HeroHero1;
       'hero.hero-2': HeroHero2;

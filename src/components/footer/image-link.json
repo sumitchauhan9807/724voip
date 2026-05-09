@@ -1,0 +1,34 @@
+{
+  "collectionName": "components_footer_image_links",
+  "info": {
+    "displayName": "Footer Image Link"
+  },
+  "options": {},
+  "attributes": {
+    "label": {
+      "type": "string",
+      "required": true
+    },
+    "url": {
+      "type": "string",
+      "required": true
+    },
+    "imageUrl": {
+      "type": "string",
+      "required": true
+    },
+    "width": {
+      "type": "integer"
+    },
+    "height": {
+      "type": "integer"
+    },
+    "className": {
+      "type": "string"
+    },
+    "openInNewTab": {
+      "type": "boolean",
+      "default": true
+    }
+  }
+}
