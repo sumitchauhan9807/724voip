@@ -11,6 +11,17 @@ export interface BasicButton extends Struct.ComponentSchema {
   };
 }
 
+export interface BasicHeadingWithContent extends Struct.ComponentSchema {
+  collectionName: 'components_basic_heading_with_contents';
+  info: {
+    displayName: 'Heading With Content';
+  };
+  attributes: {
+    content: Schema.Attribute.Blocks;
+    title: Schema.Attribute.String;
+  };
+}
+
 export interface BasicHeadingWithImage extends Struct.ComponentSchema {
   collectionName: 'components_basic_heading_with_images';
   info: {
@@ -20,6 +31,16 @@ export interface BasicHeadingWithImage extends Struct.ComponentSchema {
   attributes: {
     heading: Schema.Attribute.String;
     image: Schema.Attribute.Media<'images' | 'files' | 'videos' | 'audios'>;
+  };
+}
+
+export interface BasicLists extends Struct.ComponentSchema {
+  collectionName: 'components_basic_lists';
+  info: {
+    displayName: 'lists';
+  };
+  attributes: {
+    item: Schema.Attribute.String;
   };
 }
 
@@ -61,6 +82,42 @@ export interface BasicTitleWithImage extends Struct.ComponentSchema {
     heading: Schema.Attribute.String;
     image: Schema.Attribute.Media<'images' | 'files' | 'videos' | 'audios'>;
     subHeading: Schema.Attribute.String;
+  };
+}
+
+export interface CommonCta extends Struct.ComponentSchema {
+  collectionName: 'components_common_ctas';
+  info: {
+    displayName: 'CTA';
+  };
+  attributes: {
+    button: Schema.Attribute.Component<'basic.button', false>;
+    image: Schema.Attribute.Media<'images' | 'files' | 'videos' | 'audios'>;
+    lists: Schema.Attribute.Component<'basic.lists', true>;
+    title: Schema.Attribute.Component<'basic.title', false>;
+  };
+}
+
+export interface CommonFaq extends Struct.ComponentSchema {
+  collectionName: 'components_common_faqs';
+  info: {
+    displayName: 'FAQ';
+  };
+  attributes: {
+    items: Schema.Attribute.Component<'basic.heading-with-content', true>;
+    title: Schema.Attribute.Component<'basic.title', false>;
+  };
+}
+
+export interface CommonTable extends Struct.ComponentSchema {
+  collectionName: 'components_common_tables';
+  info: {
+    displayName: 'Table';
+  };
+  attributes: {
+    table: Schema.Attribute.JSON &
+      Schema.Attribute.CustomField<'plugin::table-field.table'>;
+    title: Schema.Attribute.Component<'basic.title', false>;
   };
 }
 
@@ -140,6 +197,17 @@ export interface PreFooterPreFooter extends Struct.ComponentSchema {
   };
 }
 
+export interface ProductGrid1 extends Struct.ComponentSchema {
+  collectionName: 'components_product_grid1s';
+  info: {
+    displayName: 'Grid1';
+  };
+  attributes: {
+    items: Schema.Attribute.Component<'common.cta', true>;
+    title: Schema.Attribute.Component<'basic.title', false>;
+  };
+}
+
 export interface RelationalCertifications extends Struct.ComponentSchema {
   collectionName: 'components_relational_certifications';
   info: {
@@ -185,16 +253,22 @@ declare module '@strapi/strapi' {
   export module Public {
     export interface ComponentSchemas {
       'basic.button': BasicButton;
+      'basic.heading-with-content': BasicHeadingWithContent;
       'basic.heading-with-image': BasicHeadingWithImage;
+      'basic.lists': BasicLists;
       'basic.title': BasicTitle;
       'basic.title-with-button': BasicTitleWithButton;
       'basic.title-with-image': BasicTitleWithImage;
+      'common.cta': CommonCta;
+      'common.faq': CommonFaq;
+      'common.table': CommonTable;
       'filters.componenets': FiltersComponenets;
       'filters.filter-1': FiltersFilter1;
       'grids.grid-1': GridsGrid1;
       'hero.hero-1': HeroHero1;
       'hero.hero-2': HeroHero2;
       'pre-footer.pre-footer': PreFooterPreFooter;
+      'product.grid1': ProductGrid1;
       'relational.certifications': RelationalCertifications;
       'relational.logo-grid': RelationalLogoGrid;
       'relational.testimonials': RelationalTestimonials;

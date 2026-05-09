@@ -1,0 +1,16 @@
+{
+  "collectionName": "components_basic_heading_with_contents",
+  "info": {
+    "displayName": "Heading With Content"
+  },
+  "options": {},
+  "attributes": {
+    "title": {
+      "type": "string"
+    },
+    "content": {
+      "type": "blocks"
+    }
+  },
+  "config": {}
+}
