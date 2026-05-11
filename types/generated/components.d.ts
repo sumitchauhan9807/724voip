@@ -18,7 +18,7 @@ export interface BasicHeadingWithContent extends Struct.ComponentSchema {
   };
   attributes: {
     content: Schema.Attribute.Blocks;
-    title: Schema.Attribute.String;
+    heading: Schema.Attribute.String;
   };
 }
 
@@ -104,8 +104,9 @@ export interface CommonFaq extends Struct.ComponentSchema {
     displayName: 'FAQ';
   };
   attributes: {
+    design: Schema.Attribute.Enumeration<['design_type_1', 'design_type_2']>;
+    heading: Schema.Attribute.String;
     items: Schema.Attribute.Component<'basic.heading-with-content', true>;
-    title: Schema.Attribute.Component<'basic.title', false>;
   };
 }
 

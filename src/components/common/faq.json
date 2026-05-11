@@ -5,15 +5,20 @@
   },
   "options": {},
   "attributes": {
-    "title": {
-      "type": "component",
-      "component": "basic.title",
-      "repeatable": false
+    "heading": {
+      "type": "string"
     },
     "items": {
       "type": "component",
       "component": "basic.heading-with-content",
       "repeatable": true
+    },
+    "design": {
+      "type": "enumeration",
+      "enum": [
+        "design_type_1",
+        "design_type_2"
+      ]
     }
   },
   "config": {}
