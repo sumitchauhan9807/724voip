@@ -14,8 +14,12 @@
       "required": true
     },
     "imageUrl": {
-      "type": "string",
-      "required": true
+      "type": "media",
+      "multiple": false,
+      "required": true,
+      "allowedTypes": [
+        "images"
+      ]
     },
     "width": {
       "type": "integer"

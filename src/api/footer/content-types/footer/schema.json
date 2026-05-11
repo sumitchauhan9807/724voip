@@ -12,7 +12,11 @@
   "pluginOptions": {},
   "attributes": {
     "logoUrl": {
-      "type": "string"
+      "type": "media",
+      "multiple": false,
+      "allowedTypes": [
+        "images"
+      ]
     },
     "logoLink": {
       "type": "string",

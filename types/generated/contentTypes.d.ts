@@ -488,7 +488,7 @@ export interface ApiFooterFooter extends Struct.SingleTypeSchema {
     > &
       Schema.Attribute.Private;
     logoLink: Schema.Attribute.String & Schema.Attribute.DefaultTo<'/'>;
-    logoUrl: Schema.Attribute.String;
+    logoUrl: Schema.Attribute.Media<'images'>;
     menuGroups: Schema.Attribute.Component<'footer.link-group', true>;
     publishedAt: Schema.Attribute.DateTime;
     reviewLinks: Schema.Attribute.Component<'footer.image-link', true>;

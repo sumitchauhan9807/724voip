@@ -154,7 +154,7 @@ export interface FooterImageLink extends Struct.ComponentSchema {
   attributes: {
     className: Schema.Attribute.String;
     height: Schema.Attribute.Integer;
-    imageUrl: Schema.Attribute.String & Schema.Attribute.Required;
+    imageUrl: Schema.Attribute.Media<'images'> & Schema.Attribute.Required;
     label: Schema.Attribute.String & Schema.Attribute.Required;
     openInNewTab: Schema.Attribute.Boolean & Schema.Attribute.DefaultTo<true>;
     url: Schema.Attribute.String & Schema.Attribute.Required;
