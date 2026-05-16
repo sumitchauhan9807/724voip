@@ -516,7 +516,9 @@ export interface ApiHomeHome extends Struct.SingleTypeSchema {
     content: Schema.Attribute.DynamicZone<
       [
         'hero.hero-2',
+        'hero.search-integration',
         'hero.hero-1',
+        'hero.hero-3',
         'grids.grid-1',
         'filters.filter-1',
         'relational.logo-grid',
@@ -577,6 +579,8 @@ export interface ApiProductProduct extends Struct.CollectionTypeSchema {
     content: Schema.Attribute.DynamicZone<
       [
         'hero.hero-2',
+        'hero.search-integration',
+        'hero.hero-3',
         'relational.logo-grid',
         'grids.grid-1',
         'relational.testimonials',

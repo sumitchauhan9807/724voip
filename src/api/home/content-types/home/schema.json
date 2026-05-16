@@ -15,7 +15,9 @@
       "type": "dynamiczone",
       "components": [
         "hero.hero-2",
+        "hero.search-integration",
         "hero.hero-1",
+        "hero.hero-3",
         "grids.grid-1",
         "filters.filter-1",
         "relational.logo-grid",

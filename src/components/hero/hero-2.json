@@ -10,10 +10,38 @@
       "component": "basic.title",
       "repeatable": false
     },
-    "button": {
+    "textColor": {
+      "type": "enumeration",
+      "enum": [
+        "black",
+        "white"
+      ],
+      "default": "black"
+    },
+    "buttons": {
       "type": "component",
       "component": "basic.button",
-      "repeatable": false
+      "repeatable": true
+    },
+    "showTrialForm": {
+      "type": "boolean",
+      "default": false
+    },
+    "trialInputPlaceholder": {
+      "type": "string",
+      "default": "Work email address"
+    },
+    "trialButtonLabel": {
+      "type": "string",
+      "default": "Start Free Trial"
+    },
+    "trialButtonUrl": {
+      "type": "string"
+    },
+    "lists": {
+      "type": "component",
+      "component": "basic.lists",
+      "repeatable": true
     },
     "image": {
       "type": "media",
@@ -23,6 +51,28 @@
         "files",
         "videos",
         "audios"
+      ]
+    },
+    "integrationBadge": {
+      "type": "media",
+      "multiple": false,
+      "allowedTypes": [
+        "images"
+      ]
+    },
+    "integrationBadgeAlt": {
+      "type": "string"
+    },
+    "backgroundColor": {
+      "type": "customField",
+      "customField": "plugin::color-picker.color",
+      "default": "#FFFEF8"
+    },
+    "backgroundImage": {
+      "type": "media",
+      "multiple": false,
+      "allowedTypes": [
+        "images"
       ]
     },
     "certifications": {

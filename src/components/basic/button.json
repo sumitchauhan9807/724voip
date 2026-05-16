@@ -10,6 +10,29 @@
     },
     "url": {
       "type": "string"
+    },
+    "variant": {
+      "type": "enumeration",
+      "enum": [
+        "filled",
+        "outline"
+      ],
+      "default": "filled"
+    },
+    "backgroundColor": {
+      "type": "customField",
+      "customField": "plugin::color-picker.color"
+    },
+    "borderColor": {
+      "type": "customField",
+      "customField": "plugin::color-picker.color"
+    },
+    "textColor": {
+      "type": "enumeration",
+      "enum": [
+        "black",
+        "white"
+      ]
     }
   },
   "config": {}

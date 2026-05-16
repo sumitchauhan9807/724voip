@@ -1,0 +1,45 @@
+{
+  "collectionName": "components_hero_hero_3s",
+  "info": {
+    "displayName": "Hero 3"
+  },
+  "options": {},
+  "attributes": {
+    "title": {
+      "type": "component",
+      "component": "basic.title",
+      "repeatable": false
+    },
+    "buttons": {
+      "type": "component",
+      "component": "basic.button",
+      "repeatable": true
+    },
+    "leftFeatures": {
+      "type": "component",
+      "component": "basic.heading-with-image",
+      "repeatable": true
+    },
+    "featureCapsules": {
+      "type": "component",
+      "component": "basic.heading-with-image",
+      "repeatable": true
+    },
+    "rightFeatures": {
+      "type": "component",
+      "component": "basic.heading-with-image",
+      "repeatable": true
+    },
+    "backgroundImage": {
+      "type": "media",
+      "multiple": false,
+      "allowedTypes": [
+        "images",
+        "files",
+        "videos",
+        "audios"
+      ]
+    }
+  },
+  "config": {}
+}

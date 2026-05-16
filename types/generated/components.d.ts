@@ -6,8 +6,15 @@ export interface BasicButton extends Struct.ComponentSchema {
     displayName: 'Button';
   };
   attributes: {
+    backgroundColor: Schema.Attribute.String &
+      Schema.Attribute.CustomField<'plugin::color-picker.color'>;
+    borderColor: Schema.Attribute.String &
+      Schema.Attribute.CustomField<'plugin::color-picker.color'>;
     text: Schema.Attribute.String;
+    textColor: Schema.Attribute.Enumeration<['black', 'white']>;
     url: Schema.Attribute.String;
+    variant: Schema.Attribute.Enumeration<['filled', 'outline']> &
+      Schema.Attribute.DefaultTo<'filled'>;
   };
 }
 
@@ -30,7 +37,9 @@ export interface BasicHeadingWithImage extends Struct.ComponentSchema {
   };
   attributes: {
     heading: Schema.Attribute.String;
-    image: Schema.Attribute.Media<'images' | 'files' | 'videos' | 'audios'>;
+    backgroundImage: Schema.Attribute.Media<
+      'images' | 'files' | 'videos' | 'audios'
+    >;
   };
 }
 
@@ -217,12 +226,70 @@ export interface HeroHero2 extends Struct.ComponentSchema {
     displayName: 'Hero 2';
   };
   attributes: {
-    button: Schema.Attribute.Component<'basic.button', false>;
+    backgroundColor: Schema.Attribute.String &
+      Schema.Attribute.CustomField<'plugin::color-picker.color'> &
+      Schema.Attribute.DefaultTo<'#FFFEF8'>;
+    backgroundImage: Schema.Attribute.Media<'images'>;
+    buttons: Schema.Attribute.Component<'basic.button', true>;
     certifications: Schema.Attribute.Relation<
       'oneToMany',
       'api::certification.certification'
     >;
     image: Schema.Attribute.Media<'images' | 'files' | 'videos' | 'audios'>;
+    integrationBadge: Schema.Attribute.Media<'images'>;
+    integrationBadgeAlt: Schema.Attribute.String;
+    lists: Schema.Attribute.Component<'basic.lists', true>;
+    showTrialForm: Schema.Attribute.Boolean & Schema.Attribute.DefaultTo<false>;
+    textColor: Schema.Attribute.Enumeration<['black', 'white']> &
+      Schema.Attribute.DefaultTo<'black'>;
+    title: Schema.Attribute.Component<'basic.title', false>;
+    trialButtonLabel: Schema.Attribute.String &
+      Schema.Attribute.DefaultTo<'Start Free Trial'>;
+    trialButtonUrl: Schema.Attribute.String;
+    trialInputPlaceholder: Schema.Attribute.String &
+      Schema.Attribute.DefaultTo<'Work email address'>;
+  };
+}
+
+export interface HeroHero3 extends Struct.ComponentSchema {
+  collectionName: 'components_hero_hero_3s';
+  info: {
+    displayName: 'Hero 3';
+  };
+  attributes: {
+    backgroundImage: Schema.Attribute.Media<
+      'images' | 'files' | 'videos' | 'audios'
+    >;
+    buttons: Schema.Attribute.Component<'basic.button', true>;
+    featureCapsules: Schema.Attribute.Component<
+      'basic.heading-with-image',
+      true
+    >;
+    leftFeatures: Schema.Attribute.Component<'basic.heading-with-image', true>;
+    rightFeatures: Schema.Attribute.Component<'basic.heading-with-image', true>;
+    title: Schema.Attribute.Component<'basic.title', false>;
+  };
+}
+
+export interface HeroSearchIntegration extends Struct.ComponentSchema {
+  collectionName: 'components_hero_search_integrations';
+  info: {
+    displayName: 'Search Integration';
+  };
+  attributes: {
+    backgroundColor: Schema.Attribute.String &
+      Schema.Attribute.CustomField<'plugin::color-picker.color'> &
+      Schema.Attribute.DefaultTo<'#001233'>;
+    backgroundImage: Schema.Attribute.Media<'images'>;
+    ratingImage: Schema.Attribute.Media<'images'>;
+    ratingImageAlt: Schema.Attribute.String &
+      Schema.Attribute.DefaultTo<'G2 Review Stars'>;
+    ratingText: Schema.Attribute.String &
+      Schema.Attribute.DefaultTo<'from 1,450+ reviews'>;
+    searchInputId: Schema.Attribute.String &
+      Schema.Attribute.DefaultTo<'search-integrations'>;
+    searchPlaceholder: Schema.Attribute.String &
+      Schema.Attribute.DefaultTo<'Search integrations...'>;
     title: Schema.Attribute.Component<'basic.title', false>;
   };
 }
@@ -310,6 +377,8 @@ declare module '@strapi/strapi' {
       'grids.grid-1': GridsGrid1;
       'hero.hero-1': HeroHero1;
       'hero.hero-2': HeroHero2;
+      'hero.hero-3': HeroHero3;
+      'hero.search-integration': HeroSearchIntegration;
       'pre-footer.pre-footer': PreFooterPreFooter;
       'product.grid1': ProductGrid1;
       'relational.certifications': RelationalCertifications;
