@@ -360,7 +360,14 @@ export interface UpdatesUpdateCard extends Struct.ComponentSchema {
     displayName: 'Update Card';
   };
   attributes: {
-    day: Schema.Attribute.String;
+    day: Schema.Attribute.Integer &
+      Schema.Attribute.SetMinMax<
+        {
+          max: 31;
+          min: 1;
+        },
+        number
+      >;
     month: Schema.Attribute.String;
     title: Schema.Attribute.String;
     url: Schema.Attribute.String;

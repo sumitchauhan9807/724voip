@@ -9,7 +9,9 @@
       "type": "string"
     },
     "day": {
-      "type": "string"
+      "type": "integer",
+      "min": 1,
+      "max": 31
     },
     "title": {
       "type": "string"
