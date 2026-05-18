@@ -37,9 +37,7 @@ export interface BasicHeadingWithImage extends Struct.ComponentSchema {
   };
   attributes: {
     heading: Schema.Attribute.String;
-    backgroundImage: Schema.Attribute.Media<
-      'images' | 'files' | 'videos' | 'audios'
-    >;
+    image: Schema.Attribute.Media<'images' | 'files' | 'videos' | 'audios'>;
   };
 }
 
@@ -356,6 +354,58 @@ export interface RelationalTestimonials extends Struct.ComponentSchema {
   };
 }
 
+export interface UpdatesUpdateCard extends Struct.ComponentSchema {
+  collectionName: 'components_updates_update_cards';
+  info: {
+    displayName: 'Update Card';
+  };
+  attributes: {
+    day: Schema.Attribute.String;
+    month: Schema.Attribute.String;
+    title: Schema.Attribute.String;
+    url: Schema.Attribute.String;
+  };
+}
+
+export interface UpdatesUpdateMarquee extends Struct.ComponentSchema {
+  collectionName: 'components_updates_update_marquees';
+  info: {
+    displayName: 'Update Marquee';
+  };
+  attributes: {
+    backgroundImage: Schema.Attribute.Media<'images'>;
+    cards: Schema.Attribute.Component<'updates.update-card', true>;
+    heading: Schema.Attribute.String &
+      Schema.Attribute.DefaultTo<'Built with customer feedback, shipped fast'>;
+    rows: Schema.Attribute.Component<'updates.update-row', true> &
+      Schema.Attribute.SetMinMax<
+        {
+          max: 3;
+        },
+        number
+      >;
+  };
+}
+
+export interface UpdatesUpdateRow extends Struct.ComponentSchema {
+  collectionName: 'components_updates_update_rows';
+  info: {
+    displayName: 'Update Row';
+  };
+  attributes: {
+    cards: Schema.Attribute.Component<'updates.update-card', true>;
+    reverse: Schema.Attribute.Boolean & Schema.Attribute.DefaultTo<false>;
+    speed: Schema.Attribute.Integer &
+      Schema.Attribute.SetMinMax<
+        {
+          min: 1000;
+        },
+        number
+      > &
+      Schema.Attribute.DefaultTo<5000>;
+  };
+}
+
 declare module '@strapi/strapi' {
   export module Public {
     export interface ComponentSchemas {
@@ -384,6 +434,9 @@ declare module '@strapi/strapi' {
       'relational.certifications': RelationalCertifications;
       'relational.logo-grid': RelationalLogoGrid;
       'relational.testimonials': RelationalTestimonials;
+      'updates.update-card': UpdatesUpdateCard;
+      'updates.update-marquee': UpdatesUpdateMarquee;
+      'updates.update-row': UpdatesUpdateRow;
     }
   }
 }

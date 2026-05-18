@@ -524,6 +524,7 @@ export interface ApiHomeHome extends Struct.SingleTypeSchema {
         'relational.logo-grid',
         'relational.certifications',
         'relational.testimonials',
+        'updates.update-marquee',
         'pre-footer.pre-footer',
       ]
     >;
