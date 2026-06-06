@@ -566,6 +566,45 @@ export interface ApiLogoLogo extends Struct.CollectionTypeSchema {
   };
 }
 
+export interface ApiPricingPricing extends Struct.SingleTypeSchema {
+  collectionName: 'pricings';
+  info: {
+    displayName: 'Pricing';
+    pluralName: 'pricings';
+    singularName: 'pricing';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    content: Schema.Attribute.DynamicZone<
+      [
+        'pricing.hero',
+        'pricing.plan-selector',
+        'pricing.pricing-cards',
+        'pricing.comparison-table',
+        'pricing.testimonial-stats',
+        'pricing.cta-banner',
+        'relational.logo-grid',
+        'common.faq',
+      ]
+    >;
+    createdAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    locale: Schema.Attribute.String & Schema.Attribute.Private;
+    localizations: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::pricing.pricing'
+    > &
+      Schema.Attribute.Private;
+    publishedAt: Schema.Attribute.DateTime;
+    updatedAt: Schema.Attribute.DateTime;
+    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+  };
+}
+
 export interface ApiProductProduct extends Struct.CollectionTypeSchema {
   collectionName: 'products';
   info: {
@@ -1151,6 +1190,7 @@ declare module '@strapi/strapi' {
       'api::footer.footer': ApiFooterFooter;
       'api::home.home': ApiHomeHome;
       'api::logo.logo': ApiLogoLogo;
+      'api::pricing.pricing': ApiPricingPricing;
       'api::product.product': ApiProductProduct;
       'api::testinonial.testinonial': ApiTestinonialTestinonial;
       'plugin::content-releases.release': PluginContentReleasesRelease;

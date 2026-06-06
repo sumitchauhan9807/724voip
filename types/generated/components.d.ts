@@ -302,6 +302,269 @@ export interface PreFooterPreFooter extends Struct.ComponentSchema {
   };
 }
 
+export interface PricingAiVoiceAgent extends Struct.ComponentSchema {
+  collectionName: 'components_pricing_ai_voice_agents';
+  info: {
+    displayName: 'Pricing AI Voice Agent';
+  };
+  attributes: {
+    ctas: Schema.Attribute.Component<'basic.button', true>;
+    description: Schema.Attribute.Text;
+    features: Schema.Attribute.Component<'pricing.feature', true>;
+    heading: Schema.Attribute.String;
+    payAsYouGoLabel: Schema.Attribute.String;
+    priceLabel: Schema.Attribute.String;
+    suiteIdentifier: Schema.Attribute.String;
+    usageSteps: Schema.Attribute.Component<'pricing.usage-step', true>;
+  };
+}
+
+export interface PricingBillingOption extends Struct.ComponentSchema {
+  collectionName: 'components_pricing_billing_options';
+  info: {
+    displayName: 'Pricing Billing Option';
+  };
+  attributes: {
+    badge: Schema.Attribute.String;
+    identifier: Schema.Attribute.Enumeration<['annual', 'monthly']>;
+    label: Schema.Attribute.String;
+  };
+}
+
+export interface PricingComparisonTable extends Struct.ComponentSchema {
+  collectionName: 'components_pricing_comparison_tables';
+  info: {
+    displayName: 'Pricing Comparison Table';
+  };
+  attributes: {
+    categories: Schema.Attribute.JSON;
+    defaultExpanded: Schema.Attribute.Boolean &
+      Schema.Attribute.DefaultTo<false>;
+    emptyState: Schema.Attribute.String &
+      Schema.Attribute.DefaultTo<'No results found.'>;
+    plans: Schema.Attribute.JSON;
+    searchPlaceholder: Schema.Attribute.String &
+      Schema.Attribute.DefaultTo<'Search features'>;
+    title: Schema.Attribute.Component<'basic.title', false>;
+  };
+}
+
+export interface PricingCtaBanner extends Struct.ComponentSchema {
+  collectionName: 'components_pricing_cta_banners';
+  info: {
+    displayName: 'Pricing CTA Banner';
+  };
+  attributes: {
+    backgroundImage: Schema.Attribute.Media<'images'>;
+    buttons: Schema.Attribute.Component<'basic.button', true>;
+    leftImage: Schema.Attribute.Media<'images'>;
+    rightImage: Schema.Attribute.Media<'images'>;
+    title: Schema.Attribute.Component<'basic.title', false>;
+  };
+}
+
+export interface PricingFeature extends Struct.ComponentSchema {
+  collectionName: 'components_pricing_features';
+  info: {
+    displayName: 'Pricing Feature';
+  };
+  attributes: {
+    label: Schema.Attribute.String;
+    muted: Schema.Attribute.Boolean & Schema.Attribute.DefaultTo<false>;
+    tooltip: Schema.Attribute.Text;
+    value: Schema.Attribute.String;
+  };
+}
+
+export interface PricingFeatureGroup extends Struct.ComponentSchema {
+  collectionName: 'components_pricing_feature_groups';
+  info: {
+    displayName: 'Pricing Feature Group';
+  };
+  attributes: {
+    heading: Schema.Attribute.String;
+    items: Schema.Attribute.Component<'pricing.feature', true>;
+  };
+}
+
+export interface PricingHero extends Struct.ComponentSchema {
+  collectionName: 'components_pricing_heroes';
+  info: {
+    displayName: 'Pricing Hero';
+  };
+  attributes: {
+    title: Schema.Attribute.Component<'basic.title', false>;
+  };
+}
+
+export interface PricingPlan extends Struct.ComponentSchema {
+  collectionName: 'components_pricing_plans';
+  info: {
+    displayName: 'Pricing Plan';
+  };
+  attributes: {
+    addOnCallout: Schema.Attribute.String;
+    badge: Schema.Attribute.String;
+    ctas: Schema.Attribute.Component<'basic.button', true>;
+    description: Schema.Attribute.Text;
+    featureGroups: Schema.Attribute.Component<'pricing.feature-group', true>;
+    highlighted: Schema.Attribute.Boolean & Schema.Attribute.DefaultTo<false>;
+    identifier: Schema.Attribute.String;
+    name: Schema.Attribute.String;
+    pricePrefix: Schema.Attribute.String;
+    prices: Schema.Attribute.Component<'pricing.plan-price', true>;
+    priceSuffix: Schema.Attribute.String;
+    suiteIdentifier: Schema.Attribute.String;
+  };
+}
+
+export interface PricingPlanPrice extends Struct.ComponentSchema {
+  collectionName: 'components_pricing_plan_prices';
+  info: {
+    displayName: 'Pricing Plan Price';
+  };
+  attributes: {
+    annual: Schema.Attribute.String;
+    monthly: Schema.Attribute.String;
+    regionIdentifier: Schema.Attribute.String;
+    suffix: Schema.Attribute.String;
+  };
+}
+
+export interface PricingPlanSelector extends Struct.ComponentSchema {
+  collectionName: 'components_pricing_plan_selectors';
+  info: {
+    displayName: 'Pricing Plan Selector';
+  };
+  attributes: {
+    billingOptions: Schema.Attribute.Component<'pricing.billing-option', true>;
+    defaultBilling: Schema.Attribute.Enumeration<['annual', 'monthly']> &
+      Schema.Attribute.DefaultTo<'annual'>;
+    defaultRegion: Schema.Attribute.String;
+    defaultSuite: Schema.Attribute.String;
+    regions: Schema.Attribute.Component<'pricing.region', true>;
+    suites: Schema.Attribute.Component<'pricing.suite', true>;
+  };
+}
+
+export interface PricingPricingCards extends Struct.ComponentSchema {
+  collectionName: 'components_pricing_pricing_cards';
+  info: {
+    displayName: 'Pricing Cards';
+  };
+  attributes: {
+    aiVoiceAgent: Schema.Attribute.Component<'pricing.ai-voice-agent', false>;
+    fairUsageNotes: Schema.Attribute.Blocks;
+    plans: Schema.Attribute.Component<'pricing.plan', true>;
+    title: Schema.Attribute.Component<'basic.title', false>;
+  };
+}
+
+export interface PricingRegion extends Struct.ComponentSchema {
+  collectionName: 'components_pricing_regions';
+  info: {
+    displayName: 'Pricing Region';
+  };
+  attributes: {
+    currency: Schema.Attribute.String;
+    flag: Schema.Attribute.Media<'images'>;
+    identifier: Schema.Attribute.String;
+    label: Schema.Attribute.String;
+  };
+}
+
+export interface PricingStat extends Struct.ComponentSchema {
+  collectionName: 'components_pricing_stats';
+  info: {
+    displayName: 'Pricing Stat';
+  };
+  attributes: {
+    label: Schema.Attribute.String;
+    suiteIdentifier: Schema.Attribute.String;
+    value: Schema.Attribute.String;
+  };
+}
+
+export interface PricingSuite extends Struct.ComponentSchema {
+  collectionName: 'components_pricing_suites';
+  info: {
+    displayName: 'Pricing Suite';
+  };
+  attributes: {
+    badgeIcon: Schema.Attribute.Media<'images'>;
+    badgeLabel: Schema.Attribute.String;
+    description: Schema.Attribute.String;
+    eyebrow: Schema.Attribute.String;
+    hideBillingOptions: Schema.Attribute.Boolean &
+      Schema.Attribute.DefaultTo<false>;
+    hideRegionSelector: Schema.Attribute.Boolean &
+      Schema.Attribute.DefaultTo<false>;
+    identifier: Schema.Attribute.String;
+    label: Schema.Attribute.String;
+    lockedBilling: Schema.Attribute.Enumeration<['annual', 'monthly']>;
+  };
+}
+
+export interface PricingTestimonial extends Struct.ComponentSchema {
+  collectionName: 'components_pricing_testimonials';
+  info: {
+    displayName: 'Pricing Testimonial';
+  };
+  attributes: {
+    caseStudyUrl: Schema.Attribute.String;
+    company: Schema.Attribute.String;
+    identifier: Schema.Attribute.String;
+    image: Schema.Attribute.Media<'images'>;
+    logo: Schema.Attribute.Media<'images'>;
+    logoHeight: Schema.Attribute.Integer;
+    logoWidth: Schema.Attribute.Integer;
+    person: Schema.Attribute.String;
+    quote: Schema.Attribute.Text;
+    role: Schema.Attribute.String;
+    suiteIdentifier: Schema.Attribute.String;
+  };
+}
+
+export interface PricingTestimonialStats extends Struct.ComponentSchema {
+  collectionName: 'components_pricing_testimonial_stats';
+  info: {
+    displayName: 'Pricing Testimonial Stats';
+  };
+  attributes: {
+    heading: Schema.Attribute.String;
+    stats: Schema.Attribute.Component<'pricing.stat', true>;
+    testimonials: Schema.Attribute.Component<'pricing.testimonial', true>;
+  };
+}
+
+export interface PricingUsageStep extends Struct.ComponentSchema {
+  collectionName: 'components_pricing_usage_steps';
+  info: {
+    displayName: 'Pricing Usage Step';
+  };
+  attributes: {
+    ctaLabel: Schema.Attribute.String;
+    ctaUrl: Schema.Attribute.String;
+    customQuote: Schema.Attribute.Boolean & Schema.Attribute.DefaultTo<false>;
+    identifier: Schema.Attribute.String;
+    label: Schema.Attribute.String;
+    minutes: Schema.Attribute.String;
+    prices: Schema.Attribute.Component<'pricing.usage-step-price', true>;
+  };
+}
+
+export interface PricingUsageStepPrice extends Struct.ComponentSchema {
+  collectionName: 'components_pricing_usage_step_prices';
+  info: {
+    displayName: 'Pricing Usage Step Price';
+  };
+  attributes: {
+    originalPrice: Schema.Attribute.String;
+    price: Schema.Attribute.String;
+    regionIdentifier: Schema.Attribute.String;
+  };
+}
+
 export interface ProductGrid1 extends Struct.ComponentSchema {
   collectionName: 'components_product_grid1s';
   info: {
@@ -437,6 +700,24 @@ declare module '@strapi/strapi' {
       'hero.hero-3': HeroHero3;
       'hero.search-integration': HeroSearchIntegration;
       'pre-footer.pre-footer': PreFooterPreFooter;
+      'pricing.ai-voice-agent': PricingAiVoiceAgent;
+      'pricing.billing-option': PricingBillingOption;
+      'pricing.comparison-table': PricingComparisonTable;
+      'pricing.cta-banner': PricingCtaBanner;
+      'pricing.feature': PricingFeature;
+      'pricing.feature-group': PricingFeatureGroup;
+      'pricing.hero': PricingHero;
+      'pricing.plan': PricingPlan;
+      'pricing.plan-price': PricingPlanPrice;
+      'pricing.plan-selector': PricingPlanSelector;
+      'pricing.pricing-cards': PricingPricingCards;
+      'pricing.region': PricingRegion;
+      'pricing.stat': PricingStat;
+      'pricing.suite': PricingSuite;
+      'pricing.testimonial': PricingTestimonial;
+      'pricing.testimonial-stats': PricingTestimonialStats;
+      'pricing.usage-step': PricingUsageStep;
+      'pricing.usage-step-price': PricingUsageStepPrice;
       'product.grid1': ProductGrid1;
       'relational.certifications': RelationalCertifications;
       'relational.logo-grid': RelationalLogoGrid;

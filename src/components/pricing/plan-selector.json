@@ -1,0 +1,39 @@
+{
+  "collectionName": "components_pricing_plan_selectors",
+  "info": {
+    "displayName": "Pricing Plan Selector"
+  },
+  "options": {},
+  "attributes": {
+    "defaultSuite": {
+      "type": "string"
+    },
+    "defaultBilling": {
+      "type": "enumeration",
+      "enum": [
+        "annual",
+        "monthly"
+      ],
+      "default": "annual"
+    },
+    "defaultRegion": {
+      "type": "string"
+    },
+    "suites": {
+      "type": "component",
+      "component": "pricing.suite",
+      "repeatable": true
+    },
+    "regions": {
+      "type": "component",
+      "component": "pricing.region",
+      "repeatable": true
+    },
+    "billingOptions": {
+      "type": "component",
+      "component": "pricing.billing-option",
+      "repeatable": true
+    }
+  },
+  "config": {}
+}

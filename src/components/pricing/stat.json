@@ -1,0 +1,19 @@
+{
+  "collectionName": "components_pricing_stats",
+  "info": {
+    "displayName": "Pricing Stat"
+  },
+  "options": {},
+  "attributes": {
+    "suiteIdentifier": {
+      "type": "string"
+    },
+    "value": {
+      "type": "string"
+    },
+    "label": {
+      "type": "string"
+    }
+  },
+  "config": {}
+}

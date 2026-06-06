@@ -1,0 +1,41 @@
+{
+  "collectionName": "components_pricing_cta_banners",
+  "info": {
+    "displayName": "Pricing CTA Banner"
+  },
+  "options": {},
+  "attributes": {
+    "title": {
+      "type": "component",
+      "component": "basic.title",
+      "repeatable": false
+    },
+    "buttons": {
+      "type": "component",
+      "component": "basic.button",
+      "repeatable": true
+    },
+    "backgroundImage": {
+      "type": "media",
+      "multiple": false,
+      "allowedTypes": [
+        "images"
+      ]
+    },
+    "leftImage": {
+      "type": "media",
+      "multiple": false,
+      "allowedTypes": [
+        "images"
+      ]
+    },
+    "rightImage": {
+      "type": "media",
+      "multiple": false,
+      "allowedTypes": [
+        "images"
+      ]
+    }
+  },
+  "config": {}
+}

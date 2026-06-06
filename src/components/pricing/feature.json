@@ -1,0 +1,23 @@
+{
+  "collectionName": "components_pricing_features",
+  "info": {
+    "displayName": "Pricing Feature"
+  },
+  "options": {},
+  "attributes": {
+    "label": {
+      "type": "string"
+    },
+    "tooltip": {
+      "type": "text"
+    },
+    "value": {
+      "type": "string"
+    },
+    "muted": {
+      "type": "boolean",
+      "default": false
+    }
+  },
+  "config": {}
+}

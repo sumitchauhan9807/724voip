@@ -1,0 +1,51 @@
+{
+  "collectionName": "components_pricing_testimonials",
+  "info": {
+    "displayName": "Pricing Testimonial"
+  },
+  "options": {},
+  "attributes": {
+    "identifier": {
+      "type": "string"
+    },
+    "suiteIdentifier": {
+      "type": "string"
+    },
+    "company": {
+      "type": "string"
+    },
+    "quote": {
+      "type": "text"
+    },
+    "person": {
+      "type": "string"
+    },
+    "role": {
+      "type": "string"
+    },
+    "logo": {
+      "type": "media",
+      "multiple": false,
+      "allowedTypes": [
+        "images"
+      ]
+    },
+    "logoWidth": {
+      "type": "integer"
+    },
+    "logoHeight": {
+      "type": "integer"
+    },
+    "image": {
+      "type": "media",
+      "multiple": false,
+      "allowedTypes": [
+        "images"
+      ]
+    },
+    "caseStudyUrl": {
+      "type": "string"
+    }
+  },
+  "config": {}
+}
