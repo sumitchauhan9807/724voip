@@ -1,0 +1,18 @@
+{
+  "collectionName": "components_teams_awards_scrollers",
+  "info": {
+    "displayName": "Teams Awards Scroller",
+    "icon": "star"
+  },
+  "options": {},
+  "attributes": {
+    "logos": {
+      "type": "media",
+      "multiple": true,
+      "allowedTypes": [
+        "images"
+      ]
+    }
+  },
+  "config": {}
+}

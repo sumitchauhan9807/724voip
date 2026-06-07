@@ -617,6 +617,87 @@ export interface RelationalTestimonials extends Struct.ComponentSchema {
   };
 }
 
+export interface TeamsAwardsScroller extends Struct.ComponentSchema {
+  collectionName: 'components_teams_awards_scrollers';
+  info: {
+    displayName: 'Teams Awards Scroller';
+    icon: 'star';
+  };
+  attributes: {
+    logos: Schema.Attribute.Media<'images', true>;
+  };
+}
+
+export interface TeamsHero extends Struct.ComponentSchema {
+  collectionName: 'components_teams_heroes';
+  info: {
+    displayName: 'Teams Hero';
+    icon: 'layout';
+  };
+  attributes: {
+    lists: Schema.Attribute.Component<'basic.lists', true>;
+    title: Schema.Attribute.Component<'basic.title', false>;
+    trialButtonLabel: Schema.Attribute.String &
+      Schema.Attribute.DefaultTo<'Start Free Trial'>;
+    trialButtonUrl: Schema.Attribute.String &
+      Schema.Attribute.DefaultTo<'https://justcall.io/signup'>;
+    trialInputPlaceholder: Schema.Attribute.String &
+      Schema.Attribute.DefaultTo<'Work email address'>;
+  };
+}
+
+export interface TeamsSolutionCard extends Struct.ComponentSchema {
+  collectionName: 'components_teams_solution_cards';
+  info: {
+    displayName: 'Teams Solution Card';
+    icon: 'grid';
+  };
+  attributes: {
+    button: Schema.Attribute.Component<'basic.button', false>;
+    description: Schema.Attribute.Text;
+    image: Schema.Attribute.Media<'images'>;
+    title: Schema.Attribute.String;
+  };
+}
+
+export interface TeamsSolutionGrid extends Struct.ComponentSchema {
+  collectionName: 'components_teams_solution_grids';
+  info: {
+    displayName: 'Teams Solution Grid';
+    icon: 'apps';
+  };
+  attributes: {
+    cards: Schema.Attribute.Component<'teams.solution-card', true>;
+    title: Schema.Attribute.Component<'basic.title', false>;
+  };
+}
+
+export interface TeamsTestimonialCard extends Struct.ComponentSchema {
+  collectionName: 'components_teams_testimonial_cards';
+  info: {
+    displayName: 'Teams Testimonial Card';
+    icon: 'quote';
+  };
+  attributes: {
+    logo: Schema.Attribute.Media<'images'>;
+    name: Schema.Attribute.String;
+    position: Schema.Attribute.String;
+    quote: Schema.Attribute.Blocks;
+  };
+}
+
+export interface TeamsTestimonialSlider extends Struct.ComponentSchema {
+  collectionName: 'components_teams_testimonial_sliders';
+  info: {
+    displayName: 'Teams Testimonial Slider';
+    icon: 'message';
+  };
+  attributes: {
+    cards: Schema.Attribute.Component<'teams.testimonial-card', true>;
+    heading: Schema.Attribute.String;
+  };
+}
+
 export interface UpdatesUpdateCard extends Struct.ComponentSchema {
   collectionName: 'components_updates_update_cards';
   info: {
@@ -722,6 +803,12 @@ declare module '@strapi/strapi' {
       'relational.certifications': RelationalCertifications;
       'relational.logo-grid': RelationalLogoGrid;
       'relational.testimonials': RelationalTestimonials;
+      'teams.awards-scroller': TeamsAwardsScroller;
+      'teams.hero': TeamsHero;
+      'teams.solution-card': TeamsSolutionCard;
+      'teams.solution-grid': TeamsSolutionGrid;
+      'teams.testimonial-card': TeamsTestimonialCard;
+      'teams.testimonial-slider': TeamsTestimonialSlider;
       'updates.update-card': UpdatesUpdateCard;
       'updates.update-marquee': UpdatesUpdateMarquee;
       'updates.update-row': UpdatesUpdateRow;

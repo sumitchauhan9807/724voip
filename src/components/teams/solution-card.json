@@ -1,0 +1,29 @@
+{
+  "collectionName": "components_teams_solution_cards",
+  "info": {
+    "displayName": "Teams Solution Card",
+    "icon": "grid"
+  },
+  "options": {},
+  "attributes": {
+    "title": {
+      "type": "string"
+    },
+    "description": {
+      "type": "text"
+    },
+    "image": {
+      "type": "media",
+      "multiple": false,
+      "allowedTypes": [
+        "images"
+      ]
+    },
+    "button": {
+      "type": "component",
+      "component": "basic.button",
+      "repeatable": false
+    }
+  },
+  "config": {}
+}

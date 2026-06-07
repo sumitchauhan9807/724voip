@@ -646,6 +646,39 @@ export interface ApiProductProduct extends Struct.CollectionTypeSchema {
   };
 }
 
+export interface ApiTeamTeam extends Struct.SingleTypeSchema {
+  collectionName: 'teams';
+  info: {
+    displayName: 'Teams';
+    pluralName: 'teams';
+    singularName: 'team';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    content: Schema.Attribute.DynamicZone<
+      [
+        'teams.hero',
+        'teams.awards-scroller',
+        'teams.solution-grid',
+        'teams.testimonial-slider',
+        'pricing.cta-banner',
+      ]
+    >;
+    createdAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    locale: Schema.Attribute.String & Schema.Attribute.Private;
+    localizations: Schema.Attribute.Relation<'oneToMany', 'api::team.team'> &
+      Schema.Attribute.Private;
+    publishedAt: Schema.Attribute.DateTime;
+    updatedAt: Schema.Attribute.DateTime;
+    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+  };
+}
+
 export interface ApiTestinonialTestinonial extends Struct.CollectionTypeSchema {
   collectionName: 'testinonials';
   info: {
@@ -1192,6 +1225,7 @@ declare module '@strapi/strapi' {
       'api::logo.logo': ApiLogoLogo;
       'api::pricing.pricing': ApiPricingPricing;
       'api::product.product': ApiProductProduct;
+      'api::team.team': ApiTeamTeam;
       'api::testinonial.testinonial': ApiTestinonialTestinonial;
       'plugin::content-releases.release': PluginContentReleasesRelease;
       'plugin::content-releases.release-action': PluginContentReleasesReleaseAction;

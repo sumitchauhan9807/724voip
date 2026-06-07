@@ -1,0 +1,19 @@
+{
+  "collectionName": "components_teams_testimonial_sliders",
+  "info": {
+    "displayName": "Teams Testimonial Slider",
+    "icon": "message"
+  },
+  "options": {},
+  "attributes": {
+    "heading": {
+      "type": "string"
+    },
+    "cards": {
+      "type": "component",
+      "component": "teams.testimonial-card",
+      "repeatable": true
+    }
+  },
+  "config": {}
+}

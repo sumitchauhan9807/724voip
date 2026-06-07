@@ -1,0 +1,21 @@
+{
+  "collectionName": "components_teams_solution_grids",
+  "info": {
+    "displayName": "Teams Solution Grid",
+    "icon": "apps"
+  },
+  "options": {},
+  "attributes": {
+    "title": {
+      "type": "component",
+      "component": "basic.title",
+      "repeatable": false
+    },
+    "cards": {
+      "type": "component",
+      "component": "teams.solution-card",
+      "repeatable": true
+    }
+  },
+  "config": {}
+}
