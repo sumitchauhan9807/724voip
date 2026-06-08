@@ -37,9 +37,7 @@ export interface BasicHeadingWithImage extends Struct.ComponentSchema {
   };
   attributes: {
     heading: Schema.Attribute.String;
-    backgroundImage: Schema.Attribute.Media<
-      'images' | 'files' | 'videos' | 'audios'
-    >;
+    image: Schema.Attribute.Media<'images' | 'files' | 'videos' | 'audios'>;
   };
 }
 
