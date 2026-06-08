@@ -646,6 +646,47 @@ export interface ApiProductProduct extends Struct.CollectionTypeSchema {
   };
 }
 
+export interface ApiTeamDetailTeamDetail extends Struct.CollectionTypeSchema {
+  collectionName: 'team_details';
+  info: {
+    displayName: 'Team Detail Pages';
+    pluralName: 'team-details';
+    singularName: 'team-detail';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    content: Schema.Attribute.DynamicZone<
+      [
+        'team-detail.hero',
+        'team-detail.awards-scroller',
+        'team-detail.image-text-section',
+        'teams.testimonial-slider',
+        'team-detail.icon-grid',
+        'team-detail.integration-logo-cloud',
+        'team-detail.read-more-tabber',
+        'team-detail.tech-stack-grid',
+        'team-detail.faq',
+        'team-detail.footer-cta',
+      ]
+    >;
+    createdAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    locale: Schema.Attribute.String & Schema.Attribute.Private;
+    localizations: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::team-detail.team-detail'
+    > &
+      Schema.Attribute.Private;
+    publishedAt: Schema.Attribute.DateTime;
+    updatedAt: Schema.Attribute.DateTime;
+    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+  };
+}
+
 export interface ApiTeamTeam extends Struct.SingleTypeSchema {
   collectionName: 'teams';
   info: {
@@ -1225,6 +1266,7 @@ declare module '@strapi/strapi' {
       'api::logo.logo': ApiLogoLogo;
       'api::pricing.pricing': ApiPricingPricing;
       'api::product.product': ApiProductProduct;
+      'api::team-detail.team-detail': ApiTeamDetailTeamDetail;
       'api::team.team': ApiTeamTeam;
       'api::testinonial.testinonial': ApiTestinonialTestinonial;
       'plugin::content-releases.release': PluginContentReleasesRelease;

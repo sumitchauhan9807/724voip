@@ -1,0 +1,24 @@
+{
+  "collectionName": "components_team_detail_tech_stack_logos",
+  "info": {
+    "displayName": "Team Detail Tech Stack Logo",
+    "icon": "link"
+  },
+  "options": {},
+  "attributes": {
+    "image": {
+      "type": "media",
+      "multiple": false,
+      "allowedTypes": [
+        "images"
+      ]
+    },
+    "url": {
+      "type": "string"
+    },
+    "alt": {
+      "type": "string"
+    }
+  },
+  "config": {}
+}

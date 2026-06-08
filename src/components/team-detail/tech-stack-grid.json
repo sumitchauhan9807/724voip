@@ -1,0 +1,26 @@
+{
+  "collectionName": "components_team_detail_tech_stack_grids",
+  "info": {
+    "displayName": "Team Detail Tech Stack Grid",
+    "icon": "connector"
+  },
+  "options": {},
+  "attributes": {
+    "title": {
+      "type": "component",
+      "component": "basic.title",
+      "repeatable": false
+    },
+    "logos": {
+      "type": "component",
+      "component": "team-detail.tech-stack-logo",
+      "repeatable": true
+    },
+    "button": {
+      "type": "component",
+      "component": "basic.button",
+      "repeatable": false
+    }
+  },
+  "config": {}
+}

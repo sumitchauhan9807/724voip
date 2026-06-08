@@ -1,0 +1,26 @@
+{
+  "collectionName": "components_team_detail_integration_logo_clouds",
+  "info": {
+    "displayName": "Team Detail Integration Logo Cloud",
+    "icon": "dashboard"
+  },
+  "options": {},
+  "attributes": {
+    "title": {
+      "type": "component",
+      "component": "basic.title",
+      "repeatable": false
+    },
+    "button": {
+      "type": "component",
+      "component": "basic.button",
+      "repeatable": false
+    },
+    "columns": {
+      "type": "component",
+      "component": "team-detail.integration-logo-column",
+      "repeatable": true
+    }
+  },
+  "config": {}
+}

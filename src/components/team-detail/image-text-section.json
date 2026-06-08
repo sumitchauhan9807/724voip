@@ -1,0 +1,39 @@
+{
+  "collectionName": "components_team_detail_image_text_sections",
+  "info": {
+    "displayName": "Team Detail Image Text Section",
+    "icon": "picture"
+  },
+  "options": {},
+  "attributes": {
+    "title": {
+      "type": "component",
+      "component": "basic.title",
+      "repeatable": false
+    },
+    "image": {
+      "type": "media",
+      "multiple": false,
+      "allowedTypes": [
+        "images"
+      ]
+    },
+    "imageAlt": {
+      "type": "string"
+    },
+    "imagePosition": {
+      "type": "enumeration",
+      "enum": [
+        "right",
+        "left"
+      ],
+      "default": "right"
+    },
+    "buttons": {
+      "type": "component",
+      "component": "basic.button",
+      "repeatable": true
+    }
+  },
+  "config": {}
+}

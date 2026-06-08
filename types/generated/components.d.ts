@@ -617,6 +617,191 @@ export interface RelationalTestimonials extends Struct.ComponentSchema {
   };
 }
 
+export interface TeamDetailAwardsScroller extends Struct.ComponentSchema {
+  collectionName: 'components_team_detail_awards_scrollers';
+  info: {
+    displayName: 'Team Detail Awards Scroller';
+    icon: 'star';
+  };
+  attributes: {
+    heading: Schema.Attribute.String;
+    logos: Schema.Attribute.Media<'images', true>;
+  };
+}
+
+export interface TeamDetailFaq extends Struct.ComponentSchema {
+  collectionName: 'components_team_detail_faqs';
+  info: {
+    displayName: 'Team Detail FAQ';
+    icon: 'question';
+  };
+  attributes: {
+    desktopImage: Schema.Attribute.Media<'images'>;
+    heading: Schema.Attribute.String;
+    items: Schema.Attribute.Component<'basic.heading-with-content', true>;
+    mobileImage: Schema.Attribute.Media<'images'>;
+  };
+}
+
+export interface TeamDetailFooterCta extends Struct.ComponentSchema {
+  collectionName: 'components_team_detail_footer_ctas';
+  info: {
+    displayName: 'Team Detail Footer CTA';
+    icon: 'rocket';
+  };
+  attributes: {
+    buttons: Schema.Attribute.Component<'basic.button', true>;
+    leftImage: Schema.Attribute.Media<'images'>;
+    rightImage: Schema.Attribute.Media<'images'>;
+    title: Schema.Attribute.Component<'basic.title', false>;
+  };
+}
+
+export interface TeamDetailHero extends Struct.ComponentSchema {
+  collectionName: 'components_team_detail_heroes';
+  info: {
+    displayName: 'Team Detail Hero';
+    icon: 'layout';
+  };
+  attributes: {
+    backgroundColor: Schema.Attribute.String &
+      Schema.Attribute.CustomField<'plugin::color-picker.color'>;
+    backgroundGradient: Schema.Attribute.Text;
+    backgroundImage: Schema.Attribute.Media<'images'>;
+    emailPlaceholder: Schema.Attribute.String &
+      Schema.Attribute.DefaultTo<'Work email address'>;
+    formId: Schema.Attribute.String &
+      Schema.Attribute.DefaultTo<'87fc484f-fb10-45d6-916e-675f9827f112'>;
+    image: Schema.Attribute.Media<'images'>;
+    portalId: Schema.Attribute.String & Schema.Attribute.DefaultTo<'8972517'>;
+    region: Schema.Attribute.String & Schema.Attribute.DefaultTo<'na1'>;
+    submitText: Schema.Attribute.String &
+      Schema.Attribute.DefaultTo<'Start Free Trial'>;
+    textColor: Schema.Attribute.Enumeration<['black', 'white']> &
+      Schema.Attribute.DefaultTo<'black'>;
+    title: Schema.Attribute.Component<'basic.title', false>;
+  };
+}
+
+export interface TeamDetailIconCard extends Struct.ComponentSchema {
+  collectionName: 'components_team_detail_icon_cards';
+  info: {
+    displayName: 'Team Detail Icon Card';
+    icon: 'bulletList';
+  };
+  attributes: {
+    description: Schema.Attribute.Text;
+    icon: Schema.Attribute.Media<'images'>;
+    title: Schema.Attribute.String;
+  };
+}
+
+export interface TeamDetailIconGrid extends Struct.ComponentSchema {
+  collectionName: 'components_team_detail_icon_grids';
+  info: {
+    displayName: 'Team Detail Icon Grid';
+    icon: 'apps';
+  };
+  attributes: {
+    cards: Schema.Attribute.Component<'team-detail.icon-card', true>;
+    heading: Schema.Attribute.String;
+  };
+}
+
+export interface TeamDetailImageTextSection extends Struct.ComponentSchema {
+  collectionName: 'components_team_detail_image_text_sections';
+  info: {
+    displayName: 'Team Detail Image Text Section';
+    icon: 'picture';
+  };
+  attributes: {
+    buttons: Schema.Attribute.Component<'basic.button', true>;
+    image: Schema.Attribute.Media<'images'>;
+    imageAlt: Schema.Attribute.String;
+    imagePosition: Schema.Attribute.Enumeration<['right', 'left']> &
+      Schema.Attribute.DefaultTo<'right'>;
+    title: Schema.Attribute.Component<'basic.title', false>;
+  };
+}
+
+export interface TeamDetailIntegrationLogoCloud extends Struct.ComponentSchema {
+  collectionName: 'components_team_detail_integration_logo_clouds';
+  info: {
+    displayName: 'Team Detail Integration Logo Cloud';
+    icon: 'dashboard';
+  };
+  attributes: {
+    button: Schema.Attribute.Component<'basic.button', false>;
+    columns: Schema.Attribute.Component<
+      'team-detail.integration-logo-column',
+      true
+    >;
+    title: Schema.Attribute.Component<'basic.title', false>;
+  };
+}
+
+export interface TeamDetailIntegrationLogoColumn
+  extends Struct.ComponentSchema {
+  collectionName: 'components_team_detail_integration_logo_columns';
+  info: {
+    displayName: 'Team Detail Integration Logo Column';
+    icon: 'grid';
+  };
+  attributes: {
+    logos: Schema.Attribute.Media<'images', true>;
+  };
+}
+
+export interface TeamDetailReadMoreTab extends Struct.ComponentSchema {
+  collectionName: 'components_team_detail_read_more_tabs';
+  info: {
+    displayName: 'Team Detail Read More Tab';
+    icon: 'file';
+  };
+  attributes: {
+    content: Schema.Attribute.Blocks;
+    heading: Schema.Attribute.String;
+  };
+}
+
+export interface TeamDetailReadMoreTabber extends Struct.ComponentSchema {
+  collectionName: 'components_team_detail_read_more_tabbers';
+  info: {
+    displayName: 'Team Detail Read More Tabber';
+    icon: 'bulletList';
+  };
+  attributes: {
+    heading: Schema.Attribute.String;
+    tabs: Schema.Attribute.Component<'team-detail.read-more-tab', true>;
+  };
+}
+
+export interface TeamDetailTechStackGrid extends Struct.ComponentSchema {
+  collectionName: 'components_team_detail_tech_stack_grids';
+  info: {
+    displayName: 'Team Detail Tech Stack Grid';
+    icon: 'connector';
+  };
+  attributes: {
+    button: Schema.Attribute.Component<'basic.button', false>;
+    logos: Schema.Attribute.Component<'team-detail.tech-stack-logo', true>;
+    title: Schema.Attribute.Component<'basic.title', false>;
+  };
+}
+
+export interface TeamDetailTechStackLogo extends Struct.ComponentSchema {
+  collectionName: 'components_team_detail_tech_stack_logos';
+  info: {
+    displayName: 'Team Detail Tech Stack Logo';
+    icon: 'link';
+  };
+  attributes: {
+    alt: Schema.Attribute.String;
+    image: Schema.Attribute.Media<'images'>;
+    url: Schema.Attribute.String;
+  };
+}
+
 export interface TeamsAwardsScroller extends Struct.ComponentSchema {
   collectionName: 'components_teams_awards_scrollers';
   info: {
@@ -695,6 +880,7 @@ export interface TeamsTestimonialSlider extends Struct.ComponentSchema {
   attributes: {
     cards: Schema.Attribute.Component<'teams.testimonial-card', true>;
     heading: Schema.Attribute.String;
+    subHeading: Schema.Attribute.String;
   };
 }
 
@@ -803,6 +989,19 @@ declare module '@strapi/strapi' {
       'relational.certifications': RelationalCertifications;
       'relational.logo-grid': RelationalLogoGrid;
       'relational.testimonials': RelationalTestimonials;
+      'team-detail.awards-scroller': TeamDetailAwardsScroller;
+      'team-detail.faq': TeamDetailFaq;
+      'team-detail.footer-cta': TeamDetailFooterCta;
+      'team-detail.hero': TeamDetailHero;
+      'team-detail.icon-card': TeamDetailIconCard;
+      'team-detail.icon-grid': TeamDetailIconGrid;
+      'team-detail.image-text-section': TeamDetailImageTextSection;
+      'team-detail.integration-logo-cloud': TeamDetailIntegrationLogoCloud;
+      'team-detail.integration-logo-column': TeamDetailIntegrationLogoColumn;
+      'team-detail.read-more-tab': TeamDetailReadMoreTab;
+      'team-detail.read-more-tabber': TeamDetailReadMoreTabber;
+      'team-detail.tech-stack-grid': TeamDetailTechStackGrid;
+      'team-detail.tech-stack-logo': TeamDetailTechStackLogo;
       'teams.awards-scroller': TeamsAwardsScroller;
       'teams.hero': TeamsHero;
       'teams.solution-card': TeamsSolutionCard;

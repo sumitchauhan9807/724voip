@@ -9,6 +9,9 @@
     "heading": {
       "type": "string"
     },
+    "subHeading": {
+      "type": "string"
+    },
     "cards": {
       "type": "component",
       "component": "teams.testimonial-card",

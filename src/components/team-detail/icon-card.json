@@ -1,0 +1,24 @@
+{
+  "collectionName": "components_team_detail_icon_cards",
+  "info": {
+    "displayName": "Team Detail Icon Card",
+    "icon": "bulletList"
+  },
+  "options": {},
+  "attributes": {
+    "icon": {
+      "type": "media",
+      "multiple": false,
+      "allowedTypes": [
+        "images"
+      ]
+    },
+    "title": {
+      "type": "string"
+    },
+    "description": {
+      "type": "text"
+    }
+  },
+  "config": {}
+}
