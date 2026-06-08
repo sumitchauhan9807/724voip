@@ -1,0 +1,23 @@
+{
+  "collectionName": "components_pricing_billing_options",
+  "info": {
+    "displayName": "Pricing Billing Option"
+  },
+  "options": {},
+  "attributes": {
+    "identifier": {
+      "type": "enumeration",
+      "enum": [
+        "annual",
+        "monthly"
+      ]
+    },
+    "label": {
+      "type": "string"
+    },
+    "badge": {
+      "type": "string"
+    }
+  },
+  "config": {}
+}

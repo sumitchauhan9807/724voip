@@ -1,0 +1,33 @@
+{
+  "collectionName": "components_teams_heroes",
+  "info": {
+    "displayName": "Teams Hero",
+    "icon": "layout"
+  },
+  "options": {},
+  "attributes": {
+    "title": {
+      "type": "component",
+      "component": "basic.title",
+      "repeatable": false
+    },
+    "trialInputPlaceholder": {
+      "type": "string",
+      "default": "Work email address"
+    },
+    "trialButtonLabel": {
+      "type": "string",
+      "default": "Start Free Trial"
+    },
+    "trialButtonUrl": {
+      "type": "string",
+      "default": "https://justcall.io/signup"
+    },
+    "lists": {
+      "type": "component",
+      "component": "basic.lists",
+      "repeatable": true
+    }
+  },
+  "config": {}
+}

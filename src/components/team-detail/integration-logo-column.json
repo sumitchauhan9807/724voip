@@ -1,0 +1,18 @@
+{
+  "collectionName": "components_team_detail_integration_logo_columns",
+  "info": {
+    "displayName": "Team Detail Integration Logo Column",
+    "icon": "grid"
+  },
+  "options": {},
+  "attributes": {
+    "logos": {
+      "type": "media",
+      "multiple": true,
+      "allowedTypes": [
+        "images"
+      ]
+    }
+  },
+  "config": {}
+}

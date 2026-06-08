@@ -1,0 +1,53 @@
+{
+  "collectionName": "components_pricing_plans",
+  "info": {
+    "displayName": "Pricing Plan"
+  },
+  "options": {},
+  "attributes": {
+    "identifier": {
+      "type": "string"
+    },
+    "suiteIdentifier": {
+      "type": "string"
+    },
+    "name": {
+      "type": "string"
+    },
+    "description": {
+      "type": "text"
+    },
+    "badge": {
+      "type": "string"
+    },
+    "highlighted": {
+      "type": "boolean",
+      "default": false
+    },
+    "pricePrefix": {
+      "type": "string"
+    },
+    "priceSuffix": {
+      "type": "string"
+    },
+    "prices": {
+      "type": "component",
+      "component": "pricing.plan-price",
+      "repeatable": true
+    },
+    "ctas": {
+      "type": "component",
+      "component": "basic.button",
+      "repeatable": true
+    },
+    "featureGroups": {
+      "type": "component",
+      "component": "pricing.feature-group",
+      "repeatable": true
+    },
+    "addOnCallout": {
+      "type": "string"
+    }
+  },
+  "config": {}
+}

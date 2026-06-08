@@ -524,6 +524,7 @@ export interface ApiHomeHome extends Struct.SingleTypeSchema {
         'relational.logo-grid',
         'relational.certifications',
         'relational.testimonials',
+        'updates.update-marquee',
         'pre-footer.pre-footer',
       ]
     >;
@@ -565,6 +566,45 @@ export interface ApiLogoLogo extends Struct.CollectionTypeSchema {
   };
 }
 
+export interface ApiPricingPricing extends Struct.SingleTypeSchema {
+  collectionName: 'pricings';
+  info: {
+    displayName: 'Pricing';
+    pluralName: 'pricings';
+    singularName: 'pricing';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    content: Schema.Attribute.DynamicZone<
+      [
+        'pricing.hero',
+        'pricing.plan-selector',
+        'pricing.pricing-cards',
+        'pricing.comparison-table',
+        'pricing.testimonial-stats',
+        'pricing.cta-banner',
+        'relational.logo-grid',
+        'common.faq',
+      ]
+    >;
+    createdAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    locale: Schema.Attribute.String & Schema.Attribute.Private;
+    localizations: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::pricing.pricing'
+    > &
+      Schema.Attribute.Private;
+    publishedAt: Schema.Attribute.DateTime;
+    updatedAt: Schema.Attribute.DateTime;
+    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+  };
+}
+
 export interface ApiProductProduct extends Struct.CollectionTypeSchema {
   collectionName: 'products';
   info: {
@@ -598,6 +638,80 @@ export interface ApiProductProduct extends Struct.CollectionTypeSchema {
       'oneToMany',
       'api::product.product'
     > &
+      Schema.Attribute.Private;
+    publishedAt: Schema.Attribute.DateTime;
+    updatedAt: Schema.Attribute.DateTime;
+    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+  };
+}
+
+export interface ApiTeamDetailTeamDetail extends Struct.CollectionTypeSchema {
+  collectionName: 'team_details';
+  info: {
+    displayName: 'Team Detail Pages';
+    pluralName: 'team-details';
+    singularName: 'team-detail';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    content: Schema.Attribute.DynamicZone<
+      [
+        'team-detail.hero',
+        'team-detail.awards-scroller',
+        'team-detail.image-text-section',
+        'teams.testimonial-slider',
+        'team-detail.icon-grid',
+        'team-detail.integration-logo-cloud',
+        'team-detail.read-more-tabber',
+        'team-detail.tech-stack-grid',
+        'team-detail.faq',
+        'team-detail.footer-cta',
+      ]
+    >;
+    createdAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    locale: Schema.Attribute.String & Schema.Attribute.Private;
+    localizations: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::team-detail.team-detail'
+    > &
+      Schema.Attribute.Private;
+    publishedAt: Schema.Attribute.DateTime;
+    updatedAt: Schema.Attribute.DateTime;
+    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+  };
+}
+
+export interface ApiTeamTeam extends Struct.SingleTypeSchema {
+  collectionName: 'teams';
+  info: {
+    displayName: 'Teams';
+    pluralName: 'teams';
+    singularName: 'team';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    content: Schema.Attribute.DynamicZone<
+      [
+        'teams.hero',
+        'teams.awards-scroller',
+        'teams.solution-grid',
+        'teams.testimonial-slider',
+        'pricing.cta-banner',
+      ]
+    >;
+    createdAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    locale: Schema.Attribute.String & Schema.Attribute.Private;
+    localizations: Schema.Attribute.Relation<'oneToMany', 'api::team.team'> &
       Schema.Attribute.Private;
     publishedAt: Schema.Attribute.DateTime;
     updatedAt: Schema.Attribute.DateTime;
@@ -1150,7 +1264,10 @@ declare module '@strapi/strapi' {
       'api::footer.footer': ApiFooterFooter;
       'api::home.home': ApiHomeHome;
       'api::logo.logo': ApiLogoLogo;
+      'api::pricing.pricing': ApiPricingPricing;
       'api::product.product': ApiProductProduct;
+      'api::team-detail.team-detail': ApiTeamDetailTeamDetail;
+      'api::team.team': ApiTeamTeam;
       'api::testinonial.testinonial': ApiTestinonialTestinonial;
       'plugin::content-releases.release': PluginContentReleasesRelease;
       'plugin::content-releases.release-action': PluginContentReleasesReleaseAction;

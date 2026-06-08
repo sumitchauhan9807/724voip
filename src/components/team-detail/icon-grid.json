@@ -1,0 +1,19 @@
+{
+  "collectionName": "components_team_detail_icon_grids",
+  "info": {
+    "displayName": "Team Detail Icon Grid",
+    "icon": "apps"
+  },
+  "options": {},
+  "attributes": {
+    "heading": {
+      "type": "string"
+    },
+    "cards": {
+      "type": "component",
+      "component": "team-detail.icon-card",
+      "repeatable": true
+    }
+  },
+  "config": {}
+}

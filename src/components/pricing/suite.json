@@ -1,0 +1,47 @@
+{
+  "collectionName": "components_pricing_suites",
+  "info": {
+    "displayName": "Pricing Suite"
+  },
+  "options": {},
+  "attributes": {
+    "identifier": {
+      "type": "string"
+    },
+    "label": {
+      "type": "string"
+    },
+    "description": {
+      "type": "string"
+    },
+    "eyebrow": {
+      "type": "string"
+    },
+    "badgeLabel": {
+      "type": "string"
+    },
+    "badgeIcon": {
+      "type": "media",
+      "multiple": false,
+      "allowedTypes": [
+        "images"
+      ]
+    },
+    "lockedBilling": {
+      "type": "enumeration",
+      "enum": [
+        "annual",
+        "monthly"
+      ]
+    },
+    "hideBillingOptions": {
+      "type": "boolean",
+      "default": false
+    },
+    "hideRegionSelector": {
+      "type": "boolean",
+      "default": false
+    }
+  },
+  "config": {}
+}

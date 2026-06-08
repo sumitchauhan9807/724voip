@@ -1,0 +1,40 @@
+{
+  "collectionName": "components_pricing_ai_voice_agents",
+  "info": {
+    "displayName": "Pricing AI Voice Agent"
+  },
+  "options": {},
+  "attributes": {
+    "suiteIdentifier": {
+      "type": "string"
+    },
+    "heading": {
+      "type": "string"
+    },
+    "description": {
+      "type": "text"
+    },
+    "priceLabel": {
+      "type": "string"
+    },
+    "payAsYouGoLabel": {
+      "type": "string"
+    },
+    "usageSteps": {
+      "type": "component",
+      "component": "pricing.usage-step",
+      "repeatable": true
+    },
+    "features": {
+      "type": "component",
+      "component": "pricing.feature",
+      "repeatable": true
+    },
+    "ctas": {
+      "type": "component",
+      "component": "basic.button",
+      "repeatable": true
+    }
+  },
+  "config": {}
+}

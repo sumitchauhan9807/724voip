@@ -1,0 +1,65 @@
+{
+  "collectionName": "components_team_detail_heroes",
+  "info": {
+    "displayName": "Team Detail Hero",
+    "icon": "layout"
+  },
+  "options": {},
+  "attributes": {
+    "title": {
+      "type": "component",
+      "component": "basic.title",
+      "repeatable": false
+    },
+    "image": {
+      "type": "media",
+      "multiple": false,
+      "allowedTypes": [
+        "images"
+      ]
+    },
+    "backgroundColor": {
+      "type": "customField",
+      "customField": "plugin::color-picker.color"
+    },
+    "backgroundGradient": {
+      "type": "text"
+    },
+    "backgroundImage": {
+      "type": "media",
+      "multiple": false,
+      "allowedTypes": [
+        "images"
+      ]
+    },
+    "textColor": {
+      "type": "enumeration",
+      "enum": [
+        "black",
+        "white"
+      ],
+      "default": "black"
+    },
+    "formId": {
+      "type": "string",
+      "default": "87fc484f-fb10-45d6-916e-675f9827f112"
+    },
+    "portalId": {
+      "type": "string",
+      "default": "8972517"
+    },
+    "region": {
+      "type": "string",
+      "default": "na1"
+    },
+    "emailPlaceholder": {
+      "type": "string",
+      "default": "Work email address"
+    },
+    "submitText": {
+      "type": "string",
+      "default": "Start Free Trial"
+    }
+  },
+  "config": {}
+}

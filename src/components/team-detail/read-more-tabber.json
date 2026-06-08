@@ -1,0 +1,19 @@
+{
+  "collectionName": "components_team_detail_read_more_tabbers",
+  "info": {
+    "displayName": "Team Detail Read More Tabber",
+    "icon": "bulletList"
+  },
+  "options": {},
+  "attributes": {
+    "heading": {
+      "type": "string"
+    },
+    "tabs": {
+      "type": "component",
+      "component": "team-detail.read-more-tab",
+      "repeatable": true
+    }
+  },
+  "config": {}
+}

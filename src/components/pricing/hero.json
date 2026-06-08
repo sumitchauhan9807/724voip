@@ -1,0 +1,15 @@
+{
+  "collectionName": "components_pricing_heroes",
+  "info": {
+    "displayName": "Pricing Hero"
+  },
+  "options": {},
+  "attributes": {
+    "title": {
+      "type": "component",
+      "component": "basic.title",
+      "repeatable": false
+    }
+  },
+  "config": {}
+}

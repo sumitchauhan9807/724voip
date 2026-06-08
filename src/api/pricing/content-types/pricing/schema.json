@@ -1,0 +1,28 @@
+{
+  "kind": "singleType",
+  "collectionName": "pricings",
+  "info": {
+    "singularName": "pricing",
+    "pluralName": "pricings",
+    "displayName": "Pricing"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "content": {
+      "type": "dynamiczone",
+      "components": [
+        "pricing.hero",
+        "pricing.plan-selector",
+        "pricing.pricing-cards",
+        "pricing.comparison-table",
+        "pricing.testimonial-stats",
+        "pricing.cta-banner",
+        "relational.logo-grid",
+        "common.faq"
+      ]
+    }
+  }
+}

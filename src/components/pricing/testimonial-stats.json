@@ -1,0 +1,23 @@
+{
+  "collectionName": "components_pricing_testimonial_stats",
+  "info": {
+    "displayName": "Pricing Testimonial Stats"
+  },
+  "options": {},
+  "attributes": {
+    "heading": {
+      "type": "string"
+    },
+    "testimonials": {
+      "type": "component",
+      "component": "pricing.testimonial",
+      "repeatable": true
+    },
+    "stats": {
+      "type": "component",
+      "component": "pricing.stat",
+      "repeatable": true
+    }
+  },
+  "config": {}
+}

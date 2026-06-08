@@ -1,0 +1,24 @@
+{
+  "collectionName": "components_updates_update_rows",
+  "info": {
+    "displayName": "Update Row"
+  },
+  "options": {},
+  "attributes": {
+    "cards": {
+      "type": "component",
+      "component": "updates.update-card",
+      "repeatable": true
+    },
+    "reverse": {
+      "type": "boolean",
+      "default": false
+    },
+    "speed": {
+      "type": "integer",
+      "default": 5000,
+      "min": 1000
+    }
+  },
+  "config": {}
+}

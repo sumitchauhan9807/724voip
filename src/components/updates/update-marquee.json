@@ -1,0 +1,32 @@
+{
+  "collectionName": "components_updates_update_marquees",
+  "info": {
+    "displayName": "Update Marquee"
+  },
+  "options": {},
+  "attributes": {
+    "heading": {
+      "type": "string",
+      "default": "Built with customer feedback, shipped fast"
+    },
+    "cards": {
+      "type": "component",
+      "component": "updates.update-card",
+      "repeatable": true
+    },
+    "rows": {
+      "type": "component",
+      "component": "updates.update-row",
+      "repeatable": true,
+      "max": 3
+    },
+    "backgroundImage": {
+      "type": "media",
+      "multiple": false,
+      "allowedTypes": [
+        "images"
+      ]
+    }
+  },
+  "config": {}
+}

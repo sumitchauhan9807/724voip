@@ -302,6 +302,269 @@ export interface PreFooterPreFooter extends Struct.ComponentSchema {
   };
 }
 
+export interface PricingAiVoiceAgent extends Struct.ComponentSchema {
+  collectionName: 'components_pricing_ai_voice_agents';
+  info: {
+    displayName: 'Pricing AI Voice Agent';
+  };
+  attributes: {
+    ctas: Schema.Attribute.Component<'basic.button', true>;
+    description: Schema.Attribute.Text;
+    features: Schema.Attribute.Component<'pricing.feature', true>;
+    heading: Schema.Attribute.String;
+    payAsYouGoLabel: Schema.Attribute.String;
+    priceLabel: Schema.Attribute.String;
+    suiteIdentifier: Schema.Attribute.String;
+    usageSteps: Schema.Attribute.Component<'pricing.usage-step', true>;
+  };
+}
+
+export interface PricingBillingOption extends Struct.ComponentSchema {
+  collectionName: 'components_pricing_billing_options';
+  info: {
+    displayName: 'Pricing Billing Option';
+  };
+  attributes: {
+    badge: Schema.Attribute.String;
+    identifier: Schema.Attribute.Enumeration<['annual', 'monthly']>;
+    label: Schema.Attribute.String;
+  };
+}
+
+export interface PricingComparisonTable extends Struct.ComponentSchema {
+  collectionName: 'components_pricing_comparison_tables';
+  info: {
+    displayName: 'Pricing Comparison Table';
+  };
+  attributes: {
+    categories: Schema.Attribute.JSON;
+    defaultExpanded: Schema.Attribute.Boolean &
+      Schema.Attribute.DefaultTo<false>;
+    emptyState: Schema.Attribute.String &
+      Schema.Attribute.DefaultTo<'No results found.'>;
+    plans: Schema.Attribute.JSON;
+    searchPlaceholder: Schema.Attribute.String &
+      Schema.Attribute.DefaultTo<'Search features'>;
+    title: Schema.Attribute.Component<'basic.title', false>;
+  };
+}
+
+export interface PricingCtaBanner extends Struct.ComponentSchema {
+  collectionName: 'components_pricing_cta_banners';
+  info: {
+    displayName: 'Pricing CTA Banner';
+  };
+  attributes: {
+    backgroundImage: Schema.Attribute.Media<'images'>;
+    buttons: Schema.Attribute.Component<'basic.button', true>;
+    leftImage: Schema.Attribute.Media<'images'>;
+    rightImage: Schema.Attribute.Media<'images'>;
+    title: Schema.Attribute.Component<'basic.title', false>;
+  };
+}
+
+export interface PricingFeature extends Struct.ComponentSchema {
+  collectionName: 'components_pricing_features';
+  info: {
+    displayName: 'Pricing Feature';
+  };
+  attributes: {
+    label: Schema.Attribute.String;
+    muted: Schema.Attribute.Boolean & Schema.Attribute.DefaultTo<false>;
+    tooltip: Schema.Attribute.Text;
+    value: Schema.Attribute.String;
+  };
+}
+
+export interface PricingFeatureGroup extends Struct.ComponentSchema {
+  collectionName: 'components_pricing_feature_groups';
+  info: {
+    displayName: 'Pricing Feature Group';
+  };
+  attributes: {
+    heading: Schema.Attribute.String;
+    items: Schema.Attribute.Component<'pricing.feature', true>;
+  };
+}
+
+export interface PricingHero extends Struct.ComponentSchema {
+  collectionName: 'components_pricing_heroes';
+  info: {
+    displayName: 'Pricing Hero';
+  };
+  attributes: {
+    title: Schema.Attribute.Component<'basic.title', false>;
+  };
+}
+
+export interface PricingPlan extends Struct.ComponentSchema {
+  collectionName: 'components_pricing_plans';
+  info: {
+    displayName: 'Pricing Plan';
+  };
+  attributes: {
+    addOnCallout: Schema.Attribute.String;
+    badge: Schema.Attribute.String;
+    ctas: Schema.Attribute.Component<'basic.button', true>;
+    description: Schema.Attribute.Text;
+    featureGroups: Schema.Attribute.Component<'pricing.feature-group', true>;
+    highlighted: Schema.Attribute.Boolean & Schema.Attribute.DefaultTo<false>;
+    identifier: Schema.Attribute.String;
+    name: Schema.Attribute.String;
+    pricePrefix: Schema.Attribute.String;
+    prices: Schema.Attribute.Component<'pricing.plan-price', true>;
+    priceSuffix: Schema.Attribute.String;
+    suiteIdentifier: Schema.Attribute.String;
+  };
+}
+
+export interface PricingPlanPrice extends Struct.ComponentSchema {
+  collectionName: 'components_pricing_plan_prices';
+  info: {
+    displayName: 'Pricing Plan Price';
+  };
+  attributes: {
+    annual: Schema.Attribute.String;
+    monthly: Schema.Attribute.String;
+    regionIdentifier: Schema.Attribute.String;
+    suffix: Schema.Attribute.String;
+  };
+}
+
+export interface PricingPlanSelector extends Struct.ComponentSchema {
+  collectionName: 'components_pricing_plan_selectors';
+  info: {
+    displayName: 'Pricing Plan Selector';
+  };
+  attributes: {
+    billingOptions: Schema.Attribute.Component<'pricing.billing-option', true>;
+    defaultBilling: Schema.Attribute.Enumeration<['annual', 'monthly']> &
+      Schema.Attribute.DefaultTo<'annual'>;
+    defaultRegion: Schema.Attribute.String;
+    defaultSuite: Schema.Attribute.String;
+    regions: Schema.Attribute.Component<'pricing.region', true>;
+    suites: Schema.Attribute.Component<'pricing.suite', true>;
+  };
+}
+
+export interface PricingPricingCards extends Struct.ComponentSchema {
+  collectionName: 'components_pricing_pricing_cards';
+  info: {
+    displayName: 'Pricing Cards';
+  };
+  attributes: {
+    aiVoiceAgent: Schema.Attribute.Component<'pricing.ai-voice-agent', false>;
+    fairUsageNotes: Schema.Attribute.Blocks;
+    plans: Schema.Attribute.Component<'pricing.plan', true>;
+    title: Schema.Attribute.Component<'basic.title', false>;
+  };
+}
+
+export interface PricingRegion extends Struct.ComponentSchema {
+  collectionName: 'components_pricing_regions';
+  info: {
+    displayName: 'Pricing Region';
+  };
+  attributes: {
+    currency: Schema.Attribute.String;
+    flag: Schema.Attribute.Media<'images'>;
+    identifier: Schema.Attribute.String;
+    label: Schema.Attribute.String;
+  };
+}
+
+export interface PricingStat extends Struct.ComponentSchema {
+  collectionName: 'components_pricing_stats';
+  info: {
+    displayName: 'Pricing Stat';
+  };
+  attributes: {
+    label: Schema.Attribute.String;
+    suiteIdentifier: Schema.Attribute.String;
+    value: Schema.Attribute.String;
+  };
+}
+
+export interface PricingSuite extends Struct.ComponentSchema {
+  collectionName: 'components_pricing_suites';
+  info: {
+    displayName: 'Pricing Suite';
+  };
+  attributes: {
+    badgeIcon: Schema.Attribute.Media<'images'>;
+    badgeLabel: Schema.Attribute.String;
+    description: Schema.Attribute.String;
+    eyebrow: Schema.Attribute.String;
+    hideBillingOptions: Schema.Attribute.Boolean &
+      Schema.Attribute.DefaultTo<false>;
+    hideRegionSelector: Schema.Attribute.Boolean &
+      Schema.Attribute.DefaultTo<false>;
+    identifier: Schema.Attribute.String;
+    label: Schema.Attribute.String;
+    lockedBilling: Schema.Attribute.Enumeration<['annual', 'monthly']>;
+  };
+}
+
+export interface PricingTestimonial extends Struct.ComponentSchema {
+  collectionName: 'components_pricing_testimonials';
+  info: {
+    displayName: 'Pricing Testimonial';
+  };
+  attributes: {
+    caseStudyUrl: Schema.Attribute.String;
+    company: Schema.Attribute.String;
+    identifier: Schema.Attribute.String;
+    image: Schema.Attribute.Media<'images'>;
+    logo: Schema.Attribute.Media<'images'>;
+    logoHeight: Schema.Attribute.Integer;
+    logoWidth: Schema.Attribute.Integer;
+    person: Schema.Attribute.String;
+    quote: Schema.Attribute.Text;
+    role: Schema.Attribute.String;
+    suiteIdentifier: Schema.Attribute.String;
+  };
+}
+
+export interface PricingTestimonialStats extends Struct.ComponentSchema {
+  collectionName: 'components_pricing_testimonial_stats';
+  info: {
+    displayName: 'Pricing Testimonial Stats';
+  };
+  attributes: {
+    heading: Schema.Attribute.String;
+    stats: Schema.Attribute.Component<'pricing.stat', true>;
+    testimonials: Schema.Attribute.Component<'pricing.testimonial', true>;
+  };
+}
+
+export interface PricingUsageStep extends Struct.ComponentSchema {
+  collectionName: 'components_pricing_usage_steps';
+  info: {
+    displayName: 'Pricing Usage Step';
+  };
+  attributes: {
+    ctaLabel: Schema.Attribute.String;
+    ctaUrl: Schema.Attribute.String;
+    customQuote: Schema.Attribute.Boolean & Schema.Attribute.DefaultTo<false>;
+    identifier: Schema.Attribute.String;
+    label: Schema.Attribute.String;
+    minutes: Schema.Attribute.String;
+    prices: Schema.Attribute.Component<'pricing.usage-step-price', true>;
+  };
+}
+
+export interface PricingUsageStepPrice extends Struct.ComponentSchema {
+  collectionName: 'components_pricing_usage_step_prices';
+  info: {
+    displayName: 'Pricing Usage Step Price';
+  };
+  attributes: {
+    originalPrice: Schema.Attribute.String;
+    price: Schema.Attribute.String;
+    regionIdentifier: Schema.Attribute.String;
+  };
+}
+
 export interface ProductGrid1 extends Struct.ComponentSchema {
   collectionName: 'components_product_grid1s';
   info: {
@@ -354,6 +617,332 @@ export interface RelationalTestimonials extends Struct.ComponentSchema {
   };
 }
 
+export interface TeamDetailAwardsScroller extends Struct.ComponentSchema {
+  collectionName: 'components_team_detail_awards_scrollers';
+  info: {
+    displayName: 'Team Detail Awards Scroller';
+    icon: 'star';
+  };
+  attributes: {
+    heading: Schema.Attribute.String;
+    logos: Schema.Attribute.Media<'images', true>;
+  };
+}
+
+export interface TeamDetailFaq extends Struct.ComponentSchema {
+  collectionName: 'components_team_detail_faqs';
+  info: {
+    displayName: 'Team Detail FAQ';
+    icon: 'question';
+  };
+  attributes: {
+    desktopImage: Schema.Attribute.Media<'images'>;
+    heading: Schema.Attribute.String;
+    items: Schema.Attribute.Component<'basic.heading-with-content', true>;
+    mobileImage: Schema.Attribute.Media<'images'>;
+  };
+}
+
+export interface TeamDetailFooterCta extends Struct.ComponentSchema {
+  collectionName: 'components_team_detail_footer_ctas';
+  info: {
+    displayName: 'Team Detail Footer CTA';
+    icon: 'rocket';
+  };
+  attributes: {
+    buttons: Schema.Attribute.Component<'basic.button', true>;
+    leftImage: Schema.Attribute.Media<'images'>;
+    rightImage: Schema.Attribute.Media<'images'>;
+    title: Schema.Attribute.Component<'basic.title', false>;
+  };
+}
+
+export interface TeamDetailHero extends Struct.ComponentSchema {
+  collectionName: 'components_team_detail_heroes';
+  info: {
+    displayName: 'Team Detail Hero';
+    icon: 'layout';
+  };
+  attributes: {
+    backgroundColor: Schema.Attribute.String &
+      Schema.Attribute.CustomField<'plugin::color-picker.color'>;
+    backgroundGradient: Schema.Attribute.Text;
+    backgroundImage: Schema.Attribute.Media<'images'>;
+    emailPlaceholder: Schema.Attribute.String &
+      Schema.Attribute.DefaultTo<'Work email address'>;
+    formId: Schema.Attribute.String &
+      Schema.Attribute.DefaultTo<'87fc484f-fb10-45d6-916e-675f9827f112'>;
+    image: Schema.Attribute.Media<'images'>;
+    portalId: Schema.Attribute.String & Schema.Attribute.DefaultTo<'8972517'>;
+    region: Schema.Attribute.String & Schema.Attribute.DefaultTo<'na1'>;
+    submitText: Schema.Attribute.String &
+      Schema.Attribute.DefaultTo<'Start Free Trial'>;
+    textColor: Schema.Attribute.Enumeration<['black', 'white']> &
+      Schema.Attribute.DefaultTo<'black'>;
+    title: Schema.Attribute.Component<'basic.title', false>;
+  };
+}
+
+export interface TeamDetailIconCard extends Struct.ComponentSchema {
+  collectionName: 'components_team_detail_icon_cards';
+  info: {
+    displayName: 'Team Detail Icon Card';
+    icon: 'bulletList';
+  };
+  attributes: {
+    description: Schema.Attribute.Text;
+    icon: Schema.Attribute.Media<'images'>;
+    title: Schema.Attribute.String;
+  };
+}
+
+export interface TeamDetailIconGrid extends Struct.ComponentSchema {
+  collectionName: 'components_team_detail_icon_grids';
+  info: {
+    displayName: 'Team Detail Icon Grid';
+    icon: 'apps';
+  };
+  attributes: {
+    cards: Schema.Attribute.Component<'team-detail.icon-card', true>;
+    heading: Schema.Attribute.String;
+  };
+}
+
+export interface TeamDetailImageTextSection extends Struct.ComponentSchema {
+  collectionName: 'components_team_detail_image_text_sections';
+  info: {
+    displayName: 'Team Detail Image Text Section';
+    icon: 'picture';
+  };
+  attributes: {
+    buttons: Schema.Attribute.Component<'basic.button', true>;
+    image: Schema.Attribute.Media<'images'>;
+    imageAlt: Schema.Attribute.String;
+    imagePosition: Schema.Attribute.Enumeration<['right', 'left']> &
+      Schema.Attribute.DefaultTo<'right'>;
+    title: Schema.Attribute.Component<'basic.title', false>;
+  };
+}
+
+export interface TeamDetailIntegrationLogoCloud extends Struct.ComponentSchema {
+  collectionName: 'components_team_detail_integration_logo_clouds';
+  info: {
+    displayName: 'Team Detail Integration Logo Cloud';
+    icon: 'dashboard';
+  };
+  attributes: {
+    button: Schema.Attribute.Component<'basic.button', false>;
+    columns: Schema.Attribute.Component<
+      'team-detail.integration-logo-column',
+      true
+    >;
+    title: Schema.Attribute.Component<'basic.title', false>;
+  };
+}
+
+export interface TeamDetailIntegrationLogoColumn
+  extends Struct.ComponentSchema {
+  collectionName: 'components_team_detail_integration_logo_columns';
+  info: {
+    displayName: 'Team Detail Integration Logo Column';
+    icon: 'grid';
+  };
+  attributes: {
+    logos: Schema.Attribute.Media<'images', true>;
+  };
+}
+
+export interface TeamDetailReadMoreTab extends Struct.ComponentSchema {
+  collectionName: 'components_team_detail_read_more_tabs';
+  info: {
+    displayName: 'Team Detail Read More Tab';
+    icon: 'file';
+  };
+  attributes: {
+    content: Schema.Attribute.Blocks;
+    heading: Schema.Attribute.String;
+  };
+}
+
+export interface TeamDetailReadMoreTabber extends Struct.ComponentSchema {
+  collectionName: 'components_team_detail_read_more_tabbers';
+  info: {
+    displayName: 'Team Detail Read More Tabber';
+    icon: 'bulletList';
+  };
+  attributes: {
+    heading: Schema.Attribute.String;
+    tabs: Schema.Attribute.Component<'team-detail.read-more-tab', true>;
+  };
+}
+
+export interface TeamDetailTechStackGrid extends Struct.ComponentSchema {
+  collectionName: 'components_team_detail_tech_stack_grids';
+  info: {
+    displayName: 'Team Detail Tech Stack Grid';
+    icon: 'connector';
+  };
+  attributes: {
+    button: Schema.Attribute.Component<'basic.button', false>;
+    logos: Schema.Attribute.Component<'team-detail.tech-stack-logo', true>;
+    title: Schema.Attribute.Component<'basic.title', false>;
+  };
+}
+
+export interface TeamDetailTechStackLogo extends Struct.ComponentSchema {
+  collectionName: 'components_team_detail_tech_stack_logos';
+  info: {
+    displayName: 'Team Detail Tech Stack Logo';
+    icon: 'link';
+  };
+  attributes: {
+    alt: Schema.Attribute.String;
+    image: Schema.Attribute.Media<'images'>;
+    url: Schema.Attribute.String;
+  };
+}
+
+export interface TeamsAwardsScroller extends Struct.ComponentSchema {
+  collectionName: 'components_teams_awards_scrollers';
+  info: {
+    displayName: 'Teams Awards Scroller';
+    icon: 'star';
+  };
+  attributes: {
+    logos: Schema.Attribute.Media<'images', true>;
+  };
+}
+
+export interface TeamsHero extends Struct.ComponentSchema {
+  collectionName: 'components_teams_heroes';
+  info: {
+    displayName: 'Teams Hero';
+    icon: 'layout';
+  };
+  attributes: {
+    lists: Schema.Attribute.Component<'basic.lists', true>;
+    title: Schema.Attribute.Component<'basic.title', false>;
+    trialButtonLabel: Schema.Attribute.String &
+      Schema.Attribute.DefaultTo<'Start Free Trial'>;
+    trialButtonUrl: Schema.Attribute.String &
+      Schema.Attribute.DefaultTo<'https://justcall.io/signup'>;
+    trialInputPlaceholder: Schema.Attribute.String &
+      Schema.Attribute.DefaultTo<'Work email address'>;
+  };
+}
+
+export interface TeamsSolutionCard extends Struct.ComponentSchema {
+  collectionName: 'components_teams_solution_cards';
+  info: {
+    displayName: 'Teams Solution Card';
+    icon: 'grid';
+  };
+  attributes: {
+    button: Schema.Attribute.Component<'basic.button', false>;
+    description: Schema.Attribute.Text;
+    image: Schema.Attribute.Media<'images'>;
+    title: Schema.Attribute.String;
+  };
+}
+
+export interface TeamsSolutionGrid extends Struct.ComponentSchema {
+  collectionName: 'components_teams_solution_grids';
+  info: {
+    displayName: 'Teams Solution Grid';
+    icon: 'apps';
+  };
+  attributes: {
+    cards: Schema.Attribute.Component<'teams.solution-card', true>;
+    title: Schema.Attribute.Component<'basic.title', false>;
+  };
+}
+
+export interface TeamsTestimonialCard extends Struct.ComponentSchema {
+  collectionName: 'components_teams_testimonial_cards';
+  info: {
+    displayName: 'Teams Testimonial Card';
+    icon: 'quote';
+  };
+  attributes: {
+    logo: Schema.Attribute.Media<'images'>;
+    name: Schema.Attribute.String;
+    position: Schema.Attribute.String;
+    quote: Schema.Attribute.Blocks;
+  };
+}
+
+export interface TeamsTestimonialSlider extends Struct.ComponentSchema {
+  collectionName: 'components_teams_testimonial_sliders';
+  info: {
+    displayName: 'Teams Testimonial Slider';
+    icon: 'message';
+  };
+  attributes: {
+    cards: Schema.Attribute.Component<'teams.testimonial-card', true>;
+    heading: Schema.Attribute.String;
+    subHeading: Schema.Attribute.String;
+  };
+}
+
+export interface UpdatesUpdateCard extends Struct.ComponentSchema {
+  collectionName: 'components_updates_update_cards';
+  info: {
+    displayName: 'Update Card';
+  };
+  attributes: {
+    day: Schema.Attribute.Integer &
+      Schema.Attribute.SetMinMax<
+        {
+          max: 31;
+          min: 1;
+        },
+        number
+      >;
+    month: Schema.Attribute.String;
+    title: Schema.Attribute.String;
+    url: Schema.Attribute.String;
+  };
+}
+
+export interface UpdatesUpdateMarquee extends Struct.ComponentSchema {
+  collectionName: 'components_updates_update_marquees';
+  info: {
+    displayName: 'Update Marquee';
+  };
+  attributes: {
+    backgroundImage: Schema.Attribute.Media<'images'>;
+    cards: Schema.Attribute.Component<'updates.update-card', true>;
+    heading: Schema.Attribute.String &
+      Schema.Attribute.DefaultTo<'Built with customer feedback, shipped fast'>;
+    rows: Schema.Attribute.Component<'updates.update-row', true> &
+      Schema.Attribute.SetMinMax<
+        {
+          max: 3;
+        },
+        number
+      >;
+  };
+}
+
+export interface UpdatesUpdateRow extends Struct.ComponentSchema {
+  collectionName: 'components_updates_update_rows';
+  info: {
+    displayName: 'Update Row';
+  };
+  attributes: {
+    cards: Schema.Attribute.Component<'updates.update-card', true>;
+    reverse: Schema.Attribute.Boolean & Schema.Attribute.DefaultTo<false>;
+    speed: Schema.Attribute.Integer &
+      Schema.Attribute.SetMinMax<
+        {
+          min: 1000;
+        },
+        number
+      > &
+      Schema.Attribute.DefaultTo<5000>;
+  };
+}
+
 declare module '@strapi/strapi' {
   export module Public {
     export interface ComponentSchemas {
@@ -378,10 +967,50 @@ declare module '@strapi/strapi' {
       'hero.hero-3': HeroHero3;
       'hero.search-integration': HeroSearchIntegration;
       'pre-footer.pre-footer': PreFooterPreFooter;
+      'pricing.ai-voice-agent': PricingAiVoiceAgent;
+      'pricing.billing-option': PricingBillingOption;
+      'pricing.comparison-table': PricingComparisonTable;
+      'pricing.cta-banner': PricingCtaBanner;
+      'pricing.feature': PricingFeature;
+      'pricing.feature-group': PricingFeatureGroup;
+      'pricing.hero': PricingHero;
+      'pricing.plan': PricingPlan;
+      'pricing.plan-price': PricingPlanPrice;
+      'pricing.plan-selector': PricingPlanSelector;
+      'pricing.pricing-cards': PricingPricingCards;
+      'pricing.region': PricingRegion;
+      'pricing.stat': PricingStat;
+      'pricing.suite': PricingSuite;
+      'pricing.testimonial': PricingTestimonial;
+      'pricing.testimonial-stats': PricingTestimonialStats;
+      'pricing.usage-step': PricingUsageStep;
+      'pricing.usage-step-price': PricingUsageStepPrice;
       'product.grid1': ProductGrid1;
       'relational.certifications': RelationalCertifications;
       'relational.logo-grid': RelationalLogoGrid;
       'relational.testimonials': RelationalTestimonials;
+      'team-detail.awards-scroller': TeamDetailAwardsScroller;
+      'team-detail.faq': TeamDetailFaq;
+      'team-detail.footer-cta': TeamDetailFooterCta;
+      'team-detail.hero': TeamDetailHero;
+      'team-detail.icon-card': TeamDetailIconCard;
+      'team-detail.icon-grid': TeamDetailIconGrid;
+      'team-detail.image-text-section': TeamDetailImageTextSection;
+      'team-detail.integration-logo-cloud': TeamDetailIntegrationLogoCloud;
+      'team-detail.integration-logo-column': TeamDetailIntegrationLogoColumn;
+      'team-detail.read-more-tab': TeamDetailReadMoreTab;
+      'team-detail.read-more-tabber': TeamDetailReadMoreTabber;
+      'team-detail.tech-stack-grid': TeamDetailTechStackGrid;
+      'team-detail.tech-stack-logo': TeamDetailTechStackLogo;
+      'teams.awards-scroller': TeamsAwardsScroller;
+      'teams.hero': TeamsHero;
+      'teams.solution-card': TeamsSolutionCard;
+      'teams.solution-grid': TeamsSolutionGrid;
+      'teams.testimonial-card': TeamsTestimonialCard;
+      'teams.testimonial-slider': TeamsTestimonialSlider;
+      'updates.update-card': UpdatesUpdateCard;
+      'updates.update-marquee': UpdatesUpdateMarquee;
+      'updates.update-row': UpdatesUpdateRow;
     }
   }
 }

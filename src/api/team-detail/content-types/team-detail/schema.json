@@ -1,0 +1,30 @@
+{
+  "kind": "collectionType",
+  "collectionName": "team_details",
+  "info": {
+    "singularName": "team-detail",
+    "pluralName": "team-details",
+    "displayName": "Team Detail Pages"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "content": {
+      "type": "dynamiczone",
+      "components": [
+        "team-detail.hero",
+        "team-detail.awards-scroller",
+        "team-detail.image-text-section",
+        "teams.testimonial-slider",
+        "team-detail.icon-grid",
+        "team-detail.integration-logo-cloud",
+        "team-detail.read-more-tabber",
+        "team-detail.tech-stack-grid",
+        "team-detail.faq",
+        "team-detail.footer-cta"
+      ]
+    }
+  }
+}

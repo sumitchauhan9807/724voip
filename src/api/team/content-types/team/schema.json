@@ -1,0 +1,25 @@
+{
+  "kind": "singleType",
+  "collectionName": "teams",
+  "info": {
+    "singularName": "team",
+    "pluralName": "teams",
+    "displayName": "Teams"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "content": {
+      "type": "dynamiczone",
+      "components": [
+        "teams.hero",
+        "teams.awards-scroller",
+        "teams.solution-grid",
+        "teams.testimonial-slider",
+        "pricing.cta-banner"
+      ]
+    }
+  }
+}

@@ -1,0 +1,28 @@
+{
+  "collectionName": "components_pricing_pricing_cards",
+  "info": {
+    "displayName": "Pricing Cards"
+  },
+  "options": {},
+  "attributes": {
+    "title": {
+      "type": "component",
+      "component": "basic.title",
+      "repeatable": false
+    },
+    "plans": {
+      "type": "component",
+      "component": "pricing.plan",
+      "repeatable": true
+    },
+    "aiVoiceAgent": {
+      "type": "component",
+      "component": "pricing.ai-voice-agent",
+      "repeatable": false
+    },
+    "fairUsageNotes": {
+      "type": "blocks"
+    }
+  },
+  "config": {}
+}

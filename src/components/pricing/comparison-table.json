@@ -1,0 +1,33 @@
+{
+  "collectionName": "components_pricing_comparison_tables",
+  "info": {
+    "displayName": "Pricing Comparison Table"
+  },
+  "options": {},
+  "attributes": {
+    "title": {
+      "type": "component",
+      "component": "basic.title",
+      "repeatable": false
+    },
+    "searchPlaceholder": {
+      "type": "string",
+      "default": "Search features"
+    },
+    "emptyState": {
+      "type": "string",
+      "default": "No results found."
+    },
+    "defaultExpanded": {
+      "type": "boolean",
+      "default": false
+    },
+    "plans": {
+      "type": "json"
+    },
+    "categories": {
+      "type": "json"
+    }
+  },
+  "config": {}
+}

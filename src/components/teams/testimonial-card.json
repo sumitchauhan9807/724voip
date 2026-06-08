@@ -1,0 +1,27 @@
+{
+  "collectionName": "components_teams_testimonial_cards",
+  "info": {
+    "displayName": "Teams Testimonial Card",
+    "icon": "quote"
+  },
+  "options": {},
+  "attributes": {
+    "logo": {
+      "type": "media",
+      "multiple": false,
+      "allowedTypes": [
+        "images"
+      ]
+    },
+    "quote": {
+      "type": "blocks"
+    },
+    "name": {
+      "type": "string"
+    },
+    "position": {
+      "type": "string"
+    }
+  },
+  "config": {}
+}

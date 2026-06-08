@@ -1,0 +1,24 @@
+{
+  "collectionName": "components_updates_update_cards",
+  "info": {
+    "displayName": "Update Card"
+  },
+  "options": {},
+  "attributes": {
+    "month": {
+      "type": "string"
+    },
+    "day": {
+      "type": "integer",
+      "min": 1,
+      "max": 31
+    },
+    "title": {
+      "type": "string"
+    },
+    "url": {
+      "type": "string"
+    }
+  },
+  "config": {}
+}

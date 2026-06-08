@@ -1,0 +1,22 @@
+{
+  "collectionName": "components_pricing_plan_prices",
+  "info": {
+    "displayName": "Pricing Plan Price"
+  },
+  "options": {},
+  "attributes": {
+    "regionIdentifier": {
+      "type": "string"
+    },
+    "annual": {
+      "type": "string"
+    },
+    "monthly": {
+      "type": "string"
+    },
+    "suffix": {
+      "type": "string"
+    }
+  },
+  "config": {}
+}
