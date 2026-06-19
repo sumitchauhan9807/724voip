@@ -1,0 +1,97 @@
+{
+  "collectionName": "components_industry_revenue_calculators",
+  "info": {
+    "displayName": "Industry Revenue Calculator",
+    "icon": "chartBubble"
+  },
+  "options": {},
+  "attributes": {
+    "title": {
+      "type": "component",
+      "component": "basic.title",
+      "repeatable": false
+    },
+    "locationsLabel": {
+      "type": "string",
+      "default": "How many locations does your business have?"
+    },
+    "locationsDefault": {
+      "type": "integer",
+      "default": 10
+    },
+    "locationsMin": {
+      "type": "integer",
+      "default": 1
+    },
+    "locationsMax": {
+      "type": "integer",
+      "default": 250
+    },
+    "callsLabel": {
+      "type": "string",
+      "default": "How many inbound calls does each location receive per day?"
+    },
+    "callsDefault": {
+      "type": "integer",
+      "default": 10
+    },
+    "callsMin": {
+      "type": "integer",
+      "default": 0
+    },
+    "callsMax": {
+      "type": "integer",
+      "default": 500
+    },
+    "noShowsLabel": {
+      "type": "string",
+      "default": "How many no-shows do you get per location each day?"
+    },
+    "noShowsDefault": {
+      "type": "integer",
+      "default": 1
+    },
+    "noShowsMin": {
+      "type": "integer",
+      "default": 0
+    },
+    "noShowsMax": {
+      "type": "integer",
+      "default": 100
+    },
+    "missedCallRate": {
+      "type": "decimal",
+      "default": 0.3
+    },
+    "newLeadRate": {
+      "type": "decimal",
+      "default": 0.5
+    },
+    "annualLeadValue": {
+      "type": "decimal",
+      "default": 785
+    },
+    "noShowRevenueValue": {
+      "type": "decimal",
+      "default": 167
+    },
+    "annualBusinessDays": {
+      "type": "integer",
+      "default": 240
+    },
+    "resultLabel": {
+      "type": "string",
+      "default": "Annual Missed Revenue"
+    },
+    "assumptionsHeading": {
+      "type": "string",
+      "default": "Our Assumptions"
+    },
+    "assumptions": {
+      "type": "component",
+      "component": "basic.lists",
+      "repeatable": true
+    }
+  },
+  "config": {}
+}

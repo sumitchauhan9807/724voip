@@ -1,0 +1,81 @@
+{
+  "collectionName": "components_industry_image_text_sections",
+  "info": {
+    "displayName": "Industry Image Text Section",
+    "icon": "dashboard"
+  },
+  "options": {},
+  "attributes": {
+    "type": {
+      "type": "enumeration",
+      "enum": [
+        "type_1",
+        "type_2",
+        "type_3",
+        "type_4"
+      ],
+      "default": "type_1"
+    },
+    "type_1": {
+      "type": "component",
+      "component": "industry.type-1",
+      "repeatable": false,
+      "conditions": {
+        "visible": {
+          "==": [
+            {
+              "var": "type"
+            },
+            "type_1"
+          ]
+        }
+      }
+    },
+    "type_2": {
+      "type": "component",
+      "component": "industry.type-2",
+      "repeatable": false,
+      "conditions": {
+        "visible": {
+          "==": [
+            {
+              "var": "type"
+            },
+            "type_2"
+          ]
+        }
+      }
+    },
+    "type_3": {
+      "type": "component",
+      "component": "industry.type-3",
+      "repeatable": false,
+      "conditions": {
+        "visible": {
+          "==": [
+            {
+              "var": "type"
+            },
+            "type_3"
+          ]
+        }
+      }
+    },
+    "type_4": {
+      "type": "component",
+      "component": "industry.type-4",
+      "repeatable": false,
+      "conditions": {
+        "visible": {
+          "==": [
+            {
+              "var": "type"
+            },
+            "type_4"
+          ]
+        }
+      }
+    }
+  },
+  "config": {}
+}

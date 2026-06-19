@@ -1,0 +1,21 @@
+{
+  "collectionName": "components_industry_card_grids",
+  "info": {
+    "displayName": "Industry Card Grid",
+    "icon": "grid"
+  },
+  "options": {},
+  "attributes": {
+    "title": {
+      "type": "component",
+      "component": "basic.title",
+      "repeatable": false
+    },
+    "cards": {
+      "type": "component",
+      "component": "industry.card",
+      "repeatable": true
+    }
+  },
+  "config": {}
+}

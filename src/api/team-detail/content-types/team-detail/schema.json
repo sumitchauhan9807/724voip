@@ -14,8 +14,8 @@
     "content": {
       "type": "dynamiczone",
       "components": [
-        "team-detail.hero",
-        "team-detail.awards-scroller",
+        "shared.awards-scroller",
+        "shared.customer-logos-section",
         "team-detail.image-text-section",
         "teams.testimonial-slider",
         "team-detail.icon-grid",
@@ -23,7 +23,8 @@
         "team-detail.read-more-tabber",
         "team-detail.tech-stack-grid",
         "team-detail.faq",
-        "team-detail.footer-cta"
+        "team-detail.footer-cta",
+        "hero.hero-2"
       ]
     }
   }

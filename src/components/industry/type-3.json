@@ -1,0 +1,34 @@
+{
+  "collectionName": "components_industry_type_3s",
+  "info": {
+    "displayName": "Type 3",
+    "icon": "bulletList"
+  },
+  "options": {},
+  "attributes": {
+    "image": {
+      "type": "media",
+      "multiple": false,
+      "allowedTypes": [
+        "images"
+      ]
+    },
+    "title": {
+      "type": "string"
+    },
+    "description": {
+      "type": "blocks"
+    },
+    "checklistItems": {
+      "type": "component",
+      "component": "basic.lists",
+      "repeatable": true
+    },
+    "button": {
+      "type": "component",
+      "component": "basic.button",
+      "repeatable": false
+    }
+  },
+  "config": {}
+}

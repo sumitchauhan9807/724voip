@@ -1,0 +1,16 @@
+{
+  "collectionName": "components_industry_single_testimonial_sliders",
+  "info": {
+    "displayName": "Single Testimonial Slider",
+    "icon": "quote"
+  },
+  "options": {},
+  "attributes": {
+    "testimonials": {
+      "type": "component",
+      "component": "industry.single-testimonial-slider-item",
+      "repeatable": true
+    }
+  },
+  "config": {}
+}

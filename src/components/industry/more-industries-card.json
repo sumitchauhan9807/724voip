@@ -1,0 +1,26 @@
+{
+  "collectionName": "components_industry_more_industries_cards",
+  "info": {
+    "displayName": "More Industries Card",
+    "icon": "bulletList"
+  },
+  "options": {},
+  "attributes": {
+    "title": {
+      "type": "string"
+    },
+    "image": {
+      "type": "media",
+      "multiple": false,
+      "allowedTypes": [
+        "images"
+      ]
+    },
+    "button": {
+      "type": "component",
+      "component": "basic.button",
+      "repeatable": false
+    }
+  },
+  "config": {}
+}

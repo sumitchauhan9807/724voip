@@ -12,7 +12,7 @@
     },
     "certifications": {
       "type": "relation",
-      "relation": "oneToMany",
+      "relation": "manyToMany",
       "target": "api::certification.certification"
     }
   },
