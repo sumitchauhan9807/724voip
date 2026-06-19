@@ -1,0 +1,38 @@
+{
+  "collectionName": "components_migration_comparison_tables",
+  "info": {
+    "displayName": "Migration Comparison Table"
+  },
+  "options": {},
+  "attributes": {
+    "title": {
+      "type": "component",
+      "component": "basic.title",
+      "repeatable": false
+    },
+    "columns": {
+      "type": "component",
+      "component": "migration.comparison-column",
+      "repeatable": true
+    },
+    "rows": {
+      "type": "component",
+      "component": "migration.comparison-row",
+      "repeatable": true
+    },
+    "initialVisibleRows": {
+      "type": "integer",
+      "min": 1,
+      "default": 4
+    },
+    "showMoreLabel": {
+      "type": "string",
+      "default": "See More"
+    },
+    "showLessLabel": {
+      "type": "string",
+      "default": "See Less"
+    }
+  },
+  "config": {}
+}

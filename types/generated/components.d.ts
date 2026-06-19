@@ -661,6 +661,175 @@ export interface IndustryType4 extends Struct.ComponentSchema {
   };
 }
 
+export interface MigrationCard extends Struct.ComponentSchema {
+  collectionName: 'components_migration_cards';
+  info: {
+    displayName: 'Migration Card';
+  };
+  attributes: {
+    content: Schema.Attribute.Text;
+    heading: Schema.Attribute.String;
+    image: Schema.Attribute.Media<'images'>;
+    imageAlt: Schema.Attribute.String;
+    imageUrl: Schema.Attribute.String;
+  };
+}
+
+export interface MigrationCardGrid extends Struct.ComponentSchema {
+  collectionName: 'components_migration_card_grids';
+  info: {
+    displayName: 'Migration Card Grid';
+  };
+  attributes: {
+    backgroundColor: Schema.Attribute.String &
+      Schema.Attribute.CustomField<'plugin::color-picker.color'>;
+    cards: Schema.Attribute.Component<'migration.card', true>;
+    sectionVariant: Schema.Attribute.Enumeration<['boxed', 'plain']> &
+      Schema.Attribute.DefaultTo<'plain'>;
+    title: Schema.Attribute.Component<'basic.title', false>;
+  };
+}
+
+export interface MigrationComparisonCell extends Struct.ComponentSchema {
+  collectionName: 'components_migration_comparison_cells';
+  info: {
+    displayName: 'Migration Comparison Cell';
+  };
+  attributes: {
+    text: Schema.Attribute.String;
+    value: Schema.Attribute.Enumeration<['included', 'not_included', 'text']> &
+      Schema.Attribute.Required &
+      Schema.Attribute.DefaultTo<'text'>;
+  };
+}
+
+export interface MigrationComparisonColumn extends Struct.ComponentSchema {
+  collectionName: 'components_migration_comparison_columns';
+  info: {
+    displayName: 'Migration Comparison Column';
+  };
+  attributes: {
+    highlighted: Schema.Attribute.Boolean & Schema.Attribute.DefaultTo<false>;
+    label: Schema.Attribute.String & Schema.Attribute.Required;
+  };
+}
+
+export interface MigrationComparisonRow extends Struct.ComponentSchema {
+  collectionName: 'components_migration_comparison_rows';
+  info: {
+    displayName: 'Migration Comparison Row';
+  };
+  attributes: {
+    cells: Schema.Attribute.Component<'migration.comparison-cell', true>;
+    feature: Schema.Attribute.String & Schema.Attribute.Required;
+    hidden: Schema.Attribute.Boolean & Schema.Attribute.DefaultTo<false>;
+  };
+}
+
+export interface MigrationComparisonTable extends Struct.ComponentSchema {
+  collectionName: 'components_migration_comparison_tables';
+  info: {
+    displayName: 'Migration Comparison Table';
+  };
+  attributes: {
+    columns: Schema.Attribute.Component<'migration.comparison-column', true>;
+    initialVisibleRows: Schema.Attribute.Integer &
+      Schema.Attribute.SetMinMax<
+        {
+          min: 1;
+        },
+        number
+      > &
+      Schema.Attribute.DefaultTo<4>;
+    rows: Schema.Attribute.Component<'migration.comparison-row', true>;
+    showLessLabel: Schema.Attribute.String &
+      Schema.Attribute.DefaultTo<'See Less'>;
+    showMoreLabel: Schema.Attribute.String &
+      Schema.Attribute.DefaultTo<'See More'>;
+    title: Schema.Attribute.Component<'basic.title', false>;
+  };
+}
+
+export interface MigrationFooterCta extends Struct.ComponentSchema {
+  collectionName: 'components_migration_footer_ctas';
+  info: {
+    displayName: 'Migration Footer CTA';
+  };
+  attributes: {
+    backgroundImage: Schema.Attribute.Media<'images'>;
+    backgroundImageUrl: Schema.Attribute.String;
+    bottomImage: Schema.Attribute.Media<'images'>;
+    bottomImageUrl: Schema.Attribute.String;
+    buttons: Schema.Attribute.Component<'basic.button', true>;
+    title: Schema.Attribute.Component<'basic.title', false>;
+    topImage: Schema.Attribute.Media<'images'>;
+    topImageUrl: Schema.Attribute.String;
+  };
+}
+
+export interface MigrationHero extends Struct.ComponentSchema {
+  collectionName: 'components_migration_heroes';
+  info: {
+    displayName: 'Migration Hero';
+  };
+  attributes: {
+    backgroundColor: Schema.Attribute.String &
+      Schema.Attribute.CustomField<'plugin::color-picker.color'>;
+    backgroundImage: Schema.Attribute.Media<'images'>;
+    backgroundImageUrl: Schema.Attribute.String;
+    buttons: Schema.Attribute.Component<'basic.button', true>;
+    image: Schema.Attribute.Media<'images'>;
+    imageAlt: Schema.Attribute.String;
+    imageUrl: Schema.Attribute.String;
+    title: Schema.Attribute.Component<'basic.title', false>;
+  };
+}
+
+export interface MigrationPlatformGuideLink extends Struct.ComponentSchema {
+  collectionName: 'components_migration_platform_guide_links';
+  info: {
+    displayName: 'Migration Platform Guide Link';
+  };
+  attributes: {
+    label: Schema.Attribute.String;
+    url: Schema.Attribute.String;
+  };
+}
+
+export interface MigrationPlatformGuides extends Struct.ComponentSchema {
+  collectionName: 'components_migration_platform_guides';
+  info: {
+    displayName: 'Migration Platform Guides';
+  };
+  attributes: {
+    backgroundColor: Schema.Attribute.String &
+      Schema.Attribute.CustomField<'plugin::color-picker.color'>;
+    links: Schema.Attribute.Component<'migration.platform-guide-link', true>;
+    title: Schema.Attribute.Component<'basic.title', false>;
+  };
+}
+
+export interface MigrationSupportSection extends Struct.ComponentSchema {
+  collectionName: 'components_migration_support_sections';
+  info: {
+    displayName: 'Migration Support Section';
+  };
+  attributes: {
+    backgroundColor: Schema.Attribute.String &
+      Schema.Attribute.CustomField<'plugin::color-picker.color'>;
+    buttons: Schema.Attribute.Component<'basic.button', true>;
+    image: Schema.Attribute.Media<'images'>;
+    imageAlt: Schema.Attribute.String;
+    imagePosition: Schema.Attribute.Enumeration<['left', 'right']> &
+      Schema.Attribute.DefaultTo<'right'>;
+    imageUrl: Schema.Attribute.String;
+    kicker: Schema.Attribute.String;
+    lists: Schema.Attribute.Component<'basic.lists', true>;
+    note: Schema.Attribute.String;
+    title: Schema.Attribute.Component<'basic.title', false>;
+  };
+}
+
 export interface PreFooterPreFooter extends Struct.ComponentSchema {
   collectionName: 'components_pre_footer_pre_footers';
   info: {
@@ -1352,6 +1521,17 @@ declare module '@strapi/strapi' {
       'industry.type-2': IndustryType2;
       'industry.type-3': IndustryType3;
       'industry.type-4': IndustryType4;
+      'migration.card': MigrationCard;
+      'migration.card-grid': MigrationCardGrid;
+      'migration.comparison-cell': MigrationComparisonCell;
+      'migration.comparison-column': MigrationComparisonColumn;
+      'migration.comparison-row': MigrationComparisonRow;
+      'migration.comparison-table': MigrationComparisonTable;
+      'migration.footer-cta': MigrationFooterCta;
+      'migration.hero': MigrationHero;
+      'migration.platform-guide-link': MigrationPlatformGuideLink;
+      'migration.platform-guides': MigrationPlatformGuides;
+      'migration.support-section': MigrationSupportSection;
       'pre-footer.pre-footer': PreFooterPreFooter;
       'pricing.ai-voice-agent': PricingAiVoiceAgent;
       'pricing.billing-option': PricingBillingOption;

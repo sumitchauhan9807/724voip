@@ -1,0 +1,16 @@
+{
+  "collectionName": "components_migration_platform_guide_links",
+  "info": {
+    "displayName": "Migration Platform Guide Link"
+  },
+  "options": {},
+  "attributes": {
+    "label": {
+      "type": "string"
+    },
+    "url": {
+      "type": "string"
+    }
+  },
+  "config": {}
+}

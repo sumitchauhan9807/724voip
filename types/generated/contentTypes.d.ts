@@ -657,6 +657,85 @@ export interface ApiLogoLogo extends Struct.CollectionTypeSchema {
   };
 }
 
+export interface ApiMigrationDetailMigrationDetail
+  extends Struct.CollectionTypeSchema {
+  collectionName: 'migration_details';
+  info: {
+    displayName: 'Migration Detail Pages';
+    pluralName: 'migration-details';
+    singularName: 'migration-detail';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    content: Schema.Attribute.DynamicZone<
+      [
+        'migration.hero',
+        'migration.card-grid',
+        'migration.platform-guides',
+        'migration.support-section',
+        'migration.comparison-table',
+        'common.faq',
+        'migration.footer-cta',
+      ]
+    >;
+    createdAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    locale: Schema.Attribute.String & Schema.Attribute.Private;
+    localizations: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::migration-detail.migration-detail'
+    > &
+      Schema.Attribute.Private;
+    name: Schema.Attribute.String;
+    publishedAt: Schema.Attribute.DateTime;
+    slug: Schema.Attribute.UID<'name'>;
+    updatedAt: Schema.Attribute.DateTime;
+    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+  };
+}
+
+export interface ApiMigrationMigration extends Struct.SingleTypeSchema {
+  collectionName: 'migrations';
+  info: {
+    displayName: 'Migration';
+    pluralName: 'migrations';
+    singularName: 'migration';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    content: Schema.Attribute.DynamicZone<
+      [
+        'migration.hero',
+        'migration.card-grid',
+        'migration.platform-guides',
+        'migration.support-section',
+        'migration.comparison-table',
+        'common.faq',
+        'migration.footer-cta',
+      ]
+    >;
+    createdAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    locale: Schema.Attribute.String & Schema.Attribute.Private;
+    localizations: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::migration.migration'
+    > &
+      Schema.Attribute.Private;
+    publishedAt: Schema.Attribute.DateTime;
+    updatedAt: Schema.Attribute.DateTime;
+    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+  };
+}
+
 export interface ApiPricingPricing extends Struct.SingleTypeSchema {
   collectionName: 'pricings';
   info: {
@@ -1359,6 +1438,8 @@ declare module '@strapi/strapi' {
       'api::industry-home.industry-home': ApiIndustryHomeIndustryHome;
       'api::industry.industry': ApiIndustryIndustry;
       'api::logo.logo': ApiLogoLogo;
+      'api::migration-detail.migration-detail': ApiMigrationDetailMigrationDetail;
+      'api::migration.migration': ApiMigrationMigration;
       'api::pricing.pricing': ApiPricingPricing;
       'api::product.product': ApiProductProduct;
       'api::team-detail.team-detail': ApiTeamDetailTeamDetail;

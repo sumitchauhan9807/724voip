@@ -1,0 +1,50 @@
+{
+  "collectionName": "components_migration_footer_ctas",
+  "info": {
+    "displayName": "Migration Footer CTA"
+  },
+  "options": {},
+  "attributes": {
+    "title": {
+      "type": "component",
+      "component": "basic.title",
+      "repeatable": false
+    },
+    "buttons": {
+      "type": "component",
+      "component": "basic.button",
+      "repeatable": true
+    },
+    "backgroundImage": {
+      "type": "media",
+      "multiple": false,
+      "allowedTypes": [
+        "images"
+      ]
+    },
+    "backgroundImageUrl": {
+      "type": "string"
+    },
+    "topImage": {
+      "type": "media",
+      "multiple": false,
+      "allowedTypes": [
+        "images"
+      ]
+    },
+    "topImageUrl": {
+      "type": "string"
+    },
+    "bottomImage": {
+      "type": "media",
+      "multiple": false,
+      "allowedTypes": [
+        "images"
+      ]
+    },
+    "bottomImageUrl": {
+      "type": "string"
+    }
+  },
+  "config": {}
+}

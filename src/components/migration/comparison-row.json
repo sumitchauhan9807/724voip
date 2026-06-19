@@ -1,0 +1,23 @@
+{
+  "collectionName": "components_migration_comparison_rows",
+  "info": {
+    "displayName": "Migration Comparison Row"
+  },
+  "options": {},
+  "attributes": {
+    "feature": {
+      "type": "string",
+      "required": true
+    },
+    "hidden": {
+      "type": "boolean",
+      "default": false
+    },
+    "cells": {
+      "type": "component",
+      "component": "migration.comparison-cell",
+      "repeatable": true
+    }
+  },
+  "config": {}
+}
