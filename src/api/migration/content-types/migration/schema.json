@@ -1,0 +1,27 @@
+{
+  "kind": "singleType",
+  "collectionName": "migrations",
+  "info": {
+    "singularName": "migration",
+    "pluralName": "migrations",
+    "displayName": "Migration"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "content": {
+      "type": "dynamiczone",
+      "components": [
+        "migration.hero",
+        "migration.card-grid",
+        "migration.platform-guides",
+        "migration.support-section",
+        "migration.comparison-table",
+        "common.faq",
+        "migration.footer-cta"
+      ]
+    }
+  }
+}

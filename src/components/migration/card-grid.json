@@ -1,0 +1,32 @@
+{
+  "collectionName": "components_migration_card_grids",
+  "info": {
+    "displayName": "Migration Card Grid"
+  },
+  "options": {},
+  "attributes": {
+    "title": {
+      "type": "component",
+      "component": "basic.title",
+      "repeatable": false
+    },
+    "cards": {
+      "type": "component",
+      "component": "migration.card",
+      "repeatable": true
+    },
+    "backgroundColor": {
+      "type": "customField",
+      "customField": "plugin::color-picker.color"
+    },
+    "sectionVariant": {
+      "type": "enumeration",
+      "enum": [
+        "boxed",
+        "plain"
+      ],
+      "default": "plain"
+    }
+  },
+  "config": {}
+}

@@ -68,6 +68,9 @@
       "customField": "plugin::color-picker.color",
       "default": "#FFFEF8"
     },
+    "backgroundGradient": {
+      "type": "text"
+    },
     "backgroundImage": {
       "type": "media",
       "multiple": false,
@@ -77,7 +80,7 @@
     },
     "certifications": {
       "type": "relation",
-      "relation": "oneToMany",
+      "relation": "manyToMany",
       "target": "api::certification.certification"
     }
   },

@@ -1,0 +1,30 @@
+{
+  "collectionName": "components_industry_testimonial_cards",
+  "info": {
+    "displayName": "Industry Testimonial Card",
+    "icon": "quote"
+  },
+  "options": {},
+  "attributes": {
+    "logo": {
+      "type": "media",
+      "multiple": false,
+      "allowedTypes": [
+        "images"
+      ]
+    },
+    "logoAlt": {
+      "type": "string"
+    },
+    "quote": {
+      "type": "blocks"
+    },
+    "name": {
+      "type": "string"
+    },
+    "position": {
+      "type": "string"
+    }
+  },
+  "config": {}
+}

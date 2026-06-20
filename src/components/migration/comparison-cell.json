@@ -1,0 +1,23 @@
+{
+  "collectionName": "components_migration_comparison_cells",
+  "info": {
+    "displayName": "Migration Comparison Cell"
+  },
+  "options": {},
+  "attributes": {
+    "value": {
+      "type": "enumeration",
+      "enum": [
+        "included",
+        "not_included",
+        "text"
+      ],
+      "default": "text",
+      "required": true
+    },
+    "text": {
+      "type": "string"
+    }
+  },
+  "config": {}
+}

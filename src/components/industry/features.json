@@ -1,0 +1,19 @@
+{
+  "collectionName": "components_industry_features",
+  "info": {
+    "displayName": "Industry Features",
+    "icon": "bulletList"
+  },
+  "options": {},
+  "attributes": {
+    "heading": {
+      "type": "string"
+    },
+    "cards": {
+      "type": "component",
+      "component": "industry.features-card",
+      "repeatable": true
+    }
+  },
+  "config": {}
+}

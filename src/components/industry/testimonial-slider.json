@@ -1,0 +1,25 @@
+{
+  "collectionName": "components_industry_testimonial_sliders",
+  "info": {
+    "displayName": "Industry Testimonial Slider",
+    "icon": "star"
+  },
+  "options": {},
+  "attributes": {
+    "heading": {
+      "type": "string"
+    },
+    "subHeading": {
+      "type": "text"
+    },
+    "cards": {
+      "type": "component",
+      "component": "industry.testimonial-card",
+      "repeatable": true
+    },
+    "sectionClassName": {
+      "type": "text"
+    }
+  },
+  "config": {}
+}

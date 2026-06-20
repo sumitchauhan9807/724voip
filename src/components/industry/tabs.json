@@ -1,0 +1,21 @@
+{
+  "collectionName": "components_industry_tabs",
+  "info": {
+    "displayName": "Industry Tabs",
+    "icon": "bulletList"
+  },
+  "options": {},
+  "attributes": {
+    "title": {
+      "type": "component",
+      "component": "basic.title",
+      "repeatable": false
+    },
+    "tabs": {
+      "type": "component",
+      "component": "industry.tab",
+      "repeatable": true
+    }
+  },
+  "config": {}
+}

@@ -1,0 +1,29 @@
+{
+  "collectionName": "components_industry_logo_clouds",
+  "info": {
+    "displayName": "Industry Logo Cloud",
+    "icon": "cloud"
+  },
+  "options": {},
+  "attributes": {
+    "title": {
+      "type": "component",
+      "component": "basic.title",
+      "repeatable": false
+    },
+    "logos": {
+      "type": "component",
+      "component": "industry.logo-item",
+      "repeatable": true
+    },
+    "button": {
+      "type": "component",
+      "component": "basic.button",
+      "repeatable": false
+    },
+    "sectionClassName": {
+      "type": "text"
+    }
+  },
+  "config": {}
+}

@@ -1,0 +1,29 @@
+{
+  "collectionName": "components_industry_type_1s",
+  "info": {
+    "displayName": "Type 1",
+    "icon": "bulletList"
+  },
+  "options": {},
+  "attributes": {
+    "image": {
+      "type": "media",
+      "multiple": false,
+      "allowedTypes": [
+        "images"
+      ]
+    },
+    "smallTitle": {
+      "type": "string"
+    },
+    "title": {
+      "type": "string"
+    },
+    "sections": {
+      "type": "component",
+      "component": "industry.type-1-section",
+      "repeatable": true
+    }
+  },
+  "config": {}
+}

@@ -1,0 +1,24 @@
+{
+  "collectionName": "components_migration_platform_guides",
+  "info": {
+    "displayName": "Migration Platform Guides"
+  },
+  "options": {},
+  "attributes": {
+    "title": {
+      "type": "component",
+      "component": "basic.title",
+      "repeatable": false
+    },
+    "links": {
+      "type": "component",
+      "component": "migration.platform-guide-link",
+      "repeatable": true
+    },
+    "backgroundColor": {
+      "type": "customField",
+      "customField": "plugin::color-picker.color"
+    }
+  },
+  "config": {}
+}

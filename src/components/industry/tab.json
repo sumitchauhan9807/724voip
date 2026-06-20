@@ -1,0 +1,35 @@
+{
+  "collectionName": "components_industry_tabs_items",
+  "info": {
+    "displayName": "Industry Tab Item",
+    "icon": "bulletList"
+  },
+  "options": {},
+  "attributes": {
+    "tabTitle": {
+      "type": "string",
+      "required": true
+    },
+    "image": {
+      "type": "media",
+      "multiple": false,
+      "allowedTypes": [
+        "images"
+      ]
+    },
+    "imageAlt": {
+      "type": "string"
+    },
+    "buttons": {
+      "type": "component",
+      "component": "basic.button",
+      "repeatable": true
+    },
+    "lists": {
+      "type": "component",
+      "component": "basic.lists",
+      "repeatable": true
+    }
+  },
+  "config": {}
+}

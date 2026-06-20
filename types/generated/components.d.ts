@@ -111,8 +111,21 @@ export interface CommonFaq extends Struct.ComponentSchema {
     displayName: 'FAQ';
   };
   attributes: {
-    design: Schema.Attribute.Enumeration<['design_type_1', 'design_type_2']>;
+    columnCount: Schema.Attribute.Integer &
+      Schema.Attribute.SetMinMax<
+        {
+          max: 3;
+          min: 1;
+        },
+        number
+      > &
+      Schema.Attribute.DefaultTo<2>;
+    design: Schema.Attribute.Enumeration<
+      ['design_type_1', 'design_type_2', 'design_type_3', 'design_type_4']
+    >;
     heading: Schema.Attribute.String;
+    image: Schema.Attribute.Media<'images'>;
+    imageAlt: Schema.Attribute.String;
     items: Schema.Attribute.Component<'basic.heading-with-content', true>;
   };
 }
@@ -211,7 +224,7 @@ export interface HeroHero1 extends Struct.ComponentSchema {
   };
   attributes: {
     certifications: Schema.Attribute.Relation<
-      'oneToMany',
+      'manyToMany',
       'api::certification.certification'
     >;
     title: Schema.Attribute.Component<'basic.title', false>;
@@ -227,10 +240,11 @@ export interface HeroHero2 extends Struct.ComponentSchema {
     backgroundColor: Schema.Attribute.String &
       Schema.Attribute.CustomField<'plugin::color-picker.color'> &
       Schema.Attribute.DefaultTo<'#FFFEF8'>;
+    backgroundGradient: Schema.Attribute.Text;
     backgroundImage: Schema.Attribute.Media<'images'>;
     buttons: Schema.Attribute.Component<'basic.button', true>;
     certifications: Schema.Attribute.Relation<
-      'oneToMany',
+      'manyToMany',
       'api::certification.certification'
     >;
     image: Schema.Attribute.Media<'images' | 'files' | 'videos' | 'audios'>;
@@ -288,6 +302,530 @@ export interface HeroSearchIntegration extends Struct.ComponentSchema {
       Schema.Attribute.DefaultTo<'search-integrations'>;
     searchPlaceholder: Schema.Attribute.String &
       Schema.Attribute.DefaultTo<'Search integrations...'>;
+    title: Schema.Attribute.Component<'basic.title', false>;
+  };
+}
+
+export interface IndustryCard extends Struct.ComponentSchema {
+  collectionName: 'components_industry_cards';
+  info: {
+    displayName: 'Industry Card';
+    icon: 'bulletList';
+  };
+  attributes: {
+    description: Schema.Attribute.Text;
+    image: Schema.Attribute.Media<'images'>;
+    title: Schema.Attribute.String;
+  };
+}
+
+export interface IndustryCardGrid extends Struct.ComponentSchema {
+  collectionName: 'components_industry_card_grids';
+  info: {
+    displayName: 'Industry Card Grid';
+    icon: 'grid';
+  };
+  attributes: {
+    cards: Schema.Attribute.Component<'industry.card', true>;
+    title: Schema.Attribute.Component<'basic.title', false>;
+  };
+}
+
+export interface IndustryFeatures extends Struct.ComponentSchema {
+  collectionName: 'components_industry_features';
+  info: {
+    displayName: 'Industry Features';
+    icon: 'bulletList';
+  };
+  attributes: {
+    cards: Schema.Attribute.Component<'industry.features-card', true>;
+    heading: Schema.Attribute.String;
+  };
+}
+
+export interface IndustryFeaturesCard extends Struct.ComponentSchema {
+  collectionName: 'components_industry_features_cards';
+  info: {
+    displayName: 'Features Card';
+    icon: 'bulletList';
+  };
+  attributes: {
+    button: Schema.Attribute.Component<'basic.button', false>;
+    description: Schema.Attribute.Text;
+    icon: Schema.Attribute.Media<'images'>;
+    title: Schema.Attribute.String;
+  };
+}
+
+export interface IndustryImageTextSection extends Struct.ComponentSchema {
+  collectionName: 'components_industry_image_text_sections';
+  info: {
+    displayName: 'Industry Image Text Section';
+    icon: 'dashboard';
+  };
+  attributes: {
+    type: Schema.Attribute.Enumeration<
+      ['type_1', 'type_2', 'type_3', 'type_4']
+    > &
+      Schema.Attribute.DefaultTo<'type_1'>;
+    type_1: Schema.Attribute.Component<'industry.type-1', false>;
+    type_2: Schema.Attribute.Component<'industry.type-2', false>;
+    type_3: Schema.Attribute.Component<'industry.type-3', false>;
+    type_4: Schema.Attribute.Component<'industry.type-4', false>;
+  };
+}
+
+export interface IndustryLogoCloud extends Struct.ComponentSchema {
+  collectionName: 'components_industry_logo_clouds';
+  info: {
+    displayName: 'Industry Logo Cloud';
+    icon: 'cloud';
+  };
+  attributes: {
+    button: Schema.Attribute.Component<'basic.button', false>;
+    logos: Schema.Attribute.Component<'industry.logo-item', true>;
+    sectionClassName: Schema.Attribute.Text;
+    title: Schema.Attribute.Component<'basic.title', false>;
+  };
+}
+
+export interface IndustryLogoItem extends Struct.ComponentSchema {
+  collectionName: 'components_industry_logo_items';
+  info: {
+    displayName: 'Industry Logo Item';
+    icon: 'picture';
+  };
+  attributes: {
+    alt: Schema.Attribute.String;
+    image: Schema.Attribute.Media<'images'>;
+    url: Schema.Attribute.String;
+  };
+}
+
+export interface IndustryMoreIndustries extends Struct.ComponentSchema {
+  collectionName: 'components_industry_more_industries';
+  info: {
+    displayName: 'Industry More Industries';
+    icon: 'bulletList';
+  };
+  attributes: {
+    cards: Schema.Attribute.Component<'industry.more-industries-card', true>;
+    heading: Schema.Attribute.String;
+  };
+}
+
+export interface IndustryMoreIndustriesCard extends Struct.ComponentSchema {
+  collectionName: 'components_industry_more_industries_cards';
+  info: {
+    displayName: 'More Industries Card';
+    icon: 'bulletList';
+  };
+  attributes: {
+    button: Schema.Attribute.Component<'basic.button', false>;
+    image: Schema.Attribute.Media<'images'>;
+    title: Schema.Attribute.String;
+  };
+}
+
+export interface IndustryRevenueCalculator extends Struct.ComponentSchema {
+  collectionName: 'components_industry_revenue_calculators';
+  info: {
+    displayName: 'Industry Revenue Calculator';
+    icon: 'chartBubble';
+  };
+  attributes: {
+    annualBusinessDays: Schema.Attribute.Integer &
+      Schema.Attribute.DefaultTo<240>;
+    annualLeadValue: Schema.Attribute.Decimal & Schema.Attribute.DefaultTo<785>;
+    assumptions: Schema.Attribute.Component<'basic.lists', true>;
+    assumptionsHeading: Schema.Attribute.String &
+      Schema.Attribute.DefaultTo<'Our Assumptions'>;
+    callsDefault: Schema.Attribute.Integer & Schema.Attribute.DefaultTo<10>;
+    callsLabel: Schema.Attribute.String &
+      Schema.Attribute.DefaultTo<'How many inbound calls does each location receive per day?'>;
+    callsMax: Schema.Attribute.Integer & Schema.Attribute.DefaultTo<500>;
+    callsMin: Schema.Attribute.Integer & Schema.Attribute.DefaultTo<0>;
+    locationsDefault: Schema.Attribute.Integer & Schema.Attribute.DefaultTo<10>;
+    locationsLabel: Schema.Attribute.String &
+      Schema.Attribute.DefaultTo<'How many locations does your business have?'>;
+    locationsMax: Schema.Attribute.Integer & Schema.Attribute.DefaultTo<250>;
+    locationsMin: Schema.Attribute.Integer & Schema.Attribute.DefaultTo<1>;
+    missedCallRate: Schema.Attribute.Decimal & Schema.Attribute.DefaultTo<0.3>;
+    newLeadRate: Schema.Attribute.Decimal & Schema.Attribute.DefaultTo<0.5>;
+    noShowRevenueValue: Schema.Attribute.Decimal &
+      Schema.Attribute.DefaultTo<167>;
+    noShowsDefault: Schema.Attribute.Integer & Schema.Attribute.DefaultTo<1>;
+    noShowsLabel: Schema.Attribute.String &
+      Schema.Attribute.DefaultTo<'How many no-shows do you get per location each day?'>;
+    noShowsMax: Schema.Attribute.Integer & Schema.Attribute.DefaultTo<100>;
+    noShowsMin: Schema.Attribute.Integer & Schema.Attribute.DefaultTo<0>;
+    resultLabel: Schema.Attribute.String &
+      Schema.Attribute.DefaultTo<'Annual Missed Revenue'>;
+    title: Schema.Attribute.Component<'basic.title', false>;
+  };
+}
+
+export interface IndustrySingleTestimonial extends Struct.ComponentSchema {
+  collectionName: 'components_industry_single_testimonials';
+  info: {
+    displayName: 'Industry Single Testimonial';
+    icon: 'quote';
+  };
+  attributes: {
+    backgroundImage: Schema.Attribute.Media<'images'>;
+    logo: Schema.Attribute.Media<'images'>;
+    name: Schema.Attribute.String;
+    quote: Schema.Attribute.Blocks;
+    title: Schema.Attribute.String;
+  };
+}
+
+export interface IndustrySingleTestimonialSlider
+  extends Struct.ComponentSchema {
+  collectionName: 'components_industry_single_testimonial_sliders';
+  info: {
+    displayName: 'Single Testimonial Slider';
+    icon: 'quote';
+  };
+  attributes: {
+    testimonials: Schema.Attribute.Component<
+      'industry.single-testimonial-slider-item',
+      true
+    >;
+  };
+}
+
+export interface IndustrySingleTestimonialSliderItem
+  extends Struct.ComponentSchema {
+  collectionName: 'components_industry_single_testimonial_slider_items';
+  info: {
+    displayName: 'Single Testimonial Slider Item';
+    icon: 'quote';
+  };
+  attributes: {
+    name: Schema.Attribute.String;
+    quote: Schema.Attribute.Blocks;
+    title: Schema.Attribute.String;
+  };
+}
+
+export interface IndustryTab extends Struct.ComponentSchema {
+  collectionName: 'components_industry_tabs_items';
+  info: {
+    displayName: 'Industry Tab Item';
+    icon: 'bulletList';
+  };
+  attributes: {
+    buttons: Schema.Attribute.Component<'basic.button', true>;
+    image: Schema.Attribute.Media<'images'>;
+    imageAlt: Schema.Attribute.String;
+    lists: Schema.Attribute.Component<'basic.lists', true>;
+    tabTitle: Schema.Attribute.String & Schema.Attribute.Required;
+  };
+}
+
+export interface IndustryTabs extends Struct.ComponentSchema {
+  collectionName: 'components_industry_tabs';
+  info: {
+    displayName: 'Industry Tabs';
+    icon: 'bulletList';
+  };
+  attributes: {
+    tabs: Schema.Attribute.Component<'industry.tab', true>;
+    title: Schema.Attribute.Component<'basic.title', false>;
+  };
+}
+
+export interface IndustryTestimonialCard extends Struct.ComponentSchema {
+  collectionName: 'components_industry_testimonial_cards';
+  info: {
+    displayName: 'Industry Testimonial Card';
+    icon: 'quote';
+  };
+  attributes: {
+    logo: Schema.Attribute.Media<'images'>;
+    logoAlt: Schema.Attribute.String;
+    name: Schema.Attribute.String;
+    position: Schema.Attribute.String;
+    quote: Schema.Attribute.Blocks;
+  };
+}
+
+export interface IndustryTestimonialSlider extends Struct.ComponentSchema {
+  collectionName: 'components_industry_testimonial_sliders';
+  info: {
+    displayName: 'Industry Testimonial Slider';
+    icon: 'star';
+  };
+  attributes: {
+    cards: Schema.Attribute.Component<'industry.testimonial-card', true>;
+    heading: Schema.Attribute.String;
+    sectionClassName: Schema.Attribute.Text;
+    subHeading: Schema.Attribute.Text;
+  };
+}
+
+export interface IndustryTrust extends Struct.ComponentSchema {
+  collectionName: 'components_industry_trusts';
+  info: {
+    displayName: 'Industry Trust';
+    icon: 'bulletList';
+  };
+  attributes: {
+    cards: Schema.Attribute.Component<'industry.trust-card', true>;
+    heading: Schema.Attribute.String;
+  };
+}
+
+export interface IndustryTrustCard extends Struct.ComponentSchema {
+  collectionName: 'components_industry_trust_cards';
+  info: {
+    displayName: 'Trust Card';
+    icon: 'bulletList';
+  };
+  attributes: {
+    description: Schema.Attribute.Text;
+    icon: Schema.Attribute.Media<'images'>;
+    title: Schema.Attribute.String;
+  };
+}
+
+export interface IndustryType1 extends Struct.ComponentSchema {
+  collectionName: 'components_industry_type_1s';
+  info: {
+    displayName: 'Type 1';
+    icon: 'bulletList';
+  };
+  attributes: {
+    image: Schema.Attribute.Media<'images'>;
+    sections: Schema.Attribute.Component<'industry.type-1-section', true>;
+    smallTitle: Schema.Attribute.String;
+    title: Schema.Attribute.String;
+  };
+}
+
+export interface IndustryType1Section extends Struct.ComponentSchema {
+  collectionName: 'components_industry_type_1_sections';
+  info: {
+    displayName: 'Type 1 Section';
+    icon: 'bulletList';
+  };
+  attributes: {
+    checklistItems: Schema.Attribute.Component<'basic.lists', true>;
+    title: Schema.Attribute.String;
+  };
+}
+
+export interface IndustryType2 extends Struct.ComponentSchema {
+  collectionName: 'components_industry_type_2s';
+  info: {
+    displayName: 'Type 2';
+    icon: 'bulletList';
+  };
+  attributes: {
+    checklistItems: Schema.Attribute.Component<'basic.lists', true>;
+    description: Schema.Attribute.Blocks;
+    image: Schema.Attribute.Media<'images'>;
+    imagePosition: Schema.Attribute.Enumeration<['left', 'right']> &
+      Schema.Attribute.DefaultTo<'right'>;
+    title: Schema.Attribute.String;
+  };
+}
+
+export interface IndustryType3 extends Struct.ComponentSchema {
+  collectionName: 'components_industry_type_3s';
+  info: {
+    displayName: 'Type 3';
+    icon: 'bulletList';
+  };
+  attributes: {
+    button: Schema.Attribute.Component<'basic.button', false>;
+    checklistItems: Schema.Attribute.Component<'basic.lists', true>;
+    description: Schema.Attribute.Blocks;
+    image: Schema.Attribute.Media<'images'>;
+    title: Schema.Attribute.String;
+  };
+}
+
+export interface IndustryType4 extends Struct.ComponentSchema {
+  collectionName: 'components_industry_type_4s';
+  info: {
+    displayName: 'Type 4';
+    icon: 'bulletList';
+  };
+  attributes: {
+    image: Schema.Attribute.Media<'images'>;
+    sections: Schema.Attribute.Component<'industry.type-1-section', true>;
+    smallTitle: Schema.Attribute.String;
+    title: Schema.Attribute.String;
+  };
+}
+
+export interface MigrationCard extends Struct.ComponentSchema {
+  collectionName: 'components_migration_cards';
+  info: {
+    displayName: 'Migration Card';
+  };
+  attributes: {
+    content: Schema.Attribute.Text;
+    heading: Schema.Attribute.String;
+    image: Schema.Attribute.Media<'images'>;
+    imageAlt: Schema.Attribute.String;
+    imageUrl: Schema.Attribute.String;
+  };
+}
+
+export interface MigrationCardGrid extends Struct.ComponentSchema {
+  collectionName: 'components_migration_card_grids';
+  info: {
+    displayName: 'Migration Card Grid';
+  };
+  attributes: {
+    backgroundColor: Schema.Attribute.String &
+      Schema.Attribute.CustomField<'plugin::color-picker.color'>;
+    cards: Schema.Attribute.Component<'migration.card', true>;
+    sectionVariant: Schema.Attribute.Enumeration<['boxed', 'plain']> &
+      Schema.Attribute.DefaultTo<'plain'>;
+    title: Schema.Attribute.Component<'basic.title', false>;
+  };
+}
+
+export interface MigrationComparisonCell extends Struct.ComponentSchema {
+  collectionName: 'components_migration_comparison_cells';
+  info: {
+    displayName: 'Migration Comparison Cell';
+  };
+  attributes: {
+    text: Schema.Attribute.String;
+    value: Schema.Attribute.Enumeration<['included', 'not_included', 'text']> &
+      Schema.Attribute.Required &
+      Schema.Attribute.DefaultTo<'text'>;
+  };
+}
+
+export interface MigrationComparisonColumn extends Struct.ComponentSchema {
+  collectionName: 'components_migration_comparison_columns';
+  info: {
+    displayName: 'Migration Comparison Column';
+  };
+  attributes: {
+    highlighted: Schema.Attribute.Boolean & Schema.Attribute.DefaultTo<false>;
+    label: Schema.Attribute.String & Schema.Attribute.Required;
+  };
+}
+
+export interface MigrationComparisonRow extends Struct.ComponentSchema {
+  collectionName: 'components_migration_comparison_rows';
+  info: {
+    displayName: 'Migration Comparison Row';
+  };
+  attributes: {
+    cells: Schema.Attribute.Component<'migration.comparison-cell', true>;
+    feature: Schema.Attribute.String & Schema.Attribute.Required;
+    hidden: Schema.Attribute.Boolean & Schema.Attribute.DefaultTo<false>;
+  };
+}
+
+export interface MigrationComparisonTable extends Struct.ComponentSchema {
+  collectionName: 'components_migration_comparison_tables';
+  info: {
+    displayName: 'Migration Comparison Table';
+  };
+  attributes: {
+    columns: Schema.Attribute.Component<'migration.comparison-column', true>;
+    initialVisibleRows: Schema.Attribute.Integer &
+      Schema.Attribute.SetMinMax<
+        {
+          min: 1;
+        },
+        number
+      > &
+      Schema.Attribute.DefaultTo<4>;
+    rows: Schema.Attribute.Component<'migration.comparison-row', true>;
+    showLessLabel: Schema.Attribute.String &
+      Schema.Attribute.DefaultTo<'See Less'>;
+    showMoreLabel: Schema.Attribute.String &
+      Schema.Attribute.DefaultTo<'See More'>;
+    title: Schema.Attribute.Component<'basic.title', false>;
+  };
+}
+
+export interface MigrationFooterCta extends Struct.ComponentSchema {
+  collectionName: 'components_migration_footer_ctas';
+  info: {
+    displayName: 'Migration Footer CTA';
+  };
+  attributes: {
+    backgroundImage: Schema.Attribute.Media<'images'>;
+    backgroundImageUrl: Schema.Attribute.String;
+    bottomImage: Schema.Attribute.Media<'images'>;
+    bottomImageUrl: Schema.Attribute.String;
+    buttons: Schema.Attribute.Component<'basic.button', true>;
+    title: Schema.Attribute.Component<'basic.title', false>;
+    topImage: Schema.Attribute.Media<'images'>;
+    topImageUrl: Schema.Attribute.String;
+  };
+}
+
+export interface MigrationHero extends Struct.ComponentSchema {
+  collectionName: 'components_migration_heroes';
+  info: {
+    displayName: 'Migration Hero';
+  };
+  attributes: {
+    backgroundColor: Schema.Attribute.String &
+      Schema.Attribute.CustomField<'plugin::color-picker.color'>;
+    backgroundImage: Schema.Attribute.Media<'images'>;
+    backgroundImageUrl: Schema.Attribute.String;
+    buttons: Schema.Attribute.Component<'basic.button', true>;
+    image: Schema.Attribute.Media<'images'>;
+    imageAlt: Schema.Attribute.String;
+    imageUrl: Schema.Attribute.String;
+    title: Schema.Attribute.Component<'basic.title', false>;
+  };
+}
+
+export interface MigrationPlatformGuideLink extends Struct.ComponentSchema {
+  collectionName: 'components_migration_platform_guide_links';
+  info: {
+    displayName: 'Migration Platform Guide Link';
+  };
+  attributes: {
+    label: Schema.Attribute.String;
+    url: Schema.Attribute.String;
+  };
+}
+
+export interface MigrationPlatformGuides extends Struct.ComponentSchema {
+  collectionName: 'components_migration_platform_guides';
+  info: {
+    displayName: 'Migration Platform Guides';
+  };
+  attributes: {
+    backgroundColor: Schema.Attribute.String &
+      Schema.Attribute.CustomField<'plugin::color-picker.color'>;
+    links: Schema.Attribute.Component<'migration.platform-guide-link', true>;
+    title: Schema.Attribute.Component<'basic.title', false>;
+  };
+}
+
+export interface MigrationSupportSection extends Struct.ComponentSchema {
+  collectionName: 'components_migration_support_sections';
+  info: {
+    displayName: 'Migration Support Section';
+  };
+  attributes: {
+    backgroundColor: Schema.Attribute.String &
+      Schema.Attribute.CustomField<'plugin::color-picker.color'>;
+    buttons: Schema.Attribute.Component<'basic.button', true>;
+    image: Schema.Attribute.Media<'images'>;
+    imageAlt: Schema.Attribute.String;
+    imagePosition: Schema.Attribute.Enumeration<['left', 'right']> &
+      Schema.Attribute.DefaultTo<'right'>;
+    imageUrl: Schema.Attribute.String;
+    kicker: Schema.Attribute.String;
+    lists: Schema.Attribute.Component<'basic.lists', true>;
+    note: Schema.Attribute.String;
     title: Schema.Attribute.Component<'basic.title', false>;
   };
 }
@@ -583,7 +1121,7 @@ export interface RelationalCertifications extends Struct.ComponentSchema {
   };
   attributes: {
     certifications: Schema.Attribute.Relation<
-      'oneToMany',
+      'manyToMany',
       'api::certification.certification'
     >;
     title: Schema.Attribute.Component<'basic.title', false>;
@@ -617,15 +1155,45 @@ export interface RelationalTestimonials extends Struct.ComponentSchema {
   };
 }
 
-export interface TeamDetailAwardsScroller extends Struct.ComponentSchema {
-  collectionName: 'components_team_detail_awards_scrollers';
+export interface SharedAwardsScroller extends Struct.ComponentSchema {
+  collectionName: 'components_shared_awards_scrollers';
   info: {
-    displayName: 'Team Detail Awards Scroller';
+    displayName: 'Awards Scroller';
     icon: 'star';
   };
   attributes: {
+    direction: Schema.Attribute.Enumeration<['left', 'right']> &
+      Schema.Attribute.DefaultTo<'right'>;
     heading: Schema.Attribute.String;
     logos: Schema.Attribute.Media<'images', true>;
+    speed: Schema.Attribute.Enumeration<['slow', 'medium', 'fast']> &
+      Schema.Attribute.DefaultTo<'medium'>;
+  };
+}
+
+export interface SharedCustomerLogosSection extends Struct.ComponentSchema {
+  collectionName: 'components_shared_customer_logos_sections';
+  info: {
+    displayName: 'Customer Logos Section';
+    icon: 'apps';
+  };
+  attributes: {
+    heading: Schema.Attribute.String;
+    logos: Schema.Attribute.Component<'shared.logo-item', true>;
+    secondRowLogos: Schema.Attribute.Component<'shared.logo-item', true>;
+  };
+}
+
+export interface SharedLogoItem extends Struct.ComponentSchema {
+  collectionName: 'components_shared_logo_items';
+  info: {
+    displayName: 'Logo Item';
+    icon: 'picture';
+  };
+  attributes: {
+    alt: Schema.Attribute.String;
+    image: Schema.Attribute.Media<'images'>;
+    url: Schema.Attribute.String;
   };
 }
 
@@ -653,32 +1221,6 @@ export interface TeamDetailFooterCta extends Struct.ComponentSchema {
     buttons: Schema.Attribute.Component<'basic.button', true>;
     leftImage: Schema.Attribute.Media<'images'>;
     rightImage: Schema.Attribute.Media<'images'>;
-    title: Schema.Attribute.Component<'basic.title', false>;
-  };
-}
-
-export interface TeamDetailHero extends Struct.ComponentSchema {
-  collectionName: 'components_team_detail_heroes';
-  info: {
-    displayName: 'Team Detail Hero';
-    icon: 'layout';
-  };
-  attributes: {
-    backgroundColor: Schema.Attribute.String &
-      Schema.Attribute.CustomField<'plugin::color-picker.color'>;
-    backgroundGradient: Schema.Attribute.Text;
-    backgroundImage: Schema.Attribute.Media<'images'>;
-    emailPlaceholder: Schema.Attribute.String &
-      Schema.Attribute.DefaultTo<'Work email address'>;
-    formId: Schema.Attribute.String &
-      Schema.Attribute.DefaultTo<'87fc484f-fb10-45d6-916e-675f9827f112'>;
-    image: Schema.Attribute.Media<'images'>;
-    portalId: Schema.Attribute.String & Schema.Attribute.DefaultTo<'8972517'>;
-    region: Schema.Attribute.String & Schema.Attribute.DefaultTo<'na1'>;
-    submitText: Schema.Attribute.String &
-      Schema.Attribute.DefaultTo<'Start Free Trial'>;
-    textColor: Schema.Attribute.Enumeration<['black', 'white']> &
-      Schema.Attribute.DefaultTo<'black'>;
     title: Schema.Attribute.Component<'basic.title', false>;
   };
 }
@@ -799,17 +1341,6 @@ export interface TeamDetailTechStackLogo extends Struct.ComponentSchema {
     alt: Schema.Attribute.String;
     image: Schema.Attribute.Media<'images'>;
     url: Schema.Attribute.String;
-  };
-}
-
-export interface TeamsAwardsScroller extends Struct.ComponentSchema {
-  collectionName: 'components_teams_awards_scrollers';
-  info: {
-    displayName: 'Teams Awards Scroller';
-    icon: 'star';
-  };
-  attributes: {
-    logos: Schema.Attribute.Media<'images', true>;
   };
 }
 
@@ -966,6 +1497,41 @@ declare module '@strapi/strapi' {
       'hero.hero-2': HeroHero2;
       'hero.hero-3': HeroHero3;
       'hero.search-integration': HeroSearchIntegration;
+      'industry.card': IndustryCard;
+      'industry.card-grid': IndustryCardGrid;
+      'industry.features': IndustryFeatures;
+      'industry.features-card': IndustryFeaturesCard;
+      'industry.image-text-section': IndustryImageTextSection;
+      'industry.logo-cloud': IndustryLogoCloud;
+      'industry.logo-item': IndustryLogoItem;
+      'industry.more-industries': IndustryMoreIndustries;
+      'industry.more-industries-card': IndustryMoreIndustriesCard;
+      'industry.revenue-calculator': IndustryRevenueCalculator;
+      'industry.single-testimonial': IndustrySingleTestimonial;
+      'industry.single-testimonial-slider': IndustrySingleTestimonialSlider;
+      'industry.single-testimonial-slider-item': IndustrySingleTestimonialSliderItem;
+      'industry.tab': IndustryTab;
+      'industry.tabs': IndustryTabs;
+      'industry.testimonial-card': IndustryTestimonialCard;
+      'industry.testimonial-slider': IndustryTestimonialSlider;
+      'industry.trust': IndustryTrust;
+      'industry.trust-card': IndustryTrustCard;
+      'industry.type-1': IndustryType1;
+      'industry.type-1-section': IndustryType1Section;
+      'industry.type-2': IndustryType2;
+      'industry.type-3': IndustryType3;
+      'industry.type-4': IndustryType4;
+      'migration.card': MigrationCard;
+      'migration.card-grid': MigrationCardGrid;
+      'migration.comparison-cell': MigrationComparisonCell;
+      'migration.comparison-column': MigrationComparisonColumn;
+      'migration.comparison-row': MigrationComparisonRow;
+      'migration.comparison-table': MigrationComparisonTable;
+      'migration.footer-cta': MigrationFooterCta;
+      'migration.hero': MigrationHero;
+      'migration.platform-guide-link': MigrationPlatformGuideLink;
+      'migration.platform-guides': MigrationPlatformGuides;
+      'migration.support-section': MigrationSupportSection;
       'pre-footer.pre-footer': PreFooterPreFooter;
       'pricing.ai-voice-agent': PricingAiVoiceAgent;
       'pricing.billing-option': PricingBillingOption;
@@ -989,10 +1555,11 @@ declare module '@strapi/strapi' {
       'relational.certifications': RelationalCertifications;
       'relational.logo-grid': RelationalLogoGrid;
       'relational.testimonials': RelationalTestimonials;
-      'team-detail.awards-scroller': TeamDetailAwardsScroller;
+      'shared.awards-scroller': SharedAwardsScroller;
+      'shared.customer-logos-section': SharedCustomerLogosSection;
+      'shared.logo-item': SharedLogoItem;
       'team-detail.faq': TeamDetailFaq;
       'team-detail.footer-cta': TeamDetailFooterCta;
-      'team-detail.hero': TeamDetailHero;
       'team-detail.icon-card': TeamDetailIconCard;
       'team-detail.icon-grid': TeamDetailIconGrid;
       'team-detail.image-text-section': TeamDetailImageTextSection;
@@ -1002,7 +1569,6 @@ declare module '@strapi/strapi' {
       'team-detail.read-more-tabber': TeamDetailReadMoreTabber;
       'team-detail.tech-stack-grid': TeamDetailTechStackGrid;
       'team-detail.tech-stack-logo': TeamDetailTechStackLogo;
-      'teams.awards-scroller': TeamsAwardsScroller;
       'teams.hero': TeamsHero;
       'teams.solution-card': TeamsSolutionCard;
       'teams.solution-grid': TeamsSolutionGrid;

@@ -1,0 +1,38 @@
+{
+  "collectionName": "components_shared_awards_scrollers",
+  "info": {
+    "displayName": "Awards Scroller",
+    "icon": "star"
+  },
+  "options": {},
+  "attributes": {
+    "heading": {
+      "type": "string"
+    },
+    "direction": {
+      "type": "enumeration",
+      "enum": [
+        "left",
+        "right"
+      ],
+      "default": "right"
+    },
+    "speed": {
+      "type": "enumeration",
+      "enum": [
+        "slow",
+        "medium",
+        "fast"
+      ],
+      "default": "medium"
+    },
+    "logos": {
+      "type": "media",
+      "multiple": true,
+      "allowedTypes": [
+        "images"
+      ]
+    }
+  },
+  "config": {}
+}

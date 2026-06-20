@@ -541,6 +541,97 @@ export interface ApiHomeHome extends Struct.SingleTypeSchema {
   };
 }
 
+export interface ApiIndustryHomeIndustryHome extends Struct.SingleTypeSchema {
+  collectionName: 'industry_homes';
+  info: {
+    displayName: 'Industry Overview';
+    pluralName: 'industry-homes';
+    singularName: 'industry-home';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    content: Schema.Attribute.DynamicZone<
+      [
+        'teams.hero',
+        'shared.awards-scroller',
+        'shared.customer-logos-section',
+        'teams.solution-grid',
+        'teams.testimonial-slider',
+        'pricing.cta-banner',
+      ]
+    >;
+    createdAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    locale: Schema.Attribute.String & Schema.Attribute.Private;
+    localizations: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::industry-home.industry-home'
+    > &
+      Schema.Attribute.Private;
+    publishedAt: Schema.Attribute.DateTime;
+    updatedAt: Schema.Attribute.DateTime;
+    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+  };
+}
+
+export interface ApiIndustryIndustry extends Struct.CollectionTypeSchema {
+  collectionName: 'industries';
+  info: {
+    displayName: 'Industry Pages';
+    pluralName: 'industries';
+    singularName: 'industry';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    content: Schema.Attribute.DynamicZone<
+      [
+        'shared.awards-scroller',
+        'shared.customer-logos-section',
+        'industry.card-grid',
+        'industry.image-text-section',
+        'industry.testimonial-slider',
+        'industry.single-testimonial',
+        'industry.single-testimonial-slider',
+        'industry.logo-cloud',
+        'industry.revenue-calculator',
+        'industry.tabs',
+        'industry.more-industries',
+        'industry.features',
+        'industry.trust',
+        'team-detail.integration-logo-cloud',
+        'team-detail.tech-stack-grid',
+        'team-detail.image-text-section',
+        'teams.testimonial-slider',
+        'common.faq',
+        'pricing.cta-banner',
+        'hero.hero-2',
+        'relational.certifications',
+      ]
+    >;
+    createdAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    locale: Schema.Attribute.String & Schema.Attribute.Private;
+    localizations: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::industry.industry'
+    > &
+      Schema.Attribute.Private;
+    publishedAt: Schema.Attribute.DateTime;
+    slug: Schema.Attribute.UID<'title'> & Schema.Attribute.Required;
+    title: Schema.Attribute.String & Schema.Attribute.Required;
+    updatedAt: Schema.Attribute.DateTime;
+    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+  };
+}
+
 export interface ApiLogoLogo extends Struct.CollectionTypeSchema {
   collectionName: 'logos';
   info: {
@@ -559,6 +650,85 @@ export interface ApiLogoLogo extends Struct.CollectionTypeSchema {
     localizations: Schema.Attribute.Relation<'oneToMany', 'api::logo.logo'> &
       Schema.Attribute.Private;
     logo: Schema.Attribute.Media<'images' | 'files' | 'videos' | 'audios'>;
+    publishedAt: Schema.Attribute.DateTime;
+    updatedAt: Schema.Attribute.DateTime;
+    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+  };
+}
+
+export interface ApiMigrationDetailMigrationDetail
+  extends Struct.CollectionTypeSchema {
+  collectionName: 'migration_details';
+  info: {
+    displayName: 'Migration Detail Pages';
+    pluralName: 'migration-details';
+    singularName: 'migration-detail';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    content: Schema.Attribute.DynamicZone<
+      [
+        'migration.hero',
+        'migration.card-grid',
+        'migration.platform-guides',
+        'migration.support-section',
+        'migration.comparison-table',
+        'common.faq',
+        'migration.footer-cta',
+      ]
+    >;
+    createdAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    locale: Schema.Attribute.String & Schema.Attribute.Private;
+    localizations: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::migration-detail.migration-detail'
+    > &
+      Schema.Attribute.Private;
+    name: Schema.Attribute.String;
+    publishedAt: Schema.Attribute.DateTime;
+    slug: Schema.Attribute.UID<'name'>;
+    updatedAt: Schema.Attribute.DateTime;
+    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+  };
+}
+
+export interface ApiMigrationMigration extends Struct.SingleTypeSchema {
+  collectionName: 'migrations';
+  info: {
+    displayName: 'Migration';
+    pluralName: 'migrations';
+    singularName: 'migration';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    content: Schema.Attribute.DynamicZone<
+      [
+        'migration.hero',
+        'migration.card-grid',
+        'migration.platform-guides',
+        'migration.support-section',
+        'migration.comparison-table',
+        'common.faq',
+        'migration.footer-cta',
+      ]
+    >;
+    createdAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    locale: Schema.Attribute.String & Schema.Attribute.Private;
+    localizations: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::migration.migration'
+    > &
+      Schema.Attribute.Private;
     publishedAt: Schema.Attribute.DateTime;
     updatedAt: Schema.Attribute.DateTime;
     updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
@@ -659,8 +829,8 @@ export interface ApiTeamDetailTeamDetail extends Struct.CollectionTypeSchema {
   attributes: {
     content: Schema.Attribute.DynamicZone<
       [
-        'team-detail.hero',
-        'team-detail.awards-scroller',
+        'shared.awards-scroller',
+        'shared.customer-logos-section',
         'team-detail.image-text-section',
         'teams.testimonial-slider',
         'team-detail.icon-grid',
@@ -669,6 +839,7 @@ export interface ApiTeamDetailTeamDetail extends Struct.CollectionTypeSchema {
         'team-detail.tech-stack-grid',
         'team-detail.faq',
         'team-detail.footer-cta',
+        'hero.hero-2',
       ]
     >;
     createdAt: Schema.Attribute.DateTime;
@@ -701,7 +872,8 @@ export interface ApiTeamTeam extends Struct.SingleTypeSchema {
     content: Schema.Attribute.DynamicZone<
       [
         'teams.hero',
-        'teams.awards-scroller',
+        'shared.awards-scroller',
+        'shared.customer-logos-section',
         'teams.solution-grid',
         'teams.testimonial-slider',
         'pricing.cta-banner',
@@ -1263,7 +1435,11 @@ declare module '@strapi/strapi' {
       'api::certification.certification': ApiCertificationCertification;
       'api::footer.footer': ApiFooterFooter;
       'api::home.home': ApiHomeHome;
+      'api::industry-home.industry-home': ApiIndustryHomeIndustryHome;
+      'api::industry.industry': ApiIndustryIndustry;
       'api::logo.logo': ApiLogoLogo;
+      'api::migration-detail.migration-detail': ApiMigrationDetailMigrationDetail;
+      'api::migration.migration': ApiMigrationMigration;
       'api::pricing.pricing': ApiPricingPricing;
       'api::product.product': ApiProductProduct;
       'api::team-detail.team-detail': ApiTeamDetailTeamDetail;

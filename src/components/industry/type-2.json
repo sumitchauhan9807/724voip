@@ -1,0 +1,37 @@
+{
+  "collectionName": "components_industry_type_2s",
+  "info": {
+    "displayName": "Type 2",
+    "icon": "bulletList"
+  },
+  "options": {},
+  "attributes": {
+    "imagePosition": {
+      "type": "enumeration",
+      "enum": [
+        "left",
+        "right"
+      ],
+      "default": "right"
+    },
+    "image": {
+      "type": "media",
+      "multiple": false,
+      "allowedTypes": [
+        "images"
+      ]
+    },
+    "title": {
+      "type": "string"
+    },
+    "description": {
+      "type": "blocks"
+    },
+    "checklistItems": {
+      "type": "component",
+      "component": "basic.lists",
+      "repeatable": true
+    }
+  },
+  "config": {}
+}

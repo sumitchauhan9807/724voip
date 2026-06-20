@@ -1,0 +1,20 @@
+{
+  "collectionName": "components_industry_single_testimonial_slider_items",
+  "info": {
+    "displayName": "Single Testimonial Slider Item",
+    "icon": "quote"
+  },
+  "options": {},
+  "attributes": {
+    "quote": {
+      "type": "blocks"
+    },
+    "name": {
+      "type": "string"
+    },
+    "title": {
+      "type": "string"
+    }
+  },
+  "config": {}
+}

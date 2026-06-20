@@ -1,10 +1,10 @@
 {
   "kind": "singleType",
-  "collectionName": "teams",
+  "collectionName": "industry_homes",
   "info": {
-    "singularName": "team",
-    "pluralName": "teams",
-    "displayName": "Teams"
+    "singularName": "industry-home",
+    "pluralName": "industry-homes",
+    "displayName": "Industry Overview"
   },
   "options": {
     "draftAndPublish": true

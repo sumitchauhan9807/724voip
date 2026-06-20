@@ -1,0 +1,34 @@
+{
+  "kind": "collectionType",
+  "collectionName": "migration_details",
+  "info": {
+    "singularName": "migration-detail",
+    "pluralName": "migration-details",
+    "displayName": "Migration Detail Pages"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "name": {
+      "type": "string"
+    },
+    "slug": {
+      "type": "uid",
+      "targetField": "name"
+    },
+    "content": {
+      "type": "dynamiczone",
+      "components": [
+        "migration.hero",
+        "migration.card-grid",
+        "migration.platform-guides",
+        "migration.support-section",
+        "migration.comparison-table",
+        "common.faq",
+        "migration.footer-cta"
+      ]
+    }
+  }
+}

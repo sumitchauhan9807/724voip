@@ -1,0 +1,24 @@
+{
+  "collectionName": "components_shared_customer_logos_sections",
+  "info": {
+    "displayName": "Customer Logos Section",
+    "icon": "apps"
+  },
+  "options": {},
+  "attributes": {
+    "heading": {
+      "type": "string"
+    },
+    "logos": {
+      "type": "component",
+      "component": "shared.logo-item",
+      "repeatable": true
+    },
+    "secondRowLogos": {
+      "type": "component",
+      "component": "shared.logo-item",
+      "repeatable": true
+    }
+  },
+  "config": {}
+}

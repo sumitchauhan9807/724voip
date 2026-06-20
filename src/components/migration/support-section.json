@@ -1,0 +1,56 @@
+{
+  "collectionName": "components_migration_support_sections",
+  "info": {
+    "displayName": "Migration Support Section"
+  },
+  "options": {},
+  "attributes": {
+    "title": {
+      "type": "component",
+      "component": "basic.title",
+      "repeatable": false
+    },
+    "kicker": {
+      "type": "string"
+    },
+    "lists": {
+      "type": "component",
+      "component": "basic.lists",
+      "repeatable": true
+    },
+    "note": {
+      "type": "string"
+    },
+    "buttons": {
+      "type": "component",
+      "component": "basic.button",
+      "repeatable": true
+    },
+    "image": {
+      "type": "media",
+      "multiple": false,
+      "allowedTypes": [
+        "images"
+      ]
+    },
+    "imageUrl": {
+      "type": "string"
+    },
+    "imageAlt": {
+      "type": "string"
+    },
+    "backgroundColor": {
+      "type": "customField",
+      "customField": "plugin::color-picker.color"
+    },
+    "imagePosition": {
+      "type": "enumeration",
+      "enum": [
+        "left",
+        "right"
+      ],
+      "default": "right"
+    }
+  },
+  "config": {}
+}

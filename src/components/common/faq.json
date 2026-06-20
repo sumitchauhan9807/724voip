@@ -17,8 +17,26 @@
       "type": "enumeration",
       "enum": [
         "design_type_1",
-        "design_type_2"
+        "design_type_2",
+        "design_type_3",
+        "design_type_4"
       ]
+    },
+    "image": {
+      "type": "media",
+      "multiple": false,
+      "allowedTypes": [
+        "images"
+      ]
+    },
+    "imageAlt": {
+      "type": "string"
+    },
+    "columnCount": {
+      "type": "integer",
+      "min": 1,
+      "max": 3,
+      "default": 2
     }
   },
   "config": {}

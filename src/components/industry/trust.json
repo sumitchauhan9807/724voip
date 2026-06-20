@@ -1,0 +1,19 @@
+{
+  "collectionName": "components_industry_trusts",
+  "info": {
+    "displayName": "Industry Trust",
+    "icon": "bulletList"
+  },
+  "options": {},
+  "attributes": {
+    "heading": {
+      "type": "string"
+    },
+    "cards": {
+      "type": "component",
+      "component": "industry.trust-card",
+      "repeatable": true
+    }
+  },
+  "config": {}
+}
