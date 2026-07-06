@@ -604,6 +604,7 @@ export interface ApiIndustryIndustry extends Struct.CollectionTypeSchema {
         'industry.more-industries',
         'industry.features',
         'industry.trust',
+        'industry.footer-cta',
         'team-detail.integration-logo-cloud',
         'team-detail.tech-stack-grid',
         'team-detail.image-text-section',
@@ -755,6 +756,7 @@ export interface ApiPricingPricing extends Struct.SingleTypeSchema {
         'pricing.comparison-table',
         'pricing.testimonial-stats',
         'pricing.cta-banner',
+        'shared.customer-logos-section',
         'relational.logo-grid',
         'common.faq',
       ]

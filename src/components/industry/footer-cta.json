@@ -1,0 +1,46 @@
+{
+  "collectionName": "components_industry_footer_ctas",
+  "info": {
+    "displayName": "Industry Footer CTA",
+    "icon": "rocket"
+  },
+  "options": {},
+  "attributes": {
+    "variant": {
+      "type": "enumeration",
+      "enum": [
+        "centered-description",
+        "checklist",
+        "large-heading"
+      ],
+      "default": "centered-description"
+    },
+    "title": {
+      "type": "component",
+      "component": "basic.title",
+      "repeatable": false
+    },
+    "checklistItems": {
+      "type": "component",
+      "component": "basic.lists",
+      "repeatable": true
+    },
+    "buttons": {
+      "type": "component",
+      "component": "basic.button",
+      "repeatable": true
+    },
+    "image": {
+      "type": "media",
+      "multiple": false,
+      "allowedTypes": [
+        "images"
+      ]
+    },
+    "backgroundColor": {
+      "type": "customField",
+      "customField": "plugin::color-picker.color"
+    }
+  },
+  "config": {}
+}
