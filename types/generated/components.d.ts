@@ -357,6 +357,26 @@ export interface IndustryFeaturesCard extends Struct.ComponentSchema {
   };
 }
 
+export interface IndustryFooterCta extends Struct.ComponentSchema {
+  collectionName: 'components_industry_footer_ctas';
+  info: {
+    displayName: 'Industry Footer CTA';
+    icon: 'rocket';
+  };
+  attributes: {
+    backgroundColor: Schema.Attribute.String &
+      Schema.Attribute.CustomField<'plugin::color-picker.color'>;
+    buttons: Schema.Attribute.Component<'basic.button', true>;
+    checklistItems: Schema.Attribute.Component<'basic.lists', true>;
+    image: Schema.Attribute.Media<'images'>;
+    title: Schema.Attribute.Component<'basic.title', false>;
+    variant: Schema.Attribute.Enumeration<
+      ['centered-description', 'checklist', 'large-heading']
+    > &
+      Schema.Attribute.DefaultTo<'centered-description'>;
+  };
+}
+
 export interface IndustryImageTextSection extends Struct.ComponentSchema {
   collectionName: 'components_industry_image_text_sections';
   info: {
@@ -1501,6 +1521,7 @@ declare module '@strapi/strapi' {
       'industry.card-grid': IndustryCardGrid;
       'industry.features': IndustryFeatures;
       'industry.features-card': IndustryFeaturesCard;
+      'industry.footer-cta': IndustryFooterCta;
       'industry.image-text-section': IndustryImageTextSection;
       'industry.logo-cloud': IndustryLogoCloud;
       'industry.logo-item': IndustryLogoItem;
