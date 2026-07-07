@@ -1,0 +1,18 @@
+{
+  "kind": "singleType",
+  "collectionName": "flirttools",
+  "info": {
+    "singularName": "flirttool",
+    "pluralName": "flirttools",
+    "displayName": "flirttool"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "content": {
+      "type": "blocks"
+    }
+  }
+}
