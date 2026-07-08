@@ -561,6 +561,41 @@ export interface ApiFooterFooter extends Struct.SingleTypeSchema {
   };
 }
 
+export interface ApiGlobalGlobal extends Struct.SingleTypeSchema {
+  collectionName: 'globals';
+  info: {
+    displayName: 'Global';
+    pluralName: 'globals';
+    singularName: 'global';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    address: Schema.Attribute.Blocks;
+    countries: Schema.Attribute.Component<'basic.lists', true>;
+    createdAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    domains: Schema.Attribute.Component<'basic.lists', true>;
+    emails: Schema.Attribute.Component<'basic.lists', true>;
+    locale: Schema.Attribute.String & Schema.Attribute.Private;
+    localizations: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::global.global'
+    > &
+      Schema.Attribute.Private;
+    logoDark: Schema.Attribute.Media<'images' | 'files' | 'videos' | 'audios'>;
+    logoLight: Schema.Attribute.Media<'images' | 'files' | 'videos' | 'audios'>;
+    office: Schema.Attribute.Component<'basic.lists', true>;
+    phones: Schema.Attribute.Component<'basic.lists', true>;
+    publishedAt: Schema.Attribute.DateTime;
+    updatedAt: Schema.Attribute.DateTime;
+    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+  };
+}
+
 export interface ApiHomeHome extends Struct.SingleTypeSchema {
   collectionName: 'homes';
   info: {
@@ -1497,6 +1532,7 @@ declare module '@strapi/strapi' {
       'api::country.country': ApiCountryCountry;
       'api::flirttool.flirttool': ApiFlirttoolFlirttool;
       'api::footer.footer': ApiFooterFooter;
+      'api::global.global': ApiGlobalGlobal;
       'api::home.home': ApiHomeHome;
       'api::industry-home.industry-home': ApiIndustryHomeIndustryHome;
       'api::industry.industry': ApiIndustryIndustry;
