@@ -636,6 +636,7 @@ export interface ApiIndustryIndustry extends Struct.CollectionTypeSchema {
         'industry.features',
         'industry.trust',
         'industry.footer-cta',
+        'industry.sticky-scroll-section',
         'team-detail.integration-logo-cloud',
         'team-detail.tech-stack-grid',
         'team-detail.image-text-section',

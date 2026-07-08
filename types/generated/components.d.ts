@@ -529,6 +529,33 @@ export interface IndustrySingleTestimonialSliderItem
   };
 }
 
+export interface IndustryStickyScrollItem extends Struct.ComponentSchema {
+  collectionName: 'components_industry_sticky_scroll_items';
+  info: {
+    displayName: 'Sticky Scroll Item';
+    icon: 'bulletList';
+  };
+  attributes: {
+    buttons: Schema.Attribute.Component<'basic.button', true>;
+    description: Schema.Attribute.Blocks;
+    image: Schema.Attribute.Media<'images'>;
+    imageAlt: Schema.Attribute.String;
+    title: Schema.Attribute.String;
+  };
+}
+
+export interface IndustryStickyScrollSection extends Struct.ComponentSchema {
+  collectionName: 'components_industry_sticky_scroll_sections';
+  info: {
+    displayName: 'Industry Sticky Scroll Section';
+    icon: 'bulletList';
+  };
+  attributes: {
+    items: Schema.Attribute.Component<'industry.sticky-scroll-item', true>;
+    title: Schema.Attribute.Component<'basic.title', false>;
+  };
+}
+
 export interface IndustryTab extends Struct.ComponentSchema {
   collectionName: 'components_industry_tabs_items';
   info: {
@@ -1531,6 +1558,8 @@ declare module '@strapi/strapi' {
       'industry.single-testimonial': IndustrySingleTestimonial;
       'industry.single-testimonial-slider': IndustrySingleTestimonialSlider;
       'industry.single-testimonial-slider-item': IndustrySingleTestimonialSliderItem;
+      'industry.sticky-scroll-item': IndustryStickyScrollItem;
+      'industry.sticky-scroll-section': IndustryStickyScrollSection;
       'industry.tab': IndustryTab;
       'industry.tabs': IndustryTabs;
       'industry.testimonial-card': IndustryTestimonialCard;

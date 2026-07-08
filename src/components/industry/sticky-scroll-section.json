@@ -1,0 +1,21 @@
+{
+  "collectionName": "components_industry_sticky_scroll_sections",
+  "info": {
+    "displayName": "Industry Sticky Scroll Section",
+    "icon": "bulletList"
+  },
+  "options": {},
+  "attributes": {
+    "title": {
+      "type": "component",
+      "component": "basic.title",
+      "repeatable": false
+    },
+    "items": {
+      "type": "component",
+      "component": "industry.sticky-scroll-item",
+      "repeatable": true
+    }
+  },
+  "config": {}
+}
