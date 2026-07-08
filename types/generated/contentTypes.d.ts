@@ -490,6 +490,34 @@ export interface ApiCountryCountry extends Struct.CollectionTypeSchema {
   };
 }
 
+export interface ApiFlirttoolFlirttool extends Struct.SingleTypeSchema {
+  collectionName: 'flirttools';
+  info: {
+    displayName: 'flirttool';
+    pluralName: 'flirttools';
+    singularName: 'flirttool';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    content: Schema.Attribute.Blocks;
+    createdAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    locale: Schema.Attribute.String & Schema.Attribute.Private;
+    localizations: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::flirttool.flirttool'
+    > &
+      Schema.Attribute.Private;
+    publishedAt: Schema.Attribute.DateTime;
+    updatedAt: Schema.Attribute.DateTime;
+    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+  };
+}
+
 export interface ApiFooterFooter extends Struct.SingleTypeSchema {
   collectionName: 'footers';
   info: {
@@ -527,6 +555,41 @@ export interface ApiFooterFooter extends Struct.SingleTypeSchema {
       Schema.Attribute.DefaultTo<'Reviews'>;
     reviewsStarsImageUrl: Schema.Attribute.String;
     socialLinks: Schema.Attribute.Component<'footer.image-link', true>;
+    updatedAt: Schema.Attribute.DateTime;
+    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+  };
+}
+
+export interface ApiGlobalGlobal extends Struct.SingleTypeSchema {
+  collectionName: 'globals';
+  info: {
+    displayName: 'Global';
+    pluralName: 'globals';
+    singularName: 'global';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    address: Schema.Attribute.Blocks;
+    countries: Schema.Attribute.Component<'basic.lists', true>;
+    createdAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    domains: Schema.Attribute.Component<'basic.lists', true>;
+    emails: Schema.Attribute.Component<'basic.lists', true>;
+    locale: Schema.Attribute.String & Schema.Attribute.Private;
+    localizations: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::global.global'
+    > &
+      Schema.Attribute.Private;
+    logoDark: Schema.Attribute.Media<'images' | 'files' | 'videos' | 'audios'>;
+    logoLight: Schema.Attribute.Media<'images' | 'files' | 'videos' | 'audios'>;
+    office: Schema.Attribute.Component<'basic.lists', true>;
+    phones: Schema.Attribute.Component<'basic.lists', true>;
+    publishedAt: Schema.Attribute.DateTime;
     updatedAt: Schema.Attribute.DateTime;
     updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
@@ -1468,7 +1531,9 @@ declare module '@strapi/strapi' {
       'admin::user': AdminUser;
       'api::certification.certification': ApiCertificationCertification;
       'api::country.country': ApiCountryCountry;
+      'api::flirttool.flirttool': ApiFlirttoolFlirttool;
       'api::footer.footer': ApiFooterFooter;
+      'api::global.global': ApiGlobalGlobal;
       'api::home.home': ApiHomeHome;
       'api::industry-home.industry-home': ApiIndustryHomeIndustryHome;
       'api::industry.industry': ApiIndustryIndustry;
