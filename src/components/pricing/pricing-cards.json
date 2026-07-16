@@ -15,11 +15,6 @@
       "component": "pricing.plan",
       "repeatable": true
     },
-    "aiVoiceAgent": {
-      "type": "component",
-      "component": "pricing.ai-voice-agent",
-      "repeatable": false
-    },
     "fairUsageNotes": {
       "type": "blocks"
     }

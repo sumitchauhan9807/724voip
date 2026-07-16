@@ -5,6 +5,18 @@
   },
   "options": {},
   "attributes": {
+    "layout": {
+      "type": "enumeration",
+      "enum": [
+        "standard",
+        "sales_suite",
+        "ai_voice_agent"
+      ],
+      "default": "standard"
+    },
+    "suiteHeading": {
+      "type": "string"
+    },
     "identifier": {
       "type": "string"
     },

@@ -887,23 +887,6 @@ export interface PreFooterPreFooter extends Struct.ComponentSchema {
   };
 }
 
-export interface PricingAiVoiceAgent extends Struct.ComponentSchema {
-  collectionName: 'components_pricing_ai_voice_agents';
-  info: {
-    displayName: 'Pricing AI Voice Agent';
-  };
-  attributes: {
-    ctas: Schema.Attribute.Component<'basic.button', true>;
-    description: Schema.Attribute.Text;
-    features: Schema.Attribute.Component<'pricing.feature', true>;
-    heading: Schema.Attribute.String;
-    payAsYouGoLabel: Schema.Attribute.String;
-    priceLabel: Schema.Attribute.String;
-    suiteIdentifier: Schema.Attribute.String;
-    usageSteps: Schema.Attribute.Component<'pricing.usage-step', true>;
-  };
-}
-
 export interface PricingBillingOption extends Struct.ComponentSchema {
   collectionName: 'components_pricing_billing_options';
   info: {
@@ -995,10 +978,15 @@ export interface PricingPlan extends Struct.ComponentSchema {
     featureGroups: Schema.Attribute.Component<'pricing.feature-group', true>;
     highlighted: Schema.Attribute.Boolean & Schema.Attribute.DefaultTo<false>;
     identifier: Schema.Attribute.String;
+    layout: Schema.Attribute.Enumeration<
+      ['standard', 'sales_suite', 'ai_voice_agent']
+    > &
+      Schema.Attribute.DefaultTo<'standard'>;
     name: Schema.Attribute.String;
     pricePrefix: Schema.Attribute.String;
     prices: Schema.Attribute.Component<'pricing.plan-price', true>;
     priceSuffix: Schema.Attribute.String;
+    suiteHeading: Schema.Attribute.String;
     suiteIdentifier: Schema.Attribute.String;
   };
 }
@@ -1038,7 +1026,6 @@ export interface PricingPricingCards extends Struct.ComponentSchema {
     displayName: 'Pricing Cards';
   };
   attributes: {
-    aiVoiceAgent: Schema.Attribute.Component<'pricing.ai-voice-agent', false>;
     fairUsageNotes: Schema.Attribute.Blocks;
     plans: Schema.Attribute.Component<'pricing.plan', true>;
     title: Schema.Attribute.Component<'basic.title', false>;
@@ -1096,8 +1083,10 @@ export interface PricingTestimonial extends Struct.ComponentSchema {
     displayName: 'Pricing Testimonial';
   };
   attributes: {
+    accentBackground: Schema.Attribute.String;
     caseStudyUrl: Schema.Attribute.String;
     company: Schema.Attribute.String;
+    headline: Schema.Attribute.String;
     identifier: Schema.Attribute.String;
     image: Schema.Attribute.Media<'images'>;
     logo: Schema.Attribute.Media<'images'>;
@@ -1116,37 +1105,13 @@ export interface PricingTestimonialStats extends Struct.ComponentSchema {
     displayName: 'Pricing Testimonial Stats';
   };
   attributes: {
+    excludedSuiteIdentifier: Schema.Attribute.String;
+    featuredIdentifier: Schema.Attribute.String;
     heading: Schema.Attribute.String;
+    layout: Schema.Attribute.Enumeration<['standard', 'switch_cards']> &
+      Schema.Attribute.DefaultTo<'standard'>;
     stats: Schema.Attribute.Component<'pricing.stat', true>;
     testimonials: Schema.Attribute.Component<'pricing.testimonial', true>;
-  };
-}
-
-export interface PricingUsageStep extends Struct.ComponentSchema {
-  collectionName: 'components_pricing_usage_steps';
-  info: {
-    displayName: 'Pricing Usage Step';
-  };
-  attributes: {
-    ctaLabel: Schema.Attribute.String;
-    ctaUrl: Schema.Attribute.String;
-    customQuote: Schema.Attribute.Boolean & Schema.Attribute.DefaultTo<false>;
-    identifier: Schema.Attribute.String;
-    label: Schema.Attribute.String;
-    minutes: Schema.Attribute.String;
-    prices: Schema.Attribute.Component<'pricing.usage-step-price', true>;
-  };
-}
-
-export interface PricingUsageStepPrice extends Struct.ComponentSchema {
-  collectionName: 'components_pricing_usage_step_prices';
-  info: {
-    displayName: 'Pricing Usage Step Price';
-  };
-  attributes: {
-    originalPrice: Schema.Attribute.String;
-    price: Schema.Attribute.String;
-    regionIdentifier: Schema.Attribute.String;
   };
 }
 
@@ -1583,7 +1548,6 @@ declare module '@strapi/strapi' {
       'migration.platform-guides': MigrationPlatformGuides;
       'migration.support-section': MigrationSupportSection;
       'pre-footer.pre-footer': PreFooterPreFooter;
-      'pricing.ai-voice-agent': PricingAiVoiceAgent;
       'pricing.billing-option': PricingBillingOption;
       'pricing.comparison-table': PricingComparisonTable;
       'pricing.cta-banner': PricingCtaBanner;
@@ -1599,8 +1563,6 @@ declare module '@strapi/strapi' {
       'pricing.suite': PricingSuite;
       'pricing.testimonial': PricingTestimonial;
       'pricing.testimonial-stats': PricingTestimonialStats;
-      'pricing.usage-step': PricingUsageStep;
-      'pricing.usage-step-price': PricingUsageStepPrice;
       'product.grid1': ProductGrid1;
       'relational.certifications': RelationalCertifications;
       'relational.logo-grid': RelationalLogoGrid;

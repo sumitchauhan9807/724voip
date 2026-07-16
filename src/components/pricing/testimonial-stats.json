@@ -5,6 +5,20 @@
   },
   "options": {},
   "attributes": {
+    "layout": {
+      "type": "enumeration",
+      "enum": [
+        "standard",
+        "switch_cards"
+      ],
+      "default": "standard"
+    },
+    "featuredIdentifier": {
+      "type": "string"
+    },
+    "excludedSuiteIdentifier": {
+      "type": "string"
+    },
     "heading": {
       "type": "string"
     },
