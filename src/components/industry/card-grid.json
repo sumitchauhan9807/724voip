@@ -6,6 +6,14 @@
   },
   "options": {},
   "attributes": {
+    "variant": {
+      "type": "enumeration",
+      "enum": [
+        "standard",
+        "compact_icon"
+      ],
+      "default": "standard"
+    },
     "title": {
       "type": "component",
       "component": "basic.title",

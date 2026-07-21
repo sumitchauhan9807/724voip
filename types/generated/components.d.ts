@@ -328,6 +328,8 @@ export interface IndustryCardGrid extends Struct.ComponentSchema {
   attributes: {
     cards: Schema.Attribute.Component<'industry.card', true>;
     title: Schema.Attribute.Component<'basic.title', false>;
+    variant: Schema.Attribute.Enumeration<['standard', 'compact_icon']> &
+      Schema.Attribute.DefaultTo<'standard'>;
   };
 }
 
@@ -374,6 +376,23 @@ export interface IndustryFooterCta extends Struct.ComponentSchema {
       ['centered-description', 'checklist', 'large-heading']
     > &
       Schema.Attribute.DefaultTo<'centered-description'>;
+  };
+}
+
+export interface IndustryHighlightPanel extends Struct.ComponentSchema {
+  collectionName: 'components_industry_highlight_panels';
+  info: {
+    displayName: 'Industry Highlight Panel';
+    icon: 'layout';
+  };
+  attributes: {
+    backgroundImage: Schema.Attribute.Media<'images'>;
+    content: Schema.Attribute.Blocks;
+    heading: Schema.Attribute.String;
+    image: Schema.Attribute.Media<'images'>;
+    imageAlt: Schema.Attribute.String;
+    imagePosition: Schema.Attribute.Enumeration<['left', 'right']> &
+      Schema.Attribute.DefaultTo<'left'>;
   };
 }
 
@@ -508,6 +527,8 @@ export interface IndustrySingleTestimonialSlider
     icon: 'quote';
   };
   attributes: {
+    leftDecoration: Schema.Attribute.Media<'images'>;
+    rightDecoration: Schema.Attribute.Media<'images'>;
     testimonials: Schema.Attribute.Component<
       'industry.single-testimonial-slider-item',
       true
@@ -523,6 +544,7 @@ export interface IndustrySingleTestimonialSliderItem
     icon: 'quote';
   };
   attributes: {
+    logo: Schema.Attribute.Media<'images'>;
     name: Schema.Attribute.String;
     quote: Schema.Attribute.Blocks;
     title: Schema.Attribute.String;
@@ -1514,6 +1536,7 @@ declare module '@strapi/strapi' {
       'industry.features': IndustryFeatures;
       'industry.features-card': IndustryFeaturesCard;
       'industry.footer-cta': IndustryFooterCta;
+      'industry.highlight-panel': IndustryHighlightPanel;
       'industry.image-text-section': IndustryImageTextSection;
       'industry.logo-cloud': IndustryLogoCloud;
       'industry.logo-item': IndustryLogoItem;

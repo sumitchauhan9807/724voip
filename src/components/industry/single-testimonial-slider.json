@@ -6,6 +6,20 @@
   },
   "options": {},
   "attributes": {
+    "leftDecoration": {
+      "type": "media",
+      "multiple": false,
+      "allowedTypes": [
+        "images"
+      ]
+    },
+    "rightDecoration": {
+      "type": "media",
+      "multiple": false,
+      "allowedTypes": [
+        "images"
+      ]
+    },
     "testimonials": {
       "type": "component",
       "component": "industry.single-testimonial-slider-item",
